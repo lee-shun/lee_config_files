@@ -23,6 +23,7 @@ fi
 #install lee's nvim or basic vim
 echo -e "Install lee's ulti or basic vim"
 cd ~/.config/&&git clone https://github.com/lee-shun/nvim.git
+cd ~
 sudo apt install xclip
 sudo apt install autoconf
 read InstallType
@@ -54,21 +55,26 @@ then
     ./configure
     make
     sudo make install
+    cd~
 
     #ranger
     wget https://github.com/ranger/ranger/archive/v1.9.3.zip
     unzip v1.9.3.zip
     cd ~/ranger-1.9.3/
     sudo python3 setup.py install --optimize=1 --record=install_log.txt
+    cd ~
     cd ~/.config/
     git clone https://github.com/lee-shun/ranger.git
+    cd ~
 
     #install Plugin
+    cd ~
     echo "Entry the nvim and :Pluginstall. Press anykey..."
     read time_flag
-
     nvim
+
 else
+    cd ~
     #basic.vim
     cp ~/.config/nvim/basic.vim ~/.vimrc
 fi
