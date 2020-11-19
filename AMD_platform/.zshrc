@@ -170,7 +170,7 @@ alias notes="vim ~/vimwiki"
 export EDITOR='nvim'
 
 #MATLAB2019
-#alias matlab="roscd fixed_wing_formation_control&&~/MATLAB/R2018b/bin/matlab"
+alias matlab="~/Polyspace/R2020a/bin/matlab"
 
 #福昕pdf阅读器
 #alias pdf="~/FOXITPDF/FoxitReader"
@@ -253,11 +253,13 @@ zle -N zle-keymap-select
 KEYTIMEOUT=1
 
 # 配置ros
-#source /opt/ros/kinetic/setup.zsh
+source /opt/ros/kinetic/setup.zsh
 #source /opt/ros/melodic/setup.zsh
-source /opt/ros/noetic/setup.zsh
+#source /opt/ros/noetic/setup.zsh
 # 配置catkin_ws
 source ~/catkin_ws/devel/setup.zsh
+export ROS_MASTER_URI=http://192.168.1.103:11311
+export ROS_IP=192.168.1.102
 #movit
 # source ~/ws_moveit/devel/setup.zsh
 
@@ -301,7 +303,7 @@ source ~/catkin_ws/devel/setup.zsh
 
 #fzf-settings
 export FZF_DEFAULT_OPTS='--bind ctrl-j:down,ctrl-k:up --preview "[[ $(file --mime {}) =~ binary ]] && echo {} is a binary file || (ccat --color=always {} || highlight -O ansi -l {} || cat {}) 2> /dev/null | head -500"'
-export FZF_DEFAULT_COMMAND='fdfind'
+export FZF_DEFAULT_COMMAND='fd'
 export FZF_COMPLETION_TRIGGER='\'
 export FZF_TMUX=1
 export FZF_TMUX_HEIGHT='80%'
@@ -312,12 +314,12 @@ export fzf_preview_cmd='[[ $(file --mime {}) =~ binary ]] && echo {} is a binary
 # - The first argument to the function ($1) is the base path to start traversal
 # - See the source code (completion.{bash,zsh}) for the details.
 _fzf_compgen_path() {
-  fdfind --hidden --follow --exclude ".git" . "$1"
+  fd --hidden --follow --exclude ".git" . "$1"
 }
 
 # Use fd to generate the list for directory completion
 _fzf_compgen_dir() {
-  fdfind --type d --hidden --follow --exclude ".git" . "$1"
+  fd --type d --hidden --follow --exclude ".git" . "$1"
 }
 
 # (EXPERIMENTAL) Advanced customization of fzf options via _fzf_comprun function
@@ -334,3 +336,4 @@ _fzf_comprun() {
     *)            fzf "$@" ;;
   esac
 }
+source ~/.additionalrc
