@@ -45,7 +45,7 @@ focus_follows_mouse yes
 force_focus_wrapping yes
 
 # start a terminal
-bindsym $mod+Return exec --no-startup-id i3-sensible-terminal
+bindsym $mod+Return exec --no-startup-id st
 
 # kill focused window
 bindsym $mod+Shift+c kill
@@ -316,7 +316,22 @@ bindsym $mod+m bar mode toggle
 #                urgent_workspace   #16a085 #FDF6E3 #E5201D
 #        }
 #}
-
+bar
+{
+    position top
+    status_command i3blocks
+    i3bar_command i3bar
+    font pango: SpaceMono Nerd Font Regular 11
+    colors
+    {
+#                   Border Background Text
+        focused_workspace   $fg    $fg        $bg
+        active_workspace    $bg    $bg        $purple
+        inactive_workspace  $bg    $bg        $cyan
+        urgent_workspace    $bg    $bg        $magenta
+        background          $bg
+    }
+}
 
 #############################
 ### settings for i3-gaps: ###
@@ -382,9 +397,10 @@ mode "$mode_gaps_outer" {
 exec --no-startup-id xrandr --output HDMI-A-0 --mode 1920x1080
 # exec --no-startup-id xrandr --output eDP --off
 exec --no-startup-id xfce4-power-manager
+exec --no-startup-id blueman-applet
 exec --no-startup-id xfce4-volumed
 exec --no-startup-id nm-applet
-exec --no-startup-id picom -o 0.95 -i 0.88 --detect-rounded-corners --vsync --blur-background-fixed -f -D 5 -c -b
-exec --no-startup-id feh --bg-fill ~/图片/1593173888_8140.jpg
+exec --no-startup-id compton -b
+exec --no-startup-id feh --bg-fill /home/lee/Pictures/卜吉力动画室/wallhaven-vg6dqp.jpg
 exec --no-startup-id bash ~/.config/useful_scripts/tap-to-click.sh
 # exec --no-startup-id bash ~/.config/useful_scripts/
