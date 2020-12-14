@@ -20,26 +20,22 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
-STEP_SIZE=${STEP_SIZE:-50}
+STEP_SIZE=${STEP_SIZE:-5}
 USE_SUDO=${USE_SUDO:-0}
-MAX_SIZE=$( xfpm-power-backlight-helper --get-max-brightness )
-CURRENT=$(xfpm-power-backlight-helper --get-brightness)
 
 # whether to use `sudo` for changing the brightness (requires a NOPASSWD rule)
 if [[ "$USE_SUDO" == "0" ]] ; then
-    # XBACKLIGHT_SET="xbacklight"
-    XBACKLIGHT_SET="pkexec xfpm-power-backlight-helper"
+    XBACKLIGHT_SET="xbacklight"
 else
-    # XBACKLIGHT_SET="sudo xbacklight"
-    XBACKLIGHT_SET="sudo pkexec xfpm-power-backlight-helper"
+    XBACKLIGHT_SET="sudo xbacklight"
 fi
 
 case $BLOCK_BUTTON in
-  # 3) xset dpms force off ;; # right click
-  4) $XBACKLIGHT_SET --set-brightness `expr $CURRENT + $STEP_SIZE` ;; # scroll up
-  5) $XBACKLIGHT_SET --set-brightness `expr $CURRENT - $STEP_SIZE` ;; # scroll down, decrease
+  3) xset dpms force off ;; # right click
+  4) $XBACKLIGHT_SET -inc "$STEP_SIZE" ;; # scroll up
+  5) $XBACKLIGHT_SET -dec "$STEP_SIZE" ;; # scroll down, decrease
 esac
 
 
-BRIGHTNESS=`expr ${CURRENT} \* 100 / ${MAX_SIZE}`
+BRIGHTNESS=$(xbacklight -get)
 echo "${BRIGHTNESS}%"
