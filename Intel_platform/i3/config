@@ -52,6 +52,7 @@ bindsym $mod+Shift+c kill
 
 # start dmenu (a program launcher)
 bindsym $mod+p exec --no-startup-id rofi -show run
+bindsym $mod+shift+p exec --no-startup-id rofi -show drun
 
 # start firefox (a program launcher)
 bindsym $mod+b exec --no-startup-id firefox
@@ -278,6 +279,61 @@ client.focused_inactive     $bg     $bg         $ac     $ncyan
 client.urgent               $yw     $nblack         $tx     $id
 
 
+##############################
+#### settings for i3-bar: ####
+##############################
+## hide/unhide i3status bar
+bindsym $mod+m bar mode toggle
+# Start i3bar to display a workspace bar (plus the system information i3status if available)
+#bar {
+#status_command ~/cmake-apps/bumblebee-status/bumblebee-status -m cpu memory battery time pasink pasource -p time.format="%H:%M" -t iceberg-powerline
+#}
+#bar {
+#    font SaurceCodePro Mono Nerd Font
+#        id bar-1
+#        i3bar_command i3bar
+#        status_command i3blocks
+#        position bottom
+
+### please set your primary output first. Example: 'xrandr --output eDP1 --primary'
+##	tray_output primary
+##	tray_output eDP1
+
+#        bindsym button4 nop
+#        bindsym button5 nop
+#        font xft:URWGothic-Book 9
+#        strip_workspace_numbers yes
+
+#        colors {
+#            background $bg
+#                statusline $tx
+#                separator $ncyan
+##                           border  backgr  text
+#                focused_workspace  #F9FAF9 #16a085 #292F34
+#                active_workspace   #595B5B #353836 #FDF6E3
+#                inactive_workspace #595B5B #222D31 #EEE8D5
+#                binding_mode       #16a085 #2C2C2C #F9FAF9
+#                urgent_workspace   #16a085 #FDF6E3 #E5201D
+#        }
+#}
+
+
+bar
+{
+    position top
+    status_command 2>/tmp/i3blocks.err /usr/bin/i3blocks -vvv -c ~/.config/i3blocks/config | tee /tmp/i3blocks.out
+    font pango: SpaceMono Nerd Font Regular 10.5
+    colors
+    {
+#                   Border Background Text
+        focused_workspace   $fg    $fg        $bg
+        active_workspace    $bg    $bg        $purple
+        inactive_workspace  $bg    $bg        $cyan
+        urgent_workspace    $bg    $bg        $magenta
+        background          $bg
+    }
+}
+
 #############################
 ### settings for i3-gaps: ###
 #############################
@@ -342,9 +398,11 @@ mode "$mode_gaps_outer" {
 exec --no-startup-id xrandr --output HDMI-A-0 --mode 1920x1080
 # exec --no-startup-id xrandr --output eDP --off
 exec --no-startup-id xfce4-power-manager
+# exec --no-startup-id ~/ssr.AppImage
 exec --no-startup-id xfce4-volumed
 exec --no-startup-id nm-applet
-exec --no-startup-id picom -o 0.95 -i 0.88 --detect-rounded-corners --vsync --blur-background-fixed -f -D 5 -c -b
+# exec --no-startup-id picom -o 0.95 -i 0.88 --detect-rounded-corners --vsync --blur-background-fixed -f -D 5 -c -b
+exec --no-startup-id picom -b
 exec --no-startup-id feh --bg-fill /home/ls/图片/卜吉力动画室/wallhaven-vg6dqp.jpg
 exec --no-startup-id bash ~/.config/useful_scripts/tap-to-click.sh
 # exec --no-startup-id bash ~/.config/useful_scripts/
