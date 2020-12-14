@@ -52,6 +52,7 @@ bindsym $mod+Shift+c kill
 
 # start dmenu (a program launcher)
 bindsym $mod+p exec --no-startup-id rofi -show run
+bindsym $mod+shift+p exec --no-startup-id rofi -show drun
 
 # start firefox (a program launcher)
 bindsym $mod+b exec --no-startup-id firefox
@@ -319,7 +320,7 @@ bindsym $mod+m bar mode toggle
 bar
 {
     position top
-    status_command i3blocks
+    status_command 2>/tmp/i3blocks.err /usr/bin/i3blocks -vvv -c ~/.config/i3blocks/config | tee /tmp/i3blocks.out
     i3bar_command i3bar
     font pango: SpaceMono Nerd Font Regular 11
     colors
