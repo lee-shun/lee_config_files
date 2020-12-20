@@ -74,6 +74,6 @@ interval=2
 signal=10
 
 [TIME_DATE]
-command=date +" %b%d - 周%a - %H:%M:%S"
+command=date +" %b%d日 - 周%a - %H:%M:%S"
 label=📅
 interval=1
