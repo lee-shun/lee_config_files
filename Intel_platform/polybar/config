@@ -37,7 +37,7 @@ margin-bottom = 0
 margin-top = 0
 
 [bar/top]
-;monitor = HDMI-A-0
+monitor = HDMI-1
 background = #DF343332
 foreground = #b6a49b
 width = 100%
@@ -113,32 +113,71 @@ modules-right = wlan  alsa xbacklight battery date
 
 
 
-[bar/external_bottom]
-; monitor = HDMI-2
-bottom = true
+[bar/external_top]
+monitor = eDP-1
+background = #DF343332
+foreground = #b6a49b
 width = 100%
-height = ${bar/top.height}
-offset-x = 0
-offset-y = 10
+height = 20
+#offset-x = 0
+#offset-y = 10
+fixed-centered = true
 
-background = ${bar/top.background}
-foreground = ${bar/top.foreground}
-linecolor = ${bar/top.linecolor}
+linecolor = #b0a090
 
-border-top-size = 2
-border-top-color = #ee2d2d2d
+separator = " | "
+separator-font = 10
 
-spacing = ${bar/top.spacing}
-lineheight = ${bar/top.lineheight}
-padding-right = ${bar/top.padding-right}
-module-margin-left = ${bar/top.module-margin-left}
-module-margin-right = ${bar/top.module-margin-right}
+# float bar
+#override-redirect = true
 
-font-0 = ${bar/top.font-0}
-font-1 = ${bar/top.font-1}
+# @change: use "border-top-size" instead of "border-top" since 3.3.1
+# 2019-07-14 23:18
 
-modules-left = i3
-modules-right = wlan memory cpu date
+radius = 0
+line-size = 3
+;border-color = #ee2d2d2d
+border-top-size = 0
+;border-top-color = #ccfafafa
+border-left-size = 0
+;border-left-color = #00ff00
+border-bottom-size = 0
+;border-bottom-color = #ccfafafa
+border-right-size = 0
+;border-right-color = #00f
+
+spacing = 1
+lineheight = 2
+padding-left = 0
+padding-right = 0
+module-margin-left = 0
+module-margin-right = 0
+
+; font-1 = FontAwesome:size=10;0
+; font-2 = CaskaydiaCove Nerd Font Mono:size=10;0
+; font-3 = CaskaydiaCove Nerd Font Mono:size=10;0
+; font-4 = CaskaydiaCove Nerd Font Mono:size=10;0
+; font-5 = CaskaydiaCove Nerd Font Mono:size=10;0
+; font-6 = FontAwesome:size=10;0
+; font-7 = CaskaydiaCove Nerd Font Mono:size=10;0
+; font-8 = CaskaydiaCove Nerd Font Mono:size=10;0
+; font-9 = Source Code Pro:size=10;0
+; font-0 = Source Code Pro:size=10;0
+
+font-1 = SauceCodePro Nerd Font :size=10;0
+font-2 = SauceCodePro Nerd Font :size=10;0
+font-3 = SauceCodePro Nerd Font :size=10;0
+font-4 = SauceCodePro Nerd Font :size=10;0
+font-5 = SauceCodePro Nerd Font :size=10;0
+font-6 = SauceCodePro Nerd Font :size=10;0
+font-7 = SauceCodePro Nerd Font :size=10;0
+font-8 = SauceCodePro Nerd Font :size=10;0
+font-9 = SauceCodePro Nerd Font :size=10;0
+font-0 = SauceCodePro Nerd Font :size=10;0
+
+modules-right= i3
+modules-center = memory cpu
+modules-left = wlan  alsa xbacklight battery date
 
 
 [module/date]
