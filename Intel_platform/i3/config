@@ -188,6 +188,20 @@ bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9; workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws0; workspace $ws0
 
+set $monitor1 eDP-1
+set $monitor2 HDMI-1
+workspace 1 output $monitor1
+workspace 2 output $monitor1
+workspace 3 output $monitor2
+workspace 4 output $monitor2
+workspace 5 output $monitor2
+workspace 6 output $monitor2
+workspace 7 output $monitor2
+workspace 8 output $monitor2
+workspace 9 output $monitor2
+workspace 0 output $monitor2
+
+
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
 
