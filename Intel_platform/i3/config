@@ -29,7 +29,8 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:monospace 8
+# font pango:monospace 8
+font pango:Microsoft YaHei UI Regular 12
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -55,7 +56,7 @@ bindsym $mod+shift+p exec --no-startup-id rofi -show run
 bindsym $mod+p exec --no-startup-id rofi -show drun
 
 # start firefox (a program launcher)
-bindsym $mod+b exec --no-startup-id firefox
+bindsym $mod+b exec --no-startup-id chromium-browser
 
 bindsym $mod+o exec --no-startup-id ~/splatmoji/splatmoji type
 
@@ -104,10 +105,10 @@ bindsym $mod+Shift+Tab move container to workspace back_and_forth; workspace bac
 bindsym $mod+f fullscreen toggle
 
 # split in horizontal orientation
-bindsym $mod+v split h;exec notify-send 'tile horizontally'
+bindsym $mod+v split h;exec --no-startup-id notify-send 'tile horizontally'
 
 # split in vertical orientation
-bindsym $mod+shift+v split v;exec notify-send 'tile vertically'
+bindsym $mod+shift+v split v;exec --no-startup-id notify-send 'tile vertically'
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
@@ -287,7 +288,7 @@ set  $bcyan     #0bbdb6
 set  $bwhite    #feffff
 
 # set some nice colors      border  background  text    indicator
-client.focused              $id     $nblue         $tx     $nred
+client.focused              $id     $nmagenta         $tx     $nyellow
 client.unfocused            $bg     $bg         $ia     $id
 client.focused_inactive     $bg     $bg         $ac     $ncyan
 client.urgent               $yw     $nblack         $tx     $id
@@ -353,8 +354,8 @@ bindsym $mod+m bar mode toggle
 #############################
 
 # Set inner/outer gaps
-gaps inner 5
-gaps outer 3
+gaps inner 8
+gaps outer 5
 
 # Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
 # gaps inner|outer current|all set|plus|minus <px>
@@ -362,7 +363,7 @@ gaps outer 3
 # gaps outer all plus 5
 
 # Smart gaps (gaps used if only more than one container on the workspace)
-smart_gaps on
+# smart_gaps on
 
 # Smart borders (draw borders around container only if it is not the only container on this workspace)
 # on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
@@ -414,10 +415,10 @@ exec --no-startup-id bash ~/.config/useful_scripts/arandr.sh
 exec --no-startup-id feh --bg-fill ~/图片/wallhaven-73kvwe.jpg
 
 exec --no-startup-id xfce4-power-manager
-# exec --no-startup-id ~/ssr.AppImage
 exec --no-startup-id xfce4-volumed
 exec --no-startup-id nm-applet
 # exec --no-startup-id picom -o 0.95 -i 0.88 --detect-rounded-corners --vsync --blur-background-fixed -f -D 5 -c -b
 exec --no-startup-id picom -b
 exec --no-startup-id bash ~/.config/useful_scripts/tap-to-click.sh
+exec --no-startup-id electron-ssr
 # exec --no-startup-id bash ~/.config/useful_scripts/
