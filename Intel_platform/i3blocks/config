@@ -1,5 +1,5 @@
-align=center
-separator=false
+align=left
+separator=true
 color=#ffffff
 separator_block_width=20
 
@@ -73,7 +73,10 @@ label=🎵
 interval=2
 signal=10
 
-[TIME_DATE]
-command=date +" %b%d日 - 周%a - %H:%M:%S"
-label=📅
+[time]
+command= ~/.config/i3blocks/blocks/time/time
+label=🕰️
 interval=1
+STRFTIME_FORMAT=%Y年%m月%d日-周%w-%H:%M
+TZONES=$DEFAULT_TZ,EST
+TZ_LABELS=Beijing,Montreal

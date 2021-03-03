@@ -333,21 +333,22 @@ bindsym $mod+m bar mode toggle
 #}
 
 
-# bar
-# {
-#     position top
-#     status_command 2>/tmp/i3blocks.err /usr/bin/i3blocks -vvv -c ~/.config/i3blocks/config | tee /tmp/i3blocks.out
-#     font pango: SpaceMono Nerd Font Regular 10.5
-#     colors
-#     {
-# #                   Border Background Text
-#         focused_workspace   $fg    $fg        $bg
-#         active_workspace    $bg    $bg        $purple
-#         inactive_workspace  $bg    $bg        $cyan
-#         urgent_workspace    $bg    $bg        $magenta
-#         background          $bg
-#     }
-# }
+bar
+{
+    position top
+    i3bar_command i3bar
+    status_command i3blocks
+    font pango: SpaceMono Nerd Font Regular 9
+    colors
+    {
+#                   Border Background Text
+        focused_workspace   $fg    $fg        $bg
+        active_workspace    $bg    $bg        $purple
+        inactive_workspace  $bg    $bg        $cyan
+        urgent_workspace    $bg    $bg        $magenta
+        background          $bg
+    }
+}
 
 #############################
 ### settings for i3-gaps: ###
