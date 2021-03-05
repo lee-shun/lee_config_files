@@ -1,9 +1,3 @@
-align=left
-separator=true
-color=#ffffff
-separator_block_width=20
-
-
 [CPU]
 full_text= 0.00%  +00.0°C
 command= ~/.config/i3blocks/cpu/cpu.sh

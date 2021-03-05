@@ -46,7 +46,7 @@ focus_follows_mouse yes
 force_focus_wrapping yes
 
 # start a terminal
-bindsym $mod+Return exec --no-startup-id alacritty
+bindsym $mod+Return exec --no-startup-id st
 
 # kill focused window
 bindsym $mod+Shift+c kill
@@ -288,10 +288,10 @@ set  $bcyan     #0bbdb6
 set  $bwhite    #feffff
 
 # set some nice colors      border  background  text    indicator
-client.focused              $id     $nmagenta         $tx     $nyellow
+client.focused              $id     $nmagenta   $tx     $nyellow
 client.unfocused            $bg     $bg         $ia     $id
 client.focused_inactive     $bg     $bg         $ac     $ncyan
-client.urgent               $yw     $nblack         $tx     $id
+client.urgent               $yw     $nblack     $tx     $id
 
 
 ##############################
@@ -299,48 +299,21 @@ client.urgent               $yw     $nblack         $tx     $id
 ##############################
 ## hide/unhide i3status bar
 bindsym $mod+m bar mode toggle
-# Start i3bar to display a workspace bar (plus the system information i3status if available)
-#bar {
-#status_command ~/cmake-apps/bumblebee-status/bumblebee-status -m cpu memory battery time pasink pasource -p time.format="%H:%M" -t iceberg-powerline
-#}
-#bar {
-#    font SaurceCodePro Mono Nerd Font
-#        id bar-1
-#        i3bar_command i3bar
-#        status_command i3blocks
-#        position bottom
-
-### please set your primary output first. Example: 'xrandr --output eDP1 --primary'
-##	tray_output primary
-##	tray_output eDP1
-
-#        bindsym button4 nop
-#        bindsym button5 nop
-#        font xft:URWGothic-Book 9
-#        strip_workspace_numbers yes
-
-#        colors {
-#            background $bg
-#                statusline $tx
-#                separator $ncyan
-##                           border  backgr  text
-#                focused_workspace  #F9FAF9 #16a085 #292F34
-#                active_workspace   #595B5B #353836 #FDF6E3
-#                inactive_workspace #595B5B #222D31 #EEE8D5
-#                binding_mode       #16a085 #2C2C2C #F9FAF9
-#                urgent_workspace   #16a085 #FDF6E3 #E5201D
-#        }
-#}
-
 
 bar
 {
     position top
-    i3bar_command i3bar
+    i3bar_command i3bar --transparency
     status_command i3blocks
     font pango: SpaceMono Nerd Font Regular 9
-    colors
-    {
+
+    colors {
+        background #595B5B
+        # background $term_background
+        statusline #F9FAF9
+        # statusline #aacc60
+        separator  #629692
+
 #                   Border Background Text
         focused_workspace   $fg    $fg        $bg
         active_workspace    $bg    $bg        $purple
@@ -418,8 +391,10 @@ exec --no-startup-id feh --bg-fill ~/图片/wallhaven-73kvwe.jpg
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id xfce4-volumed
 exec --no-startup-id nm-applet
-# exec --no-startup-id picom -o 0.95 -i 0.88 --detect-rounded-corners --vsync --blur-background-fixed -f -D 5 -c -b
-exec --no-startup-id picom -b
+exec --no-startup-id picom -o 0.95 -i 0.88 --detect-rounded-corners --vsync --blur-background-fixed -f -D 5 -c -b
+# exec --no-startup-id picom -b
 exec --no-startup-id bash ~/.config/useful_scripts/tap-to-click.sh
 exec --no-startup-id electron-ssr
 # exec --no-startup-id bash ~/.config/useful_scripts/
+
+# vim:filetype=i3config
