@@ -1,8 +1,8 @@
 ################################################################
-# _                           _              
-#| |    ___  ___      _______| |__  _ __ ___ 
+# _                           _
+#| |    ___  ___      _______| |__  _ __ ___
 #| |   / _ \/ _ \____|_  / __| '_ \| '__/ __|
-#| |__|  __/  __/_____/ /\__ \ | | | | | (__ 
+#| |__|  __/  __/_____/ /\__ \ | | | | | (__
 #|_____\___|\___|    /___|___/_| |_|_|  \___|
 #
 #
@@ -191,6 +191,7 @@ alias getremove="sudo apt-get remove"
 #编辑文件
 alias zshrc="vim ~/.zshrc"
 alias vimrc="cd ~/.config/nvim/&& vim init.vim"
+alias vlua="cd ~/.config/nvim/&& vim init.lua"
 alias virc="cd ~/.vim/&& vi vimrc"
 alias i3conf="cd ~/.config/i3/&& vim config"
 
@@ -209,8 +210,10 @@ alias i3conf="cd ~/.config/i3/&& vim config"
 
 #alias scoks2https=" export https_proxy='http://localhost:8118'"
 #alias scoks2http=" export http_proxy='http://localhost:8118'"
+# export https_proxy=http://127.0.0.1:12333
+# export http_proxy=http://127.0.0.1:12333
 
-#MATLAB2019
+#MATLAB
 #alias matlab="roscd fixed_wing_formation_control&&~/MATLAB/R2018b/bin/matlab"
 
 #福昕pdf阅读器
@@ -225,6 +228,11 @@ alias sys="neofetch"
 #添加ranger
 alias R="ranger"
 export RANGER_LOAD_DEFAULT_RC=FALSE
+
+# git
+alias P='git push'
+alias p='git pull'
+alias c='git commit -m'
 
 #添加tmux
 alias tsnew="tmux new -s "
@@ -246,6 +254,9 @@ alias tkp="tmux kill-pane -t"
 export MANPATH=${MANPATH}:/usr/local/texlive/2020/texmf-dist/doc/man
 export INFOPATH=${INFOPATH}:/usr/local/texlive/2020/texmf-dist/doc/info
 export PATH=${PATH}:/usr/local/texlive/2020/bin/x86_64-linux
+
+#npm
+export PATH=~/.npm-global/bin:$PATH
 
 
 
@@ -293,6 +304,8 @@ unset __conda_setup
 alias mlcv='conda activate mlcv'
 conda activate mlcv
 
+export PATH="/usr/local/cuda/bin:$PATH"
+export LD_LIBRARY_PATH="/usr/local/cuda/lib64:$LD_LIBRARY_PATH"
 
 #fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
