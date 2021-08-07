@@ -1,0 +1,127 @@
+﻿# For documentation, see https://www.sumatrapdfreader.org/settings/settings3-3-1.html
+
+MainWindowBackground = #fff200
+EscToExit = false
+ReuseInstance = true
+UseSysColors = false
+RestoreSession = true
+TabWidth = 300
+
+FixedPageUI [
+	TextColor = #d5dbdb
+	BackgroundColor = #424949
+	SelectionColor = #f1948a
+	WindowMargin = 2 4 2 4
+	PageSpacing = 4 4
+	GradientColors = #000000
+	HideScrollbars = true
+]
+EbookUI [
+	FontName = Georgia
+	FontSize = 12.5
+	TextColor = #fdfefe
+	BackgroundColor = #1c2833
+	UseFixedPageUI = false
+]
+ComicBookUI [
+	WindowMargin = 0 0 0 0
+	PageSpacing = 4 4
+	CbxMangaMode = false
+]
+ChmUI [
+	UseFixedPageUI = false
+]
+ExternalViewers [
+]
+ShowMenubar = false
+ReloadModifiedDocuments = true
+FullPathInTitle = true
+ZoomLevels = 8.33 12.5 18 25 33.33 50 66.67 75 100 125 150 200 300 400 600 800 1000 1200 1600 2000 2400 3200 4800 6400
+ZoomIncrement = 0
+
+PrinterDefaults [
+	PrintScale = shrink
+]
+ForwardSearch [
+	HighlightOffset = 0
+	HighlightWidth = 15
+	HighlightColor = #6581ff
+	HighlightPermanent = false
+]
+Annotations [
+	HighlightColor = #ffff00
+]
+CustomScreenDPI = 0
+
+RememberStatePerDocument = false
+UiLanguage = cn
+ShowToolbar = false
+ShowFavorites = false
+AssociateSilently = false
+CheckForUpdates = true
+RememberOpenedFiles = true
+InverseSearchCmdLine = notepad %f
+EnableTeXEnhancements = true
+DefaultDisplayMode = single page
+DefaultZoom = fit page
+WindowState = 1
+WindowPos = -4 0 1926 576
+ShowToc = true
+SidebarDx = 239
+TocDy = 0
+TreeFontSize = 0
+ShowStartPage = true
+UseTabs = true
+
+FileStates [
+	[
+		FilePath = C:\Users\LEE\Desktop\Paper_Notes\need_to_read\20210807\!!Proc of the IEEE_2012-100-1_Ensuring safety, security, and sustainability of mission-critical cyber-physical systems.pdf
+		Favorites [
+		]
+		IsPinned = false
+		IsMissing = false
+		OpenCount = 1
+		UseDefaultState = true
+	]
+	[
+		FilePath = C:\Users\LEE\Desktop\Paper_Notes\need_to_read\20210530\!!!A review of machine learning applications in wildfire science and (Aug. 2020).pdf
+		Favorites [
+		]
+		IsPinned = false
+		IsMissing = false
+		OpenCount = 4
+		UseDefaultState = true
+	]
+]
+SessionData [
+	[
+		TabStates [
+			[
+				FilePath = C:\Users\LEE\Desktop\Paper_Notes\need_to_read\20210530\!!!A review of machine learning applications in wildfire science and (Aug. 2020).pdf
+				DisplayMode = continuous
+				PageNo = 2
+				Zoom = fit width
+				Rotation = 0
+				ScrollPos = -1 50.0877
+				ShowToc = false
+			]
+			[
+				FilePath = C:\Users\LEE\Desktop\Paper_Notes\need_to_read\20210807\!!Proc of the IEEE_2012-100-1_Ensuring safety, security, and sustainability of mission-critical cyber-physical systems.pdf
+				DisplayMode = single page
+				PageNo = 1
+				Zoom = fit page
+				Rotation = 0
+				ScrollPos = -1 -1
+				ShowToc = false
+			]
+		]
+		TabIndex = 2
+		WindowState = 1
+		WindowPos = -4 0 1926 576
+		SidebarDx = 239
+	]
+]
+TimeOfLastUpdateCheck = 0 0
+OpenCountWeek = 553
+
+# Settings after this line have not been recognized by the current version
