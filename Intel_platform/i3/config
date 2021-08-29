@@ -46,7 +46,7 @@ focus_follows_mouse yes
 force_focus_wrapping yes
 
 # start a terminal
-bindsym $mod+Return exec --no-startup-id st
+bindsym $mod+Return exec --no-startup-id alacritty
 
 # kill focused window
 bindsym $mod+Shift+c kill
@@ -56,12 +56,12 @@ bindsym $mod+shift+p exec --no-startup-id rofi -show run
 bindsym $mod+p exec --no-startup-id rofi -show drun
 
 # start browser (a program launcher)
-bindsym $mod+b exec --no-startup-id chromium-browser
+bindsym $mod+b exec --no-startup-id vivaldi
 
 bindsym $mod+o exec --no-startup-id ~/splatmoji/splatmoji type
 
 # start polybar (a program launcher)
-bindsym $mod+e exec --no-startup-id polybar top & polybar external_top
+bindsym $mod+e exec --no-startup-id polybar top
 bindsym $mod+shift+e exec --no-startup-id killall polybar
 
 # start trayer (a program launcher)
@@ -109,15 +109,15 @@ bindsym $mod+Shift+Tab move container to workspace back_and_forth; workspace bac
 bindsym $mod+f fullscreen toggle
 
 # split in horizontal orientation
-bindsym $mod+v split h;exec --no-startup-id notify-send 'tile horizontally'
+bindsym $mod+v split h; exec --no-startup-id notify-send 'tile horizontally'
 
 # split in vertical orientation
-bindsym $mod+shift+v split v;exec --no-startup-id notify-send 'tile vertically'
+bindsym $mod+shift+v split v; exec --no-startup-id notify-send 'tile vertically'
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
-bindsym $mod+t layout tabbed
-bindsym $mod+w layout toggle split
+bindsym $mod+x layout tabbed
+bindsym $mod+w layout default
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -193,8 +193,8 @@ bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9; workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws0; workspace $ws0
 
-set $monitor1 eDP-1
-set $monitor2 HDMI-1
+set $monitor1 eDP-1-1
+set $monitor2 HDMI-1-1
 workspace 1 output $monitor1
 workspace 2 output $monitor1
 workspace 3 output $monitor2
@@ -302,31 +302,30 @@ client.urgent               $yw     $nblack     $tx     $id
 #### settings for i3-bar: ####
 ##############################
 ## hide/unhide i3status bar
-bindsym $mod+m bar mode toggle
+# bindsym $mod+m bar mode toggle
 
-bar
-{
-    i3bar_command i3bar --transparency
-    status_command i3blocks
-    position top
-    tray_output none
-    font pango: SpaceMono Nerd Font Regular 9
+# bar
+# {
+#     i3bar_command i3bar
+#     status_command i3blocks
+#     position top
+#     font pango: SpaceMono Nerd Font Regular 9
 
-    colors {
-        background #595B5B
-        # background $term_background
-        statusline #F9FAF9
-        # statusline #aacc60
-        separator  #629692
+#     colors {
+#         # background #595B5B
+#         background $term_background
+#         statusline #F9FAF9
+#         # statusline #aacc60
+#         separator  #629692
 
-#                   Border Background Text
-        focused_workspace   $fg    $fg        $bg
-        active_workspace    $bg    $bg        $purple
-        inactive_workspace  $bg    $bg        $cyan
-        urgent_workspace    $bg    $bg        $magenta
-        background          $bg
-    }
-}
+# #                   Border Background Text
+#         focused_workspace   $fg    $fg        $bg
+#         active_workspace    $bg    $bg        $purple
+#         inactive_workspace  $bg    $bg        $cyan
+#         urgent_workspace    $bg    $bg        $magenta
+#         background          $bg
+#     }
+# }
 
 #############################
 ### settings for i3-gaps: ###
@@ -390,6 +389,7 @@ mode "$mode_gaps_outer" {
 ##  Autostart applications ##
 #############################
 
+exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=ssh,secrets,pkcs11
 exec --no-startup-id bash ~/.config/useful_scripts/arandr.sh
 exec --no-startup-id feh --bg-fill ~/图片/wallhaven-73kvwe.jpg
 
@@ -399,7 +399,7 @@ exec --no-startup-id nm-applet
 exec --no-startup-id picom -o 0.95 -i 0.88 --detect-rounded-corners --vsync --blur-background-fixed -f -D 5 -c -b
 # exec --no-startup-id picom -b
 exec --no-startup-id bash ~/.config/useful_scripts/tap-to-click.sh
-exec --no-startup-id electron-ssr
+# exec --no-startup-id electron-ssr
 # exec --no-startup-id bash ~/.config/useful_scripts/
 
 # vim:filetype=i3config

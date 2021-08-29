@@ -105,6 +105,7 @@ font:
   normal:
     # family: CaskaydiaCove Nerd Font Mono
     family: SauceCodePro Nerd Font
+    # family: CodeNewRoman NF
     # Style can be specified to pick a specific face.
     # style: Regular
 
@@ -112,15 +113,20 @@ font:
   bold:
     # family: CaskaydiaCove Nerd Font Mono
     family: SauceCodePro Nerd Font
+    # family: JetBrainsMono NF
+    # family: CodeNewRoman NF
     # Style can be specified to pick a specific face.
     # style: Bold
 
   # The italic font face
   italic:
     family: SauceCodePro Nerd Font
+    # family: JetBrainsMono NF
+    # family: CodeNewRoman NF
     # Style can be specified to pick a specific face.
     # style: Italic
 
+  ligatures: true
 
   # Point size
   size: 13
@@ -157,44 +163,46 @@ font:
 # If `true`, bold text is drawn using the bright color variants.
 draw_bold_text_with_bright_colors: true
 
-# Colors (Jellybeans)
+  # From the famous Cobalt2 sublime theme
+# Source : https://github.com/wesbos/cobalt2/tree/master/Cobalt2
 colors:
   # Default colors
   primary:
-    background: '#161616'
-    foreground: '#e4e4e4'
+    background: '0x122637'
+    foreground: '0xffffff'
 
-  # Cursor volors
+  # Colors the cursor will use if `custom_cursor_colors` is true
   cursor:
-    text: '#feffff'
-    cursor: '#ffb472'
+    text: '0x122637'
+    cursor: '0xf0cb09'
 
   # Normal colors
   normal:
-    black:   '#a3a3a3'
-    red:     '#e98885'
-    green:   '#a3c38b'
-    yellow:  '#ffc68d'
-    blue:    '#a6cae2'
-    magenta: '#e7cdfb'
-    cyan:    '#00a69f'
-    white:   '#e4e4e4'
+    black:   '0x000000'
+    red:     '0xff0000'
+    green:   '0x37dd21'
+    yellow:  '0xfee409'
+    blue:    '0x1460d2'
+    magenta: '0xff005d'
+    cyan:    '0x00bbbb'
+    white:   '0xbbbbbb'
 
   # Bright colors
   bright:
-    black:   '#c8c8c8'
-    red:     '#ffb2b0'
-    green:   '#c8e2b9'
-    yellow:  '#ffe1af'
-    blue:    '#bddff7'
-    magenta: '#fce2ff'
-    cyan:    '#0bbdb6'
-    white:   '#feffff'
+    black:   '0x545454'
+    red:     '0xf40d17'
+    green:   '0x3bcf1d'
+    yellow:  '0xecc809'
+    blue:    '0x5555ff'
+    magenta: '0xff55ff'
+    cyan:    '0x6ae3f9'
+    white:   '0xffffff'
 
   # Selection colors
   selection:
     text: '#5963a2'
     background: '#f6f6f6'
+
   # Indexed Colors
   #
   # The indexed colors include all colors from 16 to 256.
@@ -236,7 +244,7 @@ bell:
 #
 # Window opacity as a floating point number from `0.0` to `1.0`.
 # The value `0.0` is completely transparent and `1.0` is opaque.
-background_opacity: 0.8
+background_opacity: 0.7
 
 # Mouse bindings
 #
@@ -472,8 +480,9 @@ key_bindings:
     - { key: Insert,   mods: Shift,             action: PasteSelection   }
     - { key: Key0,     mods: Control,           action: ResetFontSize    }
     - { key: Equals,   mods: Control,           action: IncreaseFontSize }
-    - { key: Add,      mods: Control,           action: IncreaseFontSize }
-    - { key: Subtract, mods: Control,           action: DecreaseFontSize }
+    - { key: Plus,     mods: Control,           action: IncreaseFontSize }
+    # - { key: Add,      mods: Control,           action: IncreaseFontSize }
+    # - { key: Subtract, mods: Control,           action: DecreaseFontSize }
     - { key: Minus,    mods: Control,           action: DecreaseFontSize }
     - { key: F11,                               action: ToggleFullscreen }
     - { key: J,        mods: Alt,               action: ScrollLineDown   }
