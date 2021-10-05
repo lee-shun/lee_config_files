@@ -56,7 +56,7 @@ bindsym $mod+shift+p exec --no-startup-id rofi -show run
 bindsym $mod+p exec --no-startup-id rofi -show drun
 
 # start browser (a program launcher)
-bindsym $mod+b exec --no-startup-id vivaldi
+bindsym $mod+b exec --no-startup-id vivaldi --password-store=gnome
 
 bindsym $mod+o exec --no-startup-id ~/splatmoji/splatmoji type
 
@@ -206,6 +206,11 @@ workspace 8 output $monitor2
 workspace 9 output $monitor2
 workspace 0 output $monitor2
 
+# Open applications on specific workspaces
+assign [class="Alacritty"] $ws1
+assign [class="Vivaldi"] $ws2
+assign [class="Foxit Reader"] $ws3
+assign [class="netease-cloud-music"] $ws5
 
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
@@ -397,9 +402,10 @@ exec --no-startup-id xfce4-power-manager
 exec --no-startup-id xfce4-volumed
 exec --no-startup-id nm-applet
 exec --no-startup-id picom -o 0.95 -i 0.88 --detect-rounded-corners --vsync --blur-background-fixed -f -D 5 -c -b
-# exec --no-startup-id picom -b
 exec --no-startup-id bash ~/.config/useful_scripts/tap-to-click.sh
+exec --no-startup-id redshift-gtk
 # exec --no-startup-id electron-ssr
 # exec --no-startup-id bash ~/.config/useful_scripts/
+# exec --no-startup-id picom -b
 
 # vim:filetype=i3config
