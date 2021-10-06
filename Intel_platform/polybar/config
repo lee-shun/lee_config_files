@@ -85,30 +85,19 @@ padding-right = 0
 module-margin-left = 0
 module-margin-right = 0
 
-; font-1 = FontAwesome:size=10;0
-; font-2 = CaskaydiaCove Nerd Font Mono:size=10;0
-; font-3 = CaskaydiaCove Nerd Font Mono:size=10;0
-; font-4 = CaskaydiaCove Nerd Font Mono:size=10;0
-; font-5 = CaskaydiaCove Nerd Font Mono:size=10;0
-; font-6 = FontAwesome:size=10;0
-; font-7 = CaskaydiaCove Nerd Font Mono:size=10;0
-; font-8 = CaskaydiaCove Nerd Font Mono:size=10;0
-; font-9 = Source Code Pro:size=10;0
-; font-0 = Source Code Pro:size=10;0
+font-1 = Hasklug Nerd Font :size=10;0
+font-2 = Hasklug Nerd Font :size=10;0
+font-3 = Hasklug Nerd Font :size=10;0
+font-4 = Hasklug Nerd Font :size=10;0
+font-5 = Hasklug Nerd Font :size=10;0
+font-6 = Hasklug Nerd Font :size=10;0
+font-7 = Hasklug Nerd Font :size=10;0
+font-8 = Hasklug Nerd Font :size=10;0
+font-9 = Hasklug Nerd Font :size=10;0
+font-0 = Hasklug Nerd Font :size=10;0
 
-font-1 = SauceCodePro Nerd Font :size=10;0
-font-2 = SauceCodePro Nerd Font :size=10;0
-font-3 = SauceCodePro Nerd Font :size=10;0
-font-4 = SauceCodePro Nerd Font :size=10;0
-font-5 = SauceCodePro Nerd Font :size=10;0
-font-6 = SauceCodePro Nerd Font :size=10;0
-font-7 = SauceCodePro Nerd Font :size=10;0
-font-8 = SauceCodePro Nerd Font :size=10;0
-font-9 = SauceCodePro Nerd Font :size=10;0
-font-0 = SauceCodePro Nerd Font :size=10;0
-
-modules-left = i3 memory cpu
-; modules-center = rofi memory cpu
+modules-left = rofi i3 memory cpu system-nvidia-smi
+; modules-center = memory cpu
 modules-right = wlan  alsa xbacklight battery date
 
 
@@ -152,17 +141,6 @@ padding-left = 0
 padding-right = 0
 module-margin-left = 0
 module-margin-right = 0
-
-; font-1 = FontAwesome:size=10;0
-; font-2 = CaskaydiaCove Nerd Font Mono:size=10;0
-; font-3 = CaskaydiaCove Nerd Font Mono:size=10;0
-; font-4 = CaskaydiaCove Nerd Font Mono:size=10;0
-; font-5 = CaskaydiaCove Nerd Font Mono:size=10;0
-; font-6 = FontAwesome:size=10;0
-; font-7 = CaskaydiaCove Nerd Font Mono:size=10;0
-; font-8 = CaskaydiaCove Nerd Font Mono:size=10;0
-; font-9 = Source Code Pro:size=10;0
-; font-0 = Source Code Pro:size=10;0
 
 font-1 = SauceCodePro Nerd Font :size=10;0
 font-2 = SauceCodePro Nerd Font :size=10;0
@@ -242,7 +220,7 @@ format-padding = 1
 
 [module/rofi]
 type = custom/script
-exec = echo ""
+exec = echo " "
 click-left = rofi -modi run,drun,window -show drun
 click-right = slock
 format-padding = 1
@@ -337,78 +315,6 @@ ramp-load-5-foreground = #fba922
 ramp-load-6-foreground = #ff5555
 ramp-load-7-foreground = #ff5555
 
-[module/cpu-bar]
-type = internal/cpu
-interval = 3.0
-format = <label> <bar-load>
-label = %percentage%%
-format-prefix = "CPU "
-
-bar-load-width = 8
-bar-load-foreground-0 = #c1cb7f
-bar-load-foreground-1 = #d9c37f
-bar-load-foreground-2 = #e4a48a
-bar-load-foreground-3 = #ed9896
-bar-load-indicator = ■
-bar-load-indicator-font = 0
-bar-load-indicator-foreground = #55fdf6e3
-bar-load-fill = ■
-bar-load-fill-font = 0
-bar-load-empty = □
-bar-load-empty-font = 0
-bar-load-empty-foreground = #99586e75
-
-
-[module/cpu-square]
-type = internal/cpu
-interval = 3.0
-
-format = <label>  <ramp-coreload>
-;label = %percentage-cores% - %percentage%%
-label = %percentage%%
-;label-font = 3
-
-ramp-coreload-0 = ▁
-ramp-coreload-0-foreground = #aaff77
-ramp-coreload-1 = ▂
-ramp-coreload-1-foreground = #aaff77
-ramp-coreload-2 = ▃
-ramp-coreload-2-foreground = #aaff77
-ramp-coreload-3 = ▄
-ramp-coreload-3-foreground = #aaff77
-ramp-coreload-4 = ▅
-ramp-coreload-4-foreground = #fba922
-ramp-coreload-5 = ▆
-ramp-coreload-5-foreground = #fba922
-ramp-coreload-6 = ▇
-ramp-coreload-6-foreground = #ff5555
-ramp-coreload-7 = █
-ramp-coreload-7-foreground = #ff5555
-;;; }}}
-
-
-;;; memory usage {{{
-[module/mem]
-type = internal/memory
-;label = RAM %mb_used%/%mb_free% %gb_used%/%gb_free%
-label =   %gb_used%/%gb_free%
-
-[module/mem2]
-type = internal/memory
-format = <label> <bar-used>
-label =  %percentage_used%% %percentage_free%%
-
-bar-used-width = 10
-bar-used-foreground-2 = #0000ff
-bar-used-foreground-3 = #00ff00
-bar-used-foreground-0 = #ff0000
-bar-used-indicator = |
-bar-used-indicator-foreground = #ff
-bar-used-fill = ─
-bar-used-fill-font = 2
-bar-used-empty = ─
-bar-used-empty-font = 2
-bar-used-empty-foreground = #444444
 
 [module/memory]
 type = internal/memory
@@ -508,37 +414,6 @@ bar-empty = ─
 bar-empty-font = 2
 bar-empty-foreground = ${colors.foreground-alt}
 
-[module/backlight]
-type = internal/backlight
-
-; Use the following command to list available cards:
-; $ ls -1 /sys/class/backlight/
-;card = intel_backlight
-card =amdgpu_bl0
-; Available tags:
-;   <label> (default)
-;   <ramp>
-;   <bar>
-format = <label>
-format-prefix = " "
-
-; Available tokens:
-;   %percentage% (default)
-label = %percentage%
-
-; Only applies if <ramp> is used
-ramp-0 = 🌕
-ramp-1 = 🌔
-ramp-2 = 🌓
-ramp-3 = 🌒
-ramp-4 = 🌑
-
-; Only applies if <bar> is used
-bar-width = 10
-bar-indicator = |
-bar-fill = ─
-bar-empty = ─
-
 [module/battery]
 type = internal/battery
 full-at = 98
@@ -569,44 +444,6 @@ animation-charging-0-foreground = #ff5555
 ;animation-charging-foreground = #666
 animation-charging-framerate = 750
 
-[module/mpd]
-type = internal/mpd
-
-; format-online = <label-song>  <label-time>  <bar-progress>  <icon-prev> <icon-seekb> <icon-stop> <toggle> <icon-seekf> <icon-next>  <icon-repeat> <icon-random>
-format-online = <toggle> <label-song> <icon-next>
-format-offline = <label-offline>
-format-offline-foreground = #66
-label-offline = mpd is off
-
-label-song-maxlen = 20
-label-song-font = 8
-
-icon-prev = 
-icon-seekb = 
-icon-stop = stop
-icon-play = 
-icon-pause = 
-icon-next = 
-icon-seekf = 
-
-icon-random = 
-icon-repeat = 
-
-toggle-on-foreground = #2278ff
-toggle-off-foreground = #66
-
-bar-progress-width = 15
-bar-progress-indicator = 
-bar-progress-indicator-foreground = #bb
-bar-progress-fill = ─
-bar-progress-fill-foreground = #bb
-bar-progress-fill-font = 3
-bar-progress-empty = ─
-bar-progress-empty-foreground = #44
-bar-progress-empty-font = 3
-
-label-time-foreground = #55
-label-time-font = 8
 
 [module/i3]
 type = internal/i3
@@ -723,63 +560,9 @@ reverse-scroll = false
 ; Default: false
 fuzzy-match = true
 
-[module/xwindow]
-type = internal/xwindow
-; format-padding = 50
-; format-background = #88ffffff
-; format-foreground = #000
-label = %title:0:43:...%
-
-[module/filesystem]
-type = internal/fs
-interval = 25
-
-mount-0 = /
-mount-1 = /home
-;mount-2 = /invalid/mountpoint
-
-;remove-unmounted = true
-
-;fixed-values = true
-;spacing = 4
-
-label-mounted = %mountpoint%: %percentage_used%%
-;label-mounted-font = 3
-
-;label-unmounted = %mountpoint%: not mounted
-;label-unmounted-foreground = #55
-
-enable-ipc = true
-
-[module/menu]
-type = custom/menu
-
-label-open = 
-label-close = 
-label-separator = /
-
-menu-0-0 = Action 1
-menu-0-0-foreground = #fff51f
-menu-0-0-exec = notify-send -u low "action 1"
-menu-0-1 = Sub-menu 1
-menu-0-1-foreground = #fff51f
-menu-0-1-exec = menu-open-1
-menu-0-2 = Sub-menu 2
-menu-0-2-foreground = #fff51f
-menu-0-2-exec = menu-open-2
-
-menu-1-0 = Cancel
-menu-1-0-foreground = #fff51f
-menu-1-0-exec = menu-open-0
-menu-1-1 = Perform action
-menu-1-1-foreground = #fff51f
-menu-1-1-exec = notify-send -u low "sub-menu action"
-
-menu-2-0 = Perform action
-menu-2-0-foreground = #fff51f
-menu-2-0-exec = notify-send -u low "sub-menu action 2"
-menu-2-1 = Cancel
-menu-2-1-foreground = #fff51f
-menu-2-1-exec = menu-open-0
+[module/system-nvidia-smi]
+type = custom/script
+exec = ~/.config/polybar/polybar-scripts/system-nvidia-smi/system-nvidia-smi.sh
+interval = 2
 
 ; vim:ft=dosini
