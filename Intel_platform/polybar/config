@@ -220,7 +220,7 @@ format-padding = 1
 
 [module/rofi]
 type = custom/script
-exec = echo " "
+exec = echo ""
 click-left = rofi -modi run,drun,window -show drun
 click-right = slock
 format-padding = 1
@@ -269,13 +269,13 @@ type = internal/cpu
 
 ; Seconds to sleep between updates
 ; Default: 1
-interval = 3.0
+interval = 1.0
 ; Available tags:
 ;   <label> (default)
 ;   <bar-load>
 ;   <ramp-load>
 ;   <ramp-coreload>
-format = <ramp-load><label>
+format = <label><ramp-load>
 
 ; Available tokens:
 ;   %percentage% (default) - total cpu load averaged over all cores
@@ -321,7 +321,7 @@ type = internal/memory
 
 ; Seconds to sleep between updates
 ; Default: 1
-interval = 3.0
+interval = 2.0
 ; Available tags:
 ;   <label> (default)
 ;   <bar-used>
@@ -352,7 +352,7 @@ format = <label><ramp-used>
 ;   %gb_swap_free%
 ;   %gb_swap_used%
 
-label =%percentage_used%% 
+label = %percentage_used%%
 label-font = 1
 
 ; Only applies if <bar-used> is used
