@@ -96,7 +96,7 @@ font-8 = Hasklug Nerd Font :size=10;0
 font-9 = Hasklug Nerd Font :size=10;0
 font-0 = Hasklug Nerd Font :size=10;0
 
-modules-left = rofi i3 memory cpu system-nvidia-smi
+modules-left = rofi i3 memory system-nvidia-smi cpu
 modules-center = wlan
 modules-right = alsa xbacklight battery date
 
