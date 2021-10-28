@@ -196,8 +196,10 @@ workspace 0 output $monitor2
 # Open applications on specific workspaces
 assign [class="Alacritty"] $ws1
 assign [class="Vivaldi"] $ws2
+assign [class="Master PDF Editor"] $ws3
 assign [class="Foxit Reader"] $ws3
 assign [class="netease-cloud-music"] $ws5
+assign [class="Thunderbird"] $ws6
 
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
