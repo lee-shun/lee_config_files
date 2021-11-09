@@ -1,16 +1,16 @@
-# ###############################################################
-#  _                           _
-# | |    ___  ___      _______| |__  _ __ ___
-# | |   / _ \/ _ \____|_  / __| '_ \| '__/ __|
-# | |__|  __/  __/_____/ /\__ \ | | | | | (__
-# |_____\___|\___|    /___|___/_| |_|_|  \___|
-# 
+################################################################
+# _                           _
+#| |    ___  ___      _______| |__  _ __ ___
+#| |   / _ \/ _ \____|_  / __| '_ \| '__/ __|
+#| |__|  __/  __/_____/ /\__ \ | | | | | (__
+#|_____\___|\___|    /___|___/_| |_|_|  \___|
 #
-# Author:lee-shun
-# 
-# Email:lee970802@163.com
-# 
-## ##############################################################
+#
+#Author:lee-shun
+#
+#Email:lee970802@163.com
+#
+################################################################
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -22,9 +22,10 @@ export ZSH=$HOME/.oh-my-zsh
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 # ZSH_THEME="agnoster"
-# ZSH_THEME="powerline"
-ZSH_THEME="robbyrussell"
-#  Set list of themes to pick from when loading at random
+#ZSH_THEME="powerline"
+# ZSH_THEME="robbyrussell"
+ZSH_THEME="eastwood"
+# Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
 # If set to an empty array, this variable will have no effect.
@@ -83,7 +84,7 @@ ZSH_THEME="robbyrussell"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-    git
+	git
     zsh-autosuggestions
     zsh-syntax-highlighting
     z)
@@ -116,7 +117,7 @@ export EDITOR=nvim
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# 加速粘贴速度
+#加速粘贴速度
 # This speeds up pasting w/ autosuggest
 # https://github.com/zsh-users/zsh-autosuggestions/issues/238
 pasteinit() {
@@ -131,14 +132,14 @@ zstyle :bracketed-paste-magic paste-init pasteinit
 zstyle :bracketed-paste-magic paste-finish pastefinish
 
 
-# 使用vim模式
+#使用vim模式
 bindkey -v
-# 改变光标状态
+#改变光标状态
 function zle-keymap-select {
-    if [[ ${KEYMAP} == vicmd ]] || [[ $1 = 'block' ]]; then
-        echo -ne '\e[1 q'
-    elif [[ ${KEYMAP} == main ]] || [[ ${KEYMAP} == viins ]] || [[ ${KEYMAP} = '' ]] || [[ $1 = 'beam' ]]; then
-        echo -ne '\e[5 q'
+	if [[ ${KEYMAP} == vicmd ]] || [[ $1 = 'block' ]]; then
+		echo -ne '\e[1 q'
+	elif [[ ${KEYMAP} == main ]] || [[ ${KEYMAP} == viins ]] || [[ ${KEYMAP} = '' ]] || [[ $1 = 'beam' ]]; then
+		echo -ne '\e[5 q'
   fi
 }
 zle -N zle-keymap-select
@@ -148,11 +149,11 @@ echo -ne '\e[5 q'
 
 # Use beam shape cursor for each new prompt.
 preexec() {
-    echo -ne '\e[5 q'
+	echo -ne '\e[5 q'
 }
 
 _fix_cursor() {
-    echo -ne '\e[5 q'
+	echo -ne '\e[5 q'
 }
 precmd_functions+=(_fix_cursor)
 
@@ -188,48 +189,48 @@ alias getinstall="sudo apt-get install"
 alias getupdate="sudo apt-get update"
 alias getremove="sudo apt-get remove"
 
-#  编辑文件
+#编辑文件
 alias zshrc="vim ~/.zshrc"
-alias vimrc="vim ~/.config/nvim/"
+alias vimrc="cd ~/.config/nvim/&& vim init.vim"
 alias vlua="cd ~/.config/nvim/&& vim init.lua"
-alias virc="vi ~/.vim/"
+alias virc="cd ~/.vim/&& vi vimrc"
 alias i3conf="cd ~/.config/i3/&& vim config"
 
-# 开启连接
-# alias v2="sudo service v2ray start"
-# alias v2_status="sudo service v2ray status"
-# alias v2_stop="sudo service v2ray stop"
-# alias v2_re="sudo service v2ray restart"
+#开启连接
+#alias v2="sudo service v2ray start"
+#alias v2_status="sudo service v2ray status"
+#alias v2_stop="sudo service v2ray stop"
+#alias v2_re="sudo service v2ray restart"
 
 
-# 开启代理
-# alias privox="sudo service privoxy start"
-# alias privox_status="sudo service privoxy status"
-# alias privox_stop="sudo service privoxy stop"
-# alias privox_re="sudo service privoxy restart"
+#开启代理
+#alias privox="sudo service privoxy start"
+#alias privox_status="sudo service privoxy status"
+#alias privox_stop="sudo service privoxy stop"
+#alias privox_re="sudo service privoxy restart"
 
-# alias scoks2https=" export https_proxy='http://localhost:8118'"
-# alias scoks2http=" export http_proxy='http://localhost:8118'"
-#  export https_proxy=http://127.0.0.1:12333
+#alias scoks2https=" export https_proxy='http://localhost:8118'"
+#alias scoks2http=" export http_proxy='http://localhost:8118'"
+# export https_proxy=http://127.0.0.1:12333
 # export http_proxy=http://127.0.0.1:12333
 
 #MATLAB
-#  alias matlab="roscd fixed_wing_formation_control&&~/MATLAB/R2018b/bin/matlab"
+#alias matlab="roscd fixed_wing_formation_control&&~/MATLAB/R2018b/bin/matlab"
 
-# 福昕pdf阅读器
-# alias pdf="~/FOXITPDF/FoxitReader"
+#福昕pdf阅读器
+#alias pdf="~/FOXITPDF/FoxitReader"
 
-# 添加lazygit
+#添加lazygit
 alias lg="lazygit"
 
-# 添加neofetch
+#添加neofetch
 alias sys="neofetch"
 
-# 添加ranger
+#添加ranger
 alias R="ranger"
 export RANGER_LOAD_DEFAULT_RC=FALSE
 
-#  git
+# git
 alias P='git push'
 alias p='git pull'
 alias c='git commit -m'
@@ -242,109 +243,20 @@ alias tks="tmux kill-session -t"
 alias tkw="tmux kill-window -t"
 alias tkp="tmux kill-pane -t"
 
-#  ccat
-# alias cat="ccat"
+# CUDA
+export PATH=/usr/local/cuda-10.2/bin:$PATH
+export LD_LIBRARY_PATH=/usr/local/cuda-10.2/lib64:$LD_LIBRARY_PATH
 
-# kitty
-
-# 小彩蛋
-# fortune | cowsay
-
-# texlive2020
-export MANPATH=${MANPATH}:/usr/local/texlive/2020/texmf-dist/doc/man
-export INFOPATH=${INFOPATH}:/usr/local/texlive/2020/texmf-dist/doc/info
-export PATH=${PATH}:/usr/local/texlive/2020/bin/x86_64-linux
-
-# npm
-export PATH=~/.npm-global/bin:$PATH
-
-
-
-#  配置ros
+# 配置ros
 # source /opt/ros/kinetic/setup.zsh
 source /opt/ros/melodic/setup.zsh
+export LD_LIBRARY_PATH=/opt/ros/melodic/lib:$LD_LIBRARY_PATH
 # source /opt/ros/noetic/setup.zsh
 # 配置catkin_ws
 source ~/catkin_ws/devel/setup.zsh
-# movit
-# source ~/ws_moveit/devel/setup.zsh
-# cv_bridge
+# 配置 cv_bridge_ws
 source ~/cv_bridge_ws/install/setup.zsh --extend
 
-
-#配置Gazebo&&PX4
-#  export PX4_SIM_SPEED_FACTOR=2
-# export PX4_HOME_LAT=39.9891248
-# export PX4_HOME_LON=116.3558232
-# export PX4_HOME_ALT=0.0;
-
-# 1.10.2
-# source ~/src/Firmware/Tools/setup_gazebo.bash ~/src/Firmware/ ~/src/Firmware/build/px4_sitl_default
-# export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:~/src/Firmware/:~/src/Firmware/Tools/sitl_gazebo
-
-# 1.9.2
-# source ~/src/Firmwarelee1.9.2/Tools/setup_gazebo.bash ~/src/Firmwarelee1.9.2/ ~/src/Firmwarelee1.9.2/build/px4_sitl_default
-# export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:~/src/Firmwarelee1.9.2/:~/src/Firmwarelee1.9.2/Tools/sitl_gazebo
-
-
-#  #配置Conda
-# # >>> conda initialize >>>
-# # !! Contents within this block are managed by 'conda init' !!
-# __conda_setup="$('/home/ls/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-# if [ $? -eq 0 ]; then
-#     eval "$__conda_setup"
-# else
-#     if [ -f "/home/ls/anaconda3/etc/profile.d/conda.sh" ]; then
-#         . "/home/ls/anaconda3/etc/profile.d/conda.sh"
-#     else
-#         export PATH="/home/ls/anaconda3/bin:$PATH"
-#     fi
-# fi
-# unset __conda_setup
-# 
-# # <<< conda initialize <<<
-# # alias mlcv='conda activate mlcv'
-# conda activate mlcv
-
-# CUDA
-export PATH="/usr/local/cuda/bin:$PATH"
-export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/cuda/lib64"
-
-#fzf
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-#  fzf-settings
-export FZF_DEFAULT_OPTS='--bind ctrl-j:down,ctrl-k:up --preview "[[ $(file --mime {}) =~ binary ]] && echo {} is a binary file || (ccat --color=always {} || highlight -O ansi -l {} || cat {}) 2> /dev/null | head -500"'
-export FZF_DEFAULT_COMMAND='fd'
-export FZF_COMPLETION_TRIGGER='\'
-export FZF_TMUX=1
-export FZF_TMUX_HEIGHT='80%'
-export fzf_preview_cmd='[[ $(file --mime {}) =~ binary ]] && echo {} is a binary file || (ccat --color=always {} || highlight -O ansi -l {} || cat {}) 2> /dev/null | head -500'
-
-#  Use fd (https://github.com/sharkdp/fd) instead of the default find
-# command for listing path candidates.
-# - The first argument to the function ($1) is the base path to start traversal
-# - See the source code (completion.{bash,zsh}) for the details.
-_fzf_compgen_path() {
-  fd --hidden --follow --exclude ".git" . "$1"
-}
-
-# Use fd to generate the list for directory completion
-_fzf_compgen_dir() {
-  fd --type d --hidden --follow --exclude ".git" . "$1"
-}
-
-# (EXPERIMENTAL) Advanced customization of fzf options via _fzf_comprun function
-# - The first argument to the function is the name of the command.
-# - You should make sure to pass the rest of the arguments to fzf.
-_fzf_comprun() {
-  local command=$1
-  shift
-
-  case "$command" in
-    cd)           fzf "$@" --preview 'tree -C {} | head -200' ;;
-    export|unset) fzf "$@" --preview "eval 'echo \$'{}" ;;
-    ssh)          fzf "$@" --preview 'dig {}' ;;
-    *)            fzf "$@" ;;
-  esac
-}
+# 配置opencv
+export PKG_CONFIG_PATH=/usr/local/opencv4/lib/pkgconfig:$PKG_CONFIG_PATH
+export LD_LIBRARY_PATH=/usr/local/opencv4/lib:$LD_LIBRARY_PATH
