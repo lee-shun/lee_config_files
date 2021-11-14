@@ -84,9 +84,11 @@ ZSH_THEME="robbyrussell"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
     git
-    zsh-autosuggestions
+    autojump
+    fzf
     zsh-syntax-highlighting
-    z)
+    zsh-autosuggestions
+    )
 
 source $ZSH/oh-my-zsh.sh
 
@@ -131,36 +133,36 @@ zstyle :bracketed-paste-magic paste-init pasteinit
 zstyle :bracketed-paste-magic paste-finish pastefinish
 
 
-# 使用vim模式
-bindkey -v
-# 改变光标状态
-function zle-keymap-select {
-    if [[ ${KEYMAP} == vicmd ]] || [[ $1 = 'block' ]]; then
-        echo -ne '\e[1 q'
-    elif [[ ${KEYMAP} == main ]] || [[ ${KEYMAP} == viins ]] || [[ ${KEYMAP} = '' ]] || [[ $1 = 'beam' ]]; then
-        echo -ne '\e[5 q'
-  fi
-}
-zle -N zle-keymap-select
-
-# Use beam shape cursor on startup.
-echo -ne '\e[5 q'
-
-# Use beam shape cursor for each new prompt.
-preexec() {
-    echo -ne '\e[5 q'
-}
-
-_fix_cursor() {
-    echo -ne '\e[5 q'
-}
-precmd_functions+=(_fix_cursor)
-
-
-zle -N zle-line-init
-zle -N zle-keymap-select
-
-KEYTIMEOUT=1
+# # 使用vim模式
+# bindkey -v
+# # 改变光标状态
+# function zle-keymap-select {
+#     if [[ ${KEYMAP} == vicmd ]] || [[ $1 = 'block' ]]; then
+#         echo -ne '\e[1 q'
+#     elif [[ ${KEYMAP} == main ]] || [[ ${KEYMAP} == viins ]] || [[ ${KEYMAP} = '' ]] || [[ $1 = 'beam' ]]; then
+#         echo -ne '\e[5 q'
+#   fi
+# }
+# zle -N zle-keymap-select
+# 
+# # Use beam shape cursor on startup.
+# echo -ne '\e[5 q'
+# 
+# # Use beam shape cursor for each new prompt.
+# preexec() {
+#     echo -ne '\e[5 q'
+# }
+# 
+# _fix_cursor() {
+#     echo -ne '\e[5 q'
+# }
+# precmd_functions+=(_fix_cursor)
+# 
+# 
+# zle -N zle-line-init
+# zle -N zle-keymap-select
+# 
+# KEYTIMEOUT=1
 
 
 #基本映射
@@ -190,9 +192,8 @@ alias getremove="sudo apt-get remove"
 
 #  编辑文件
 alias zshrc="vim ~/.zshrc"
-alias vimrc="vim ~/.config/nvim/"
-alias vlua="cd ~/.config/nvim/&& vim init.lua"
-alias virc="vi ~/.vim/"
+alias vimrc="vim ~/.config/nvim/init.vim"
+alias virc="vi ~/.vim/init.vim"
 alias i3conf="cd ~/.config/i3/&& vim config"
 
 # 开启连接
@@ -271,6 +272,10 @@ source ~/catkin_ws/devel/setup.zsh
 # cv_bridge
 source ~/cv_bridge_ws/install/setup.zsh --extend
 
+# 配置opencv
+export PKG_CONFIG_PATH=/usr/local/opencv4/lib/pkgconfig:$PKG_CONFIG_PATH
+export LD_LIBRARY_PATH=/usr/local/opencv4/lib:$LD_LIBRARY_PATH
+
 
 #配置Gazebo&&PX4
 #  export PX4_SIM_SPEED_FACTOR=2
@@ -310,41 +315,47 @@ source ~/cv_bridge_ws/install/setup.zsh --extend
 export PATH="/usr/local/cuda/bin:$PATH"
 export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/cuda/lib64"
 
-#fzf
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# Tensorrt
+export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/TensorRT-7.1.3.4/lib"
 
-#  fzf-settings
-export FZF_DEFAULT_OPTS='--bind ctrl-j:down,ctrl-k:up --preview "[[ $(file --mime {}) =~ binary ]] && echo {} is a binary file || (ccat --color=always {} || highlight -O ansi -l {} || cat {}) 2> /dev/null | head -500"'
-export FZF_DEFAULT_COMMAND='fd'
-export FZF_COMPLETION_TRIGGER='\'
-export FZF_TMUX=1
-export FZF_TMUX_HEIGHT='80%'
-export fzf_preview_cmd='[[ $(file --mime {}) =~ binary ]] && echo {} is a binary file || (ccat --color=always {} || highlight -O ansi -l {} || cat {}) 2> /dev/null | head -500'
-
-#  Use fd (https://github.com/sharkdp/fd) instead of the default find
-# command for listing path candidates.
-# - The first argument to the function ($1) is the base path to start traversal
-# - See the source code (completion.{bash,zsh}) for the details.
-_fzf_compgen_path() {
-  fd --hidden --follow --exclude ".git" . "$1"
-}
-
-# Use fd to generate the list for directory completion
-_fzf_compgen_dir() {
-  fd --type d --hidden --follow --exclude ".git" . "$1"
-}
-
-# (EXPERIMENTAL) Advanced customization of fzf options via _fzf_comprun function
-# - The first argument to the function is the name of the command.
-# - You should make sure to pass the rest of the arguments to fzf.
-_fzf_comprun() {
-  local command=$1
-  shift
-
-  case "$command" in
-    cd)           fzf "$@" --preview 'tree -C {} | head -200' ;;
-    export|unset) fzf "$@" --preview "eval 'echo \$'{}" ;;
-    ssh)          fzf "$@" --preview 'dig {}' ;;
-    *)            fzf "$@" ;;
-  esac
-}
+# #fzf
+# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# 
+# #  fzf-settings
+# export FZF_DEFAULT_OPTS='--bind ctrl-j:down,ctrl-k:up --preview "[[ $(file --mime {}) =~ binary ]] && echo {} is a binary file || (ccat --color=always {} || highlight -O ansi -l {} || cat {}) 2> /dev/null | head -500"'
+# export FZF_DEFAULT_COMMAND='fd'
+# export FZF_COMPLETION_TRIGGER='\'
+# export FZF_TMUX=1
+# export FZF_TMUX_HEIGHT='80%'
+# export fzf_preview_cmd='[[ $(file --mime {}) =~ binary ]] && echo {} is a binary file || (ccat --color=always {} || highlight -O ansi -l {} || cat {}) 2> /dev/null | head -500'
+# 
+# #  Use fd (https://github.com/sharkdp/fd) instead of the default find
+# # command for listing path candidates.
+# # - The first argument to the function ($1) is the base path to start traversal
+# # - See the source code (completion.{bash,zsh}) for the details.
+# _fzf_compgen_path() {
+#   fd --hidden --follow --exclude ".git" . "$1"
+# }
+# 
+# # Use fd to generate the list for directory completion
+# _fzf_compgen_dir() {
+#   fd --type d --hidden --follow --exclude ".git" . "$1"
+# }
+# 
+# # (EXPERIMENTAL) Advanced customization of fzf options via _fzf_comprun function
+# # - The first argument to the function is the name of the command.
+# # - You should make sure to pass the rest of the arguments to fzf.
+# _fzf_comprun() {
+#   local command=$1
+#   shift
+# 
+#   case "$command" in
+#     cd)           fzf "$@" --preview 'tree -C {} | head -200' ;;
+#     export|unset) fzf "$@" --preview "eval 'echo \$'{}" ;;
+#     ssh)          fzf "$@" --preview 'dig {}' ;;
+#     *)            fzf "$@" ;;
+#   esac
+# }
+# 
+# # autojump
+# . /usr/share/autojump/autojump.sh
