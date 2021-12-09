@@ -251,6 +251,11 @@ alias tkp="tmux kill-pane -t"
 # 小彩蛋
 # fortune | cowsay
 
+alias INON="xrandr --output eDP-1-1 --auto"
+alias OUTON="xrandr --output HDMI-1-1 --auto"
+alias INOFF="xrandr --output eDP-1-1 --off"
+alias OUTOFF="xrandr --output HDMI-1-1 --off"
+
 # texlive2020
 export MANPATH=${MANPATH}:/usr/local/texlive/2020/texmf-dist/doc/man
 export INFOPATH=${INFOPATH}:/usr/local/texlive/2020/texmf-dist/doc/info
@@ -271,6 +276,11 @@ source ~/catkin_ws/devel/setup.zsh
 # source ~/ws_moveit/devel/setup.zsh
 # cv_bridge
 source ~/cv_bridge_ws/install/setup.zsh --extend
+
+# 分布式ros
+export ROS_IP=`hostname -I | awk '{print $1}'`
+export ROS_HOSTNAME=`hostname -I | awk '{print $1}'`
+export ROS_MASTER_URI=http://192.168.2.39:11311/
 
 # 配置opencv
 export PKG_CONFIG_PATH=/usr/local/opencv4/lib/pkgconfig:$PKG_CONFIG_PATH
