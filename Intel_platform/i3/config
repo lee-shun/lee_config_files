@@ -46,7 +46,7 @@ focus_follows_mouse yes
 force_focus_wrapping yes
 
 # start a terminal
-bindsym $mod+Return exec --no-startup-id alacritty
+bindsym $mod+Return exec --no-startup-id xfce4-terminal
 
 # kill focused window
 bindsym $mod+Shift+c kill
@@ -54,7 +54,7 @@ bindsym $mod+Shift+c kill
 bindsym $mod+shift+p exec --no-startup-id rofi -show run
 bindsym $mod+p exec --no-startup-id rofi -show drun
 
-bindsym $mod+b exec --no-startup-id vivaldi --password-store=gnome
+bindsym $mod+b exec --no-startup-id microsoft-edge  --password-store=gnome
 
 # bindsym $mod+o exec --no-startup-id ~/splatmoji/splatmoji type
 
@@ -195,7 +195,7 @@ workspace 0 output $monitor2
 
 # Open applications on specific workspaces
 assign [class="Alacritty"] $ws1
-assign [class="Vivaldi"] $ws2
+assign [class="Microsoft-edge"] $ws2
 assign [class="Master PDF Editor"] $ws3
 assign [class="Foxit Reader"] $ws3
 assign [class="netease-cloud-music"] $ws5
