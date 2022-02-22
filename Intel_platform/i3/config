@@ -29,8 +29,8 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-# font pango:monospace 8
-font pango:Microsoft YaHei UI Regular 12
+# font pango:monospace 12
+font pango:Hasklug Nerd Font 14
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -54,9 +54,9 @@ bindsym $mod+Shift+c kill
 bindsym $mod+shift+p exec --no-startup-id rofi -show run
 bindsym $mod+p exec --no-startup-id rofi -show drun
 
-bindsym $mod+b exec --no-startup-id microsoft-edge  --password-store=gnome
+bindsym $mod+b exec --no-startup-id google-chrome  --password-store=gnome
 
-# bindsym $mod+o exec --no-startup-id ~/splatmoji/splatmoji type
+bindsym $mod+o exec --no-startup-id flameshot gui
 
 bindsym $mod+e exec --no-startup-id polybar top
 bindsym $mod+shift+e exec --no-startup-id killall polybar
@@ -93,27 +93,27 @@ bindsym $mod+Tab workspace back_and_forth
 bindsym $mod+Shift+Tab move container to workspace back_and_forth; workspace back_and_forth
 
 # enter fullscreen mode for the focused container
-bindsym $mod+f fullscreen toggle
+bindsym $mod+f fullscreen toggle; exec --no-startup-id notify-send 'fullscreen toggle'
 
 # split in horizontal orientation
-bindsym $mod+v split h; exec --no-startup-id notify-send 'tile horizontally'
+bindsym $mod+v split h; exec --no-startup-id notify-send 'split horizontally'
 
 # split in vertical orientation
-bindsym $mod+shift+v split v; exec --no-startup-id notify-send 'tile vertically'
+bindsym $mod+shift+v split v; exec --no-startup-id notify-send 'split vertically'
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+t layout tabbed
-bindsym $mod+w layout default
+bindsym $mod+s layout stackin; exec --no-startup-id notify-send 'stack layout'
+bindsym $mod+t layout tabbe; exec --no-startup-id notify-send 'tab layout'
+bindsym $mod+w layout defaul; exec --no-startup-id notify-send 'defaul layout'
 
 # toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
+bindsym $mod+Shift+space floating toggle; exec --no-startup-id notify-send 'float toggle'
 
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
 
 # toggle sticky
-bindsym $mod+Shift+s sticky toggle
+bindsym $mod+Shift+s sticky toggle; exec --no-startup-id notify-send 'sticky toggle'
 
 # focus the parent container
 bindsym $mod+a focus parent
@@ -182,24 +182,24 @@ bindsym $mod+Shift+0 move container to workspace $ws0; workspace $ws0
 
 set $monitor1 eDP-1-1
 set $monitor2 HDMI-1-1
-workspace 1 output $monitor1
-workspace 2 output $monitor1
+workspace 1 output $monitor2
+workspace 2 output $monitor2
 workspace 3 output $monitor2
 workspace 4 output $monitor2
-workspace 5 output $monitor2
-workspace 6 output $monitor2
-workspace 7 output $monitor2
-workspace 8 output $monitor2
-workspace 9 output $monitor2
-workspace 0 output $monitor2
+workspace 5 output $monitor1
+workspace 6 output $monitor1
+workspace 7 output $monitor1
+workspace 8 output $monitor1
+workspace 9 output $monitor1
+workspace 0 output $monitor1
 
 # Open applications on specific workspaces
 assign [class="Alacritty"] $ws1
-assign [class="Microsoft-edge"] $ws2
+assign [class="Google-chrome"] $ws2
 assign [class="Master PDF Editor"] $ws3
 assign [class="Foxit Reader"] $ws3
 assign [class="netease-cloud-music"] $ws5
-assign [class="Thunderbird"] $ws6
+assign [class="Evolution"] $ws6
 
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
@@ -236,16 +236,16 @@ bindsym $mod+r mode "resize"
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
 
-        bindsym j resize grow height            5 px or 5 ppt
-        bindsym k resize shrink height          5 px or 5 ppt
-        bindsym l resize grow width             5 px or 5 ppt
-        bindsym h resize shrink width           5 px or 5 ppt
+        bindsym j resize grow height            2 px or 2 ppt
+        bindsym k resize shrink height          2 px or 2 ppt
+        bindsym l resize grow width             2 px or 2 ppt
+        bindsym h resize shrink width           2 px or 2 ppt
 
         # same bindings, but for the arrow keys
-        bindsym Left resize shrink width        5 px or 5 ppt
-        bindsym Down resize grow height         5 px or 5 ppt
-        bindsym Up resize shrink height         5 px or 5 ppt
-        bindsym Right resize grow width         5 px or 5 ppt
+        bindsym Left resize shrink width        2 px or 2 ppt
+        bindsym Down resize grow height         2 px or 2 ppt
+        bindsym Up resize shrink height         2 px or 2 ppt
+        bindsym Right resize grow width         2 px or 2 ppt
 
         # back to normal: Enter or Escape
         bindsym Return mode "default"
@@ -387,14 +387,18 @@ exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=ssh,secr
 exec --no-startup-id bash ~/.config/useful_scripts/arandr.sh
 exec --no-startup-id bash ~/.config/useful_scripts/tap-to-click.sh
 exec --no-startup-id bash ~/.config/useful_scripts/inverse_scroll.sh
-exec --no-startup-id feh --bg-fill /home/ls/图片/卜吉力动画室/wallhaven-vg6dqp.jpg
+# exec --no-startup-id bash ~/.config/useful_scripts/inverse_scroll.sh
+exec --no-startup-id  feh  --bg-fill /home/ls/图片/wallpapers/illustration-Neon-Genesis-Evangelion-text-cartoon-vintage-vaporwave-358281-wallhere.com.jpg
+
 
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id xfce4-volumed
 exec --no-startup-id nm-applet
 exec --no-startup-id picom -o 0.95 -i 0.88 --detect-rounded-corners --vsync --blur-background-fixed -f -D 5 -c -b
-exec --no-startup-id redshift-gtk
 exec --no-startup-id xrandr --output HDMI-1-1 --auto
+# exec --no-startup-id bash ~/.config/useful_scripts/screens_output.sh
+exec --no-startup-id redshift-gtk
+exec --no-startup-id evolution
 
 # exec --no-startup-id electron-ssr
 # exec --no-startup-id bash ~/.config/useful_scripts/
