@@ -3,10 +3,10 @@ monitor = 0
 follow = mouse
 geometry = "300x60-20+48"
 indicate_hidden = yes
-shrink = no
+shrink = yes
 separator_height = 0
-padding = 32
-horizontal_padding = 32
+padding = 20
+horizontal_padding = 30
 frame_width = 2
 sort = no
 idle_threshold = 120
@@ -36,19 +36,19 @@ history = ctrl+grave
 context = ctrl+shift+period
 
 [urgency_low]
-timeout = 4
+timeout = 1
 background = "#141c21"
 foreground = "#93a1a1"
 frame_color = "#8bc34a"
 
 [urgency_normal]
-timeout = 8
+timeout = 1
 background = "#141c21"
 foreground = "#93a1a1"
 frame_color = "#ba68c8"
 
 [urgency_critical]
-timeout = 0
+timeout = 2
 background = "#141c21"
 foreground = "#93a1a1"
 frame_color = "#ff7043"
