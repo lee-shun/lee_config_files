@@ -246,6 +246,9 @@ alias tkp="tmux kill-pane -t"
 #  ccat
 # alias cat="ccat"
 
+# chrome with key
+alias google-chrome="google-chrome  --password-store=gnome"
+
 # kitty
 
 # 小彩蛋
@@ -278,9 +281,15 @@ source ~/catkin_ws/devel/setup.zsh
 source ~/cv_bridge_ws/install/setup.zsh --extend
 
 # 分布式ros
-export ROS_IP=`hostname -I | awk '{print $1}'`
-export ROS_HOSTNAME=`hostname -I | awk '{print $1}'`
-export ROS_MASTER_URI=http://192.168.2.39:11311/
+## Bell984
+# export ROS_IP=`hostname -I | awk '{print $1}'`
+# export ROS_HOSTNAME=`hostname -I | awk '{print $1}'`
+# export ROS_MASTER_URI=http://192.168.2.39:11311/
+
+## Linksys
+# export ROS_IP=`hostname -I | awk '{print $1}'`
+# export ROS_HOSTNAME=`hostname -I | awk '{print $1}'`
+# export ROS_MASTER_URI=http://192.168.1.110:11311/
 
 # 配置opencv
 export PKG_CONFIG_PATH=/usr/local/opencv4/lib/pkgconfig:$PKG_CONFIG_PATH
@@ -328,44 +337,44 @@ export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/cuda/lib64"
 # Tensorrt
 export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/TensorRT-7.1.3.4/lib"
 
-# #fzf
-# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-# 
-# #  fzf-settings
-# export FZF_DEFAULT_OPTS='--bind ctrl-j:down,ctrl-k:up --preview "[[ $(file --mime {}) =~ binary ]] && echo {} is a binary file || (ccat --color=always {} || highlight -O ansi -l {} || cat {}) 2> /dev/null | head -500"'
-# export FZF_DEFAULT_COMMAND='fd'
-# export FZF_COMPLETION_TRIGGER='\'
-# export FZF_TMUX=1
-# export FZF_TMUX_HEIGHT='80%'
-# export fzf_preview_cmd='[[ $(file --mime {}) =~ binary ]] && echo {} is a binary file || (ccat --color=always {} || highlight -O ansi -l {} || cat {}) 2> /dev/null | head -500'
-# 
-# #  Use fd (https://github.com/sharkdp/fd) instead of the default find
-# # command for listing path candidates.
-# # - The first argument to the function ($1) is the base path to start traversal
-# # - See the source code (completion.{bash,zsh}) for the details.
-# _fzf_compgen_path() {
-#   fd --hidden --follow --exclude ".git" . "$1"
-# }
-# 
-# # Use fd to generate the list for directory completion
-# _fzf_compgen_dir() {
-#   fd --type d --hidden --follow --exclude ".git" . "$1"
-# }
-# 
-# # (EXPERIMENTAL) Advanced customization of fzf options via _fzf_comprun function
-# # - The first argument to the function is the name of the command.
-# # - You should make sure to pass the rest of the arguments to fzf.
-# _fzf_comprun() {
-#   local command=$1
-#   shift
-# 
-#   case "$command" in
-#     cd)           fzf "$@" --preview 'tree -C {} | head -200' ;;
-#     export|unset) fzf "$@" --preview "eval 'echo \$'{}" ;;
-#     ssh)          fzf "$@" --preview 'dig {}' ;;
-#     *)            fzf "$@" ;;
-#   esac
-# }
-# 
-# # autojump
+#fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+#  fzf-settings
+export FZF_DEFAULT_OPTS='--bind ctrl-j:down,ctrl-k:up --preview "[[ $(file --mime {}) =~ binary ]] && echo {} is a binary file || (ccat --color=always {} || highlight -O ansi -l {} || cat {}) 2> /dev/null | head -500"'
+export FZF_DEFAULT_COMMAND='fd'
+export FZF_COMPLETION_TRIGGER='\'
+export FZF_TMUX=1
+export FZF_TMUX_HEIGHT='80%'
+export fzf_preview_cmd='[[ $(file --mime {}) =~ binary ]] && echo {} is a binary file || (ccat --color=always {} || highlight -O ansi -l {} || cat {}) 2> /dev/null | head -500'
+
+#  Use fd (https://github.com/sharkdp/fd) instead of the default find
+# command for listing path candidates.
+# - The first argument to the function ($1) is the base path to start traversal
+# - See the source code (completion.{bash,zsh}) for the details.
+_fzf_compgen_path() {
+  fd --hidden --follow --exclude ".git" . "$1" --exclude ".wine32" . "$1" --exclude ".cache" . "$1"
+}
+
+# Use fd to generate the list for directory completion
+_fzf_compgen_dir() {
+  fd --type d --hidden --follow --exclude ".git" . "$1" --exclude ".wine32" . "$1" --exclude ".cache" . "$1"
+}
+
+# (EXPERIMENTAL) Advanced customization of fzf options via _fzf_comprun function
+# - The first argument to the function is the name of the command.
+# - You should make sure to pass the rest of the arguments to fzf.
+_fzf_comprun() {
+  local command=$1
+  shift
+
+  case "$command" in
+    cd)           fzf "$@" --preview 'tree -C {} | head -200' ;;
+    export|unset) fzf "$@" --preview "eval 'echo \$'{}" ;;
+    ssh)          fzf "$@" --preview 'dig {}' ;;
+    *)            fzf "$@" ;;
+  esac
+}
+
+# autojump
 # . /usr/share/autojump/autojump.sh
