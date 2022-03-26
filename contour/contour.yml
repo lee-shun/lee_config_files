@@ -267,61 +267,63 @@ profiles:
 # For example 0x102030 is equal to '#102030'.
 color_schemes:
     default:
-        # Default colors
-        default:
-            # Default background color (this can be made transparent, see above).
-            background: '#282a36'
-            # Default foreground text color.
-            foreground: '#f8f8f2'
-
         # Mandates the color of the cursor and potentially overridden text.
         #
         # The color can be specified in RGB as usual, plus
         # - CellForeground: Selects the cell's foreground color.
         # - CellBackground: Selects the cell's background color.
-        cursor:
-            # Specifies the color to be used for the actual cursor shape.
-            #
-            # Default: CellForeground
-            default: CellForeground
-            # Specifies the color to be used for the characters that would
-            # be covered otherwise.
-            #
-            # Default: CellBackground
-            text: CellBackground
-
         # color to pick for hyperlinks decoration, when hovering
         hyperlink_decoration:
             normal: '#f0f000'
             hover: '#ff0000'
 
-        # The text selection color can be customized here.
-        # Leaving a value empty will default to the inverse of the content's color values.
+        default:
+          background: '#2e3440'
+          foreground: '#d8dee9'
+          dim_foreground: '#a5abb6'
+        cursor:
+          text: '#2e3440'
+          cursor: '#d8dee9'
+        vi_mode_cursor:
+          text: '#2e3440'
+          cursor: '#d8dee9'
         selection:
-            foreground: '#000000'
-            background: '#9aedfe'
-
-        # Normal colors
+          text: CellForeground
+          background: '#9aedfe'
+        search:
+          matches:
+            foreground: CellBackground
+            background: '#88c0d0'
+          bar:
+            background: '#434c5e'
+            foreground: '#d8dee9'
         normal:
-          black:   '#000000'
-          red:     '#ff5555'
-          green:   '#50fa7b'
-          yellow:  '#f1fa8c'
-          blue:    '#caa9fa'
-          magenta: '#ff79c6'
-          cyan:    '#8be9fd'
-          white:   '#bfbfbf'
-
-        # Bright colors
+          black: '#3b4252'
+          red: '#bf616a'
+          green: '#a3be8c'
+          yellow: '#ebcb8b'
+          blue: '#81a1c1'
+          magenta: '#b48ead'
+          cyan: '#88c0d0'
+          white: '#e5e9f0'
         bright:
-          black:   '#575b70'
-          red:     '#ff6e67'
-          green:   '#5af78e'
-          yellow:  '#f4f99d'
-          blue:    '#caa9fa'
-          magenta: '#ff92d0'
-          cyan:    '#9aedfe'
-          white:   '#e6e6e6'
+          black: '#4c566a'
+          red: '#bf616a'
+          green: '#a3be8c'
+          yellow: '#ebcb8b'
+          blue: '#81a1c1'
+          magenta: '#b48ead'
+          cyan: '#8fbcbb'
+          white: '#eceff4'
+        dim:
+          black: '#373e4d'
+          red: '#94545d'
+          green: '#809575'
+          yellow: '#b29e75'
+          blue: '#68809a'
+          magenta: '#8c738c'
+          cyan: '#6d96a5'
+          white: '#aeb3bb'
 
 # Key Bindings
 # ------------
@@ -410,7 +412,6 @@ input_mapping:
     - { mods: [Alt],            key: Enter,         action: ToggleFullscreen }
     - { mods: [Alt],            mouse: WheelDown,   action: DecreaseOpacity }
     - { mods: [Alt],            mouse: WheelUp,     action: IncreaseOpacity }
-    - { mods: [Control, Alt],   key: S,             action: ScreenshotVT }
     - { mods: [Control, Shift], key: Plus,          action: IncreaseFontSize }
     - { mods: [Control],        key: '0',           action: ResetFontSize }
     - { mods: [Control, Shift], key: Minus,         action: DecreaseFontSize }
@@ -436,4 +437,3 @@ input_mapping:
     - { mods: [Shift],          key: '}',           action: ScrollMarkDown, mode: "~Alt"}
     - { mods: [Shift],          mouse: WheelDown,   action: ScrollPageDown }
     - { mods: [Shift],          mouse: WheelUp,     action: ScrollPageUp }
-    - { mods: [Control],        key: O,             action: OpenFileManager }
