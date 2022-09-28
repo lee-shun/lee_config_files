@@ -15,8 +15,21 @@ local configuration = {
 		"Noto Color Emoji",
 	}),
 	font_size = 14.0,
-	color_scheme = "nord",
+	color_scheme = "nordfox",
 	enable_tab_bar = false,
 	hide_tab_bar_if_only_one_tab = true,
+	disable_default_key_bindings = true,
+	keys = {
+		{ key = "c", mods = "CTRL|SHIFT", action = wezterm.action.CopyTo("Clipboard") },
+		{ key = "v", mods = "CTRL|SHIFT", action = wezterm.action.PasteFrom("Clipboard") },
+		{ key = "=", mods = "CTRL", action = wezterm.action.IncreaseFontSize },
+		{ key = "-", mods = "CTRL", action = wezterm.action.DecreaseFontSize },
+		{ key = "j", mods = "ALT", action = wezterm.action.ScrollByLine(-3) },
+		{ key = "k", mods = "ALT", action = wezterm.action.ScrollByLine(3) },
+		{ key = "j", mods = "CTRL|ALT", action = wezterm.action.ScrollByPage(-1) },
+		{ key = "k", mods = "CTRL|ALT", action = wezterm.action.ScrollByPage(1) },
+        { key = 'x', mods = 'CTRL', action = wezterm.action.ActivateCopyMode },
+        { key = 'q', mods = 'CTRL', action = wezterm.action.QuickSelect }
+	},
 }
 return configuration
