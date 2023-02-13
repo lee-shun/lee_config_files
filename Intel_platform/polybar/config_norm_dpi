@@ -98,71 +98,9 @@ font-0 = Hasklug Nerd Font :size=10;0
 
 modules-left = rofi i3 memory system-nvidia-smi cpu
 modules-center = wlan
-modules-right = alsa backlight battery date
+modules-right = alsa xbacklight battery date
 
-[bar/hdpi_top]
-; monitor = HDMI-1-1
-background = #DF343332
-foreground = #b6a49b
-width = 100%
-height =30
-#offset-x = 0
-#offset-y = 10
-fixed-centered = true
 
-linecolor = #b0a090
-
-separator = " | "
-separator-font = 10
-
-;tray settings{{{
-tray-position = right
-tray-maxsize = 20
-tray-detached = false
-; tray-transparent = false
-tray-padding = 2
-tray-scale = 1.0
-;}}}
-
-# float bar
-#override-redirect = true
-
-# @change: use "border-top-size" instead of "border-top" since 3.3.1
-# 2019-07-14 23:18
-
-radius = 0
-line-size = 3
-;border-color = #ee2d2d2d
-border-top-size = 0
-;border-top-color = #ccfafafa
-border-left-size = 0
-;border-left-color = #00ff00
-border-bottom-size = 0
-;border-bottom-color = #ccfafafa
-border-right-size = 0
-;border-right-color = #00f
-
-spacing = 1
-lineheight = 2
-padding-left = 0
-padding-right = 0
-module-margin-left = 0
-module-margin-right = 0
-
-font-1 = Hasklug Nerd Font :size=18;0
-font-2 = Hasklug Nerd Font :size=18;0
-font-3 = Hasklug Nerd Font :size=18;0
-font-4 = Hasklug Nerd Font :size=18;0
-font-5 = Hasklug Nerd Font :size=18;0
-font-6 = Hasklug Nerd Font :size=18;0
-font-7 = Hasklug Nerd Font :size=18;0
-font-8 = Hasklug Nerd Font :size=18;0
-font-9 = Hasklug Nerd Font :size=18;0
-font-0 = Hasklug Nerd Font :size=18;0
-
-modules-left = rofi i3 memory system-nvidia-smi cpu
-modules-center = wlan
-modules-right = alsa backlight battery date
 
 [bar/external_top]
 ; monitor = eDP-1-1
@@ -217,7 +155,7 @@ font-0 = SauceCodePro Nerd Font :size=10;0
 
 modules-right= i3
 modules-center = memory cpu
-modules-left = wlan  alsa backlight battery date
+modules-left = wlan  alsa xbacklight battery date
 
 
 [module/date]
@@ -233,6 +171,14 @@ label-background = #DF3f3f3f
 label-underline = #3398ff
 label-padding = 1
 format-padding = 0
+
+[module/volume]
+type = internal/alsa
+format-volume = <ramp-volume> <label-volume>
+format-muted = 0% 
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
 
 [module/alsa]
 type = internal/alsa
@@ -263,6 +209,15 @@ bar-volume-empty = ─
 bar-volume-empty-font = 2
 bar-volume-empty-foreground = ${colors.foreground-alt}
 
+
+[module/poweroff]
+type = custom/script
+exec = echo " "
+click-left = rofi -modi run,drun,window -show drun
+click-right = i3lock-fancy -pg &
+click-middle = /usr/bin/rofi-logout
+format-padding = 1
+
 [module/rofi]
 type = custom/script
 exec = echo ""
@@ -285,6 +240,30 @@ label-disconnected-foreground = #66ffffff
 label-font = 6
 format-padding = 0
 
+[module/network]
+type = internal/network
+interface = wlp2s0
+interval = 3.0
+
+label = %essid%
+format-connected = <ramp-signal> <label-connected>
+format-connected-underline = #9f78e1
+label-connected = %essid%
+
+format-disconnected =
+;format-disconnected = <label-disconnected>
+;format-disconnected-underline = ${self.format-connected-underline}
+;label-disconnected = %ifname% disconnected
+;label-disconnected-foreground = ${colors.foreground-alt}
+
+ramp-signal-0 = 
+ramp-signal-1 = 
+ramp-signal-2 = 
+ramp-signal-3 = 
+ramp-signal-4 = 
+ramp-signal-foreground = ${colors.foreground-alt}
+
+;;; CPU usage {{{
 [module/cpu]
 type = internal/cpu
 
@@ -336,8 +315,10 @@ ramp-load-5-foreground = #fba922
 ramp-load-6-foreground = #ff5555
 ramp-load-7-foreground = #ff5555
 
+
 [module/memory]
 type = internal/memory
+
 ; Seconds to sleep between updates
 ; Default: 1
 interval = 2.0
@@ -414,14 +395,13 @@ ramp-free-6 = ▇
 ramp-free-7 = █
 ;;; }}}
 
-[module/backlight]
+[module/xbacklight]
 type = internal/backlight
 ;monitor = HDMI-A-0
 ; card = amdgpu_bl0
 card=intel_backlight
 format = <label> <bar>
-label =  %percentage%%
-enable-scroll = true
+label =   %percentage%%
 
 bar-width = 10
 bar-indicator = |

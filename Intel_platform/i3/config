@@ -12,13 +12,68 @@
 #
 ###################################################################################
 
-# Please see https://i3wm.org/docs/userguide.html for a complete reference!
-# Configure border style <normal|1pixel|pixel xx|none|pixel>
+#############################
+### settings for i3-gaps: ###
+#############################
+
+# Set inner/outer gaps
+gaps inner 8
+gaps outer 5
+hide_edge_borders smart_no_gaps
+
+# Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
+# gaps inner|outer current|all set|plus|minus <px>
+# gaps inner all set 10
+# gaps outer all plus 5
+
+# Smart gaps (gaps used if only more than one container on the workspace)
+# smart_gaps on
+
+# Smart borders (draw borders around container only if it is not the only container on this workspace)
+# on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
+smart_borders on
+
+# Press $mod+Shift+g to enter the gap mode. Choose o or i for modifying outer/inner gaps. Press one of + / - (in-/decrement for current workspace) or 0 (remove gaps for current workspace). If you also press Shift with these keys, the change will be global for all workspaces.
+set $mode_gaps Gaps: (o) outer, (i) inner
+set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
+set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
+bindsym $mod+Shift+g mode "$mode_gaps"
+
+mode "$mode_gaps" {
+    bindsym o      mode "$mode_gaps_outer"
+        bindsym i      mode "$mode_gaps_inner"
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+mode "$mode_gaps_inner" {
+    bindsym plus  gaps inner current plus 5
+        bindsym minus gaps inner current minus 5
+        bindsym 0     gaps inner current set 0
+
+        bindsym Shift+plus  gaps inner all plus 5
+        bindsym Shift+minus gaps inner all minus 5
+        bindsym Shift+0     gaps inner all set 0
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+mode "$mode_gaps_outer" {
+    bindsym plus  gaps outer current plus 5
+        bindsym minus gaps outer current minus 5
+        bindsym 0     gaps outer current set 0
+
+        bindsym Shift+plus  gaps outer all plus 5
+        bindsym Shift+minus gaps outer all minus 5
+        bindsym Shift+0     gaps outer all set 0
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+# # Please see https://i3wm.org/docs/userguide.html for a complete reference!
+# # Configure border style <normal|1pixel|pixel xx|none|pixel>
 new_window pixel
 new_float normal
-
-# Hide borders
-hide_edge_borders smart_no_gaps
 
 # change borders
 # bindsym $mod+u border none
@@ -46,7 +101,7 @@ focus_follows_mouse yes
 force_focus_wrapping yes
 
 # start a terminal
-bindsym $mod+Return exec --no-startup-id xfce4-terminal
+bindsym $mod+Return exec --no-startup-id alacritty
 
 # kill focused window
 bindsym $mod+Shift+c kill
@@ -58,7 +113,7 @@ bindsym $mod+b exec --no-startup-id google-chrome  --password-store=gnome
 
 bindsym $mod+o exec --no-startup-id flameshot gui
 
-bindsym $mod+e exec --no-startup-id polybar top
+bindsym $mod+e exec --no-startup-id polybar hdpi_top
 bindsym $mod+shift+e exec --no-startup-id killall polybar
 
 # There also is the (new) i3-dmenu-desktop which only displays applications
@@ -180,38 +235,32 @@ bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9; workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws0; workspace $ws0
 
-set $monitor1 eDP-1-1
-set $monitor2 HDMI-1-1
-workspace 1 output $monitor2
-workspace 2 output $monitor2
-workspace 3 output $monitor2
-workspace 4 output $monitor2
-workspace 5 output $monitor1
-workspace 6 output $monitor1
-workspace 7 output $monitor1
-workspace 8 output $monitor1
-workspace 9 output $monitor1
-workspace 0 output $monitor1
+# set $monitor1 eDP-1-1
+# set $monitor2 HDMI-1-1
+# workspace 1 output $monitor2
+# workspace 2 output $monitor2
+# workspace 3 output $monitor2
+# workspace 4 output $monitor2
+# workspace 5 output $monitor1
+# workspace 6 output $monitor1
+# workspace 7 output $monitor1
+# workspace 8 output $monitor1
+# workspace 9 output $monitor1
+# workspace 0 output $monitor1
 
 # Open applications on specific workspaces
-assign [class="Alacritty"] $ws1
-assign [class="Google-chrome"] $ws2
-assign [class="Master PDF Editor"] $ws3
-assign [class="Foxit Reader"] $ws3
-assign [class="netease-cloud-music"] $ws5
-assign [class="Evolution"] $ws6
+# assign [class="Alacritty"] $ws1
+# assign [class="Google-chrome"] $ws2
+# assign [class="Master PDF Editor"] $ws3
+# assign [class="Foxit Reader"] $ws3
+# assign [class="netease-cloud-music"] $ws5
+# assign [class="Evolution"] $ws6
 
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
 
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
-
-# reload the configuration file
-# bindsym $mod+Shift+r reload
-
-# exit i3 (logs you out of your X session)
-# bindsym $mod+Shift+q exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # Set shut down, restart and locking features
 bindsym $mod+Shift+q mode "$mode_system"
@@ -291,117 +340,22 @@ client.unfocused            $bg     $bg         $ia     $id
 client.focused_inactive     $bg     $bg         $ac     $ncyan
 client.urgent               $yw     $nblack     $tx     $id
 
-
-##############################
-#### settings for i3-bar: ####
-##############################
-## hide/unhide i3status bar
-# bindsym $mod+m bar mode toggle
-
-# bar
-# {
-#     i3bar_command i3bar
-#     status_command i3blocks
-#     position top
-#     font pango: SpaceMono Nerd Font Regular 9
-
-#     colors {
-#         # background #595B5B
-#         background $term_background
-#         statusline #F9FAF9
-#         # statusline #aacc60
-#         separator  #629692
-
-# #                   Border Background Text
-#         focused_workspace   $fg    $fg        $bg
-#         active_workspace    $bg    $bg        $purple
-#         inactive_workspace  $bg    $bg        $cyan
-#         urgent_workspace    $bg    $bg        $magenta
-#         background          $bg
-#     }
-# }
-
-#############################
-### settings for i3-gaps: ###
-#############################
-
-# Set inner/outer gaps
-gaps inner 8
-gaps outer 5
-
-# Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
-# gaps inner|outer current|all set|plus|minus <px>
-# gaps inner all set 10
-# gaps outer all plus 5
-
-# Smart gaps (gaps used if only more than one container on the workspace)
-# smart_gaps on
-
-# Smart borders (draw borders around container only if it is not the only container on this workspace)
-# on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
-smart_borders on
-
-# Press $mod+Shift+g to enter the gap mode. Choose o or i for modifying outer/inner gaps. Press one of + / - (in-/decrement for current workspace) or 0 (remove gaps for current workspace). If you also press Shift with these keys, the change will be global for all workspaces.
-set $mode_gaps Gaps: (o) outer, (i) inner
-set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
-set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
-bindsym $mod+Shift+g mode "$mode_gaps"
-
-mode "$mode_gaps" {
-    bindsym o      mode "$mode_gaps_outer"
-        bindsym i      mode "$mode_gaps_inner"
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-}
-mode "$mode_gaps_inner" {
-    bindsym plus  gaps inner current plus 5
-        bindsym minus gaps inner current minus 5
-        bindsym 0     gaps inner current set 0
-
-        bindsym Shift+plus  gaps inner all plus 5
-        bindsym Shift+minus gaps inner all minus 5
-        bindsym Shift+0     gaps inner all set 0
-
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-}
-mode "$mode_gaps_outer" {
-    bindsym plus  gaps outer current plus 5
-        bindsym minus gaps outer current minus 5
-        bindsym 0     gaps outer current set 0
-
-        bindsym Shift+plus  gaps outer all plus 5
-        bindsym Shift+minus gaps outer all minus 5
-        bindsym Shift+0     gaps outer all set 0
-
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-}
-
-
 #############################
 ##  Autostart applications ##
 #############################
 
+# display
+exec --no-startup-id feh  --bg-fill /home/ls/图片/wallhaven-73kvwe.jpg
+exec --no-startup-id picom -o 0.95 -i 0.88 --detect-rounded-corners --blur-background-fixed -f -D 5 -c -b
+
+exec --no-startup-id bash ~/.config/useful_scripts/hidpi.sh
+
 exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=ssh,secrets,pkcs11
-exec --no-startup-id bash ~/.config/useful_scripts/arandr.sh
 exec --no-startup-id bash ~/.config/useful_scripts/tap-to-click.sh
 exec --no-startup-id bash ~/.config/useful_scripts/inverse_scroll.sh
-# exec --no-startup-id bash ~/.config/useful_scripts/inverse_scroll.sh
-exec --no-startup-id  feh  --bg-fill /home/ls/图片/wallpapers/illustration-Neon-Genesis-Evangelion-text-cartoon-vintage-vaporwave-358281-wallhere.com.jpg
-
 
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id xfce4-volumed
 exec --no-startup-id nm-applet
-exec --no-startup-id picom -o 0.95 -i 0.88 --detect-rounded-corners --vsync --blur-background-fixed -f -D 5 -c -b
-exec --no-startup-id xrandr --output HDMI-1-1 --auto
-# exec --no-startup-id bash ~/.config/useful_scripts/screens_output.sh
-exec --no-startup-id redshift-gtk
-exec --no-startup-id evolution
-
-# exec --no-startup-id electron-ssr
-# exec --no-startup-id bash ~/.config/useful_scripts/
-# exec --no-startup-id picom -b
 
 # vim:filetype=i3config
