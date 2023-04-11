@@ -101,7 +101,8 @@ focus_follows_mouse yes
 force_focus_wrapping yes
 
 # start a terminal
-bindsym $mod+Return exec --no-startup-id alacritty
+# bindsym $mod+Return exec --no-startup-id alacritty
+bindsym $mod+Return exec --no-startup-id xfce4-terminal
 
 # kill focused window
 bindsym $mod+Shift+c kill
@@ -110,6 +111,7 @@ bindsym $mod+shift+p exec --no-startup-id rofi -show run
 bindsym $mod+p exec --no-startup-id rofi -show drun
 
 bindsym $mod+b exec --no-startup-id google-chrome  --password-store=gnome
+bindsym $mod+shift+b exec --no-startup-id microsoft-edge  --password-store=gnome
 
 bindsym $mod+o exec --no-startup-id flameshot gui
 
@@ -235,18 +237,18 @@ bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9; workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws0; workspace $ws0
 
-# set $monitor1 eDP-1-1
-# set $monitor2 HDMI-1-1
-# workspace 1 output $monitor2
-# workspace 2 output $monitor2
-# workspace 3 output $monitor2
-# workspace 4 output $monitor2
-# workspace 5 output $monitor1
-# workspace 6 output $monitor1
-# workspace 7 output $monitor1
-# workspace 8 output $monitor1
-# workspace 9 output $monitor1
-# workspace 0 output $monitor1
+set $monitor1 eDP-1-1
+set $monitor2 HDMI-1-1
+workspace 1 output $monitor1
+workspace 2 output $monitor1
+workspace 3 output $monitor1
+workspace 4 output $monitor2
+workspace 5 output $monitor2
+workspace 6 output $monitor2
+workspace 7 output $monitor2
+workspace 8 output $monitor2
+workspace 9 output $monitor2
+workspace 0 output $monitor2
 
 # Open applications on specific workspaces
 # assign [class="Alacritty"] $ws1
@@ -345,17 +347,17 @@ client.urgent               $yw     $nblack     $tx     $id
 #############################
 
 # display
-exec --no-startup-id feh  --bg-fill /home/ls/图片/wallhaven-73kvwe.jpg
-exec --no-startup-id picom -o 0.95 -i 0.88 --detect-rounded-corners --blur-background-fixed -f -D 5 -c -b
-
-exec --no-startup-id bash ~/.config/useful_scripts/hidpi.sh
-
 exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=ssh,secrets,pkcs11
+exec --no-startup-id picom -o 0.95 -i 0.88 -f -D 5 -c -b
+exec --no-startup-id bash ~/.screenlayout/lateral.sh
+exec --no-startup-id feh  --bg-fill /home/ls/图片/wallhaven-zy8pvj.png
+
 exec --no-startup-id bash ~/.config/useful_scripts/tap-to-click.sh
 exec --no-startup-id bash ~/.config/useful_scripts/inverse_scroll.sh
 
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id xfce4-volumed
 exec --no-startup-id nm-applet
+exec --no-startup-id redshift-gtk
 
 # vim:filetype=i3config
