@@ -18,7 +18,6 @@ HIST_STAMPS="mm/dd/yyyy"
 
 plugins=(
     git
-    fzf
     zsh-syntax-highlighting
     zsh-autosuggestions
     )
@@ -77,10 +76,10 @@ alias lg="lazygit"
 alias sys="neofetch"
 
 # 添加ranger
-# alias R="ranger"
-# export RANGER_LOAD_DEFAULT_RC=FALSE
+alias R="ranger"
+export RANGER_LOAD_DEFAULT_RC=FALSE
 
-alias R="joshuto"
+alias J="joshuto"
 
 #  git
 alias P='git push'
@@ -138,6 +137,22 @@ export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/cuda/lib64"
 # Tensorrt
 # export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/TensorRT-7.1.3.4/lib"
 
+# perl
+PATH="/home/ls/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="/home/ls/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/home/ls/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/home/ls/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/home/ls/perl5"; export PERL_MM_OPT;
+
+# cargo
+export PATH="/home/ls/.cargo/bin:$PATH"
+
+# npm
+export PATH=~/node_modules/.bin:$PATH
+
+# local lsp
+alias luamake=/home/ls/local_lsp/lua-language-server/3rd/luamake/luamake
+
 #fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -177,19 +192,3 @@ _fzf_comprun() {
     *)            fzf "$@" ;;
   esac
 }
-
-# perl
-PATH="/home/ls/perl5/bin${PATH:+:${PATH}}"; export PATH;
-PERL5LIB="/home/ls/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
-PERL_LOCAL_LIB_ROOT="/home/ls/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
-PERL_MB_OPT="--install_base \"/home/ls/perl5\""; export PERL_MB_OPT;
-PERL_MM_OPT="INSTALL_BASE=/home/ls/perl5"; export PERL_MM_OPT;
-
-# cargo
-export PATH="/home/ls/.cargo/bin:$PATH"
-
-# npm
-export PATH=~/node_modules/.bin:$PATH
-
-# local lsp
-alias luamake=/home/ls/local_lsp/lua-language-server/3rd/luamake/luamake
