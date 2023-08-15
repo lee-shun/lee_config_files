@@ -11,9 +11,16 @@
 # Email:lee970802@163.com
 # 
 ## ##############################################################
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 export ZSH=$HOME/.oh-my-zsh
 
-ZSH_THEME="robbyrussell"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 HIST_STAMPS="mm/dd/yyyy"
 
 plugins=(
@@ -111,10 +118,15 @@ export MANPATH=${MANPATH}:/usr/local/texlive/2022/texmf-dist/doc/man
 export INFOPATH=${INFOPATH}:/usr/local/texlive/2022/texmf-dist/doc/info
 export PATH=${PATH}:/usr/local/texlive/2022/bin/x86_64-linux
 
+# ros1
 source /opt/ros/noetic/setup.zsh
 source ~/catkin_ws/devel/setup.zsh
 # cv_bridge
-source ~/cv_bridge_ws/install/setup.zsh --extend
+# source ~/cv_bridge_ws/install/setup.zsh --extend
+
+# ros2
+# source /opt/ros/foxy/setup.zsh
+# source ~/ros2_ws/install/setup.zsh
 
 # 分布式ros
 ## Bell984
@@ -159,23 +171,23 @@ alias luamake=/home/ls/local_lsp/lua-language-server/3rd/luamake/luamake
 #  fzf-settings
 export FZF_BASE=/home/ls/.vim/dein/repos/github.com/junegunn/fzf
 export FZF_DEFAULT_OPTS='--bind ctrl-j:down,ctrl-k:up --preview "[[ $(file --mime {}) =~ binary ]] && echo {} is a binary file || (ccat --color=always {} || highlight -O ansi -l {} || cat {}) 2> /dev/null | head -500"'
-export FZF_DEFAULT_COMMAND='fd'
+export FZF_DEFAULT_COMMAND='fdfind'
 export FZF_COMPLETION_TRIGGER='\'
 export FZF_TMUX=1
 export FZF_TMUX_HEIGHT='80%'
-export fzf_preview_cmd='[[ $(file --mime {}) =~ binary ]] && echo {} is a binary file || (ccat --color=always {} || highlight -O ansi -l {} || cat {}) 2> /dev/null | head -500'
+export fzf_preview_cmd='[[ $(file --mime {}) =~ binary ]] && echo {} is a binary file || (ccat --color=always {} || highlight -O ansi -l {} || batcat {} || cat {}) 2> /dev/null | head -500'
 
 #  Use fd (https://github.com/sharkdp/fd) instead of the default find
 # command for listing path candidates.
 # - The first argument to the function ($1) is the base path to start traversal
 # - See the source code (completion.{bash,zsh}) for the details.
 _fzf_compgen_path() {
-  fd --hidden --follow --exclude ".git" . "$1" --exclude ".wine32" . "$1" --exclude ".cache" . "$1"
+  fdfind --hidden --follow --exclude ".git" . "$1" --exclude ".wine32" . "$1" --exclude ".cache" . "$1"
 }
 
 # Use fd to generate the list for directory completion
 _fzf_compgen_dir() {
-  fd --type d --hidden --follow --exclude ".git" . "$1" --exclude ".wine32" . "$1" --exclude ".cache" . "$1"
+  fdfind --type d --hidden --follow --exclude ".git" . "$1" --exclude ".wine32" . "$1" --exclude ".cache" . "$1"
 }
 
 # (EXPERIMENTAL) Advanced customization of fzf options via _fzf_comprun function
@@ -192,3 +204,6 @@ _fzf_comprun() {
     *)            fzf "$@" ;;
   esac
 }
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
