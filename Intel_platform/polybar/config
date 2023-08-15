@@ -85,27 +85,82 @@ padding-right = 0
 module-margin-left = 0
 module-margin-right = 0
 
-font-1 = Hasklug Nerd Font :size=10;0
-font-2 = Hasklug Nerd Font :size=10;0
-font-3 = Hasklug Nerd Font :size=10;0
-font-4 = Hasklug Nerd Font :size=10;0
-font-5 = Hasklug Nerd Font :size=10;0
-font-6 = Hasklug Nerd Font :size=10;0
-font-7 = Hasklug Nerd Font :size=10;0
-font-8 = Hasklug Nerd Font :size=10;0
-font-9 = Hasklug Nerd Font :size=10;0
-font-0 = Hasklug Nerd Font :size=10;0
+font-1 = Hasklug Nerd Font :size=13;0
+font-2 = Hasklug Nerd Font :size=13;0
+font-3 = Hasklug Nerd Font :size=13;0
+font-4 = Hasklug Nerd Font :size=13;0
+font-5 = Hasklug Nerd Font :size=13;0
+font-6 = Hasklug Nerd Font :size=13;0
+font-7 = Hasklug Nerd Font :size=13;0
+font-8 = Hasklug Nerd Font :size=13;0
+font-9 = Hasklug Nerd Font :size=13;0
+font-0 = Hasklug Nerd Font :size=13;0
 
 modules-left = rofi i3 memory system-nvidia-smi cpu
 modules-center = wlan
 modules-right = alsa backlight battery date
+
+[bar/external_top]
+monitor = HDMI-1-1
+background = #DF343332
+foreground = #b6a49b
+width = 100%
+height = 20
+#offset-x = 0
+#offset-y = 10
+fixed-centered = true
+
+linecolor = #b0a090
+
+separator = " | "
+separator-font = 10
+
+# float bar
+#override-redirect = true
+
+# @change: use "border-top-size" instead of "border-top" since 3.3.1
+# 2019-07-14 23:18
+
+radius = 0
+line-size = 3
+;border-color = #ee2d2d2d
+border-top-size = 0
+;border-top-color = #ccfafafa
+border-left-size = 0
+;border-left-color = #00ff00
+border-bottom-size = 0
+;border-bottom-color = #ccfafafa
+border-right-size = 0
+;border-right-color = #00f
+
+spacing = 1
+lineheight = 2
+padding-left = 0
+padding-right = 0
+module-margin-left = 0
+module-margin-right = 0
+
+font-1 = Hasklug Nerd Font :size=13;0
+font-2 = Hasklug Nerd Font :size=13;0
+font-3 = Hasklug Nerd Font :size=13;0
+font-4 = Hasklug Nerd Font :size=13;0
+font-5 = Hasklug Nerd Font :size=13;0
+font-6 = Hasklug Nerd Font :size=13;0
+font-7 = Hasklug Nerd Font :size=13;0
+font-8 = Hasklug Nerd Font :size=13;0
+font-9 = Hasklug Nerd Font :size=13;0
+font-0 = Hasklug Nerd Font :size=13;0
+
+modules-left= i3 memory cpu
+modules-center = wlan
+modules-right = backlight battery date
 
 [bar/hdpi_top]
 ; monitor = HDMI-1-1
 background = #DF343332
 foreground = #b6a49b
 width = 100%
-height =30
+height =28
 #offset-x = 0
 #offset-y = 10
 fixed-centered = true
@@ -117,7 +172,7 @@ separator-font = 10
 
 ;tray settings{{{
 tray-position = right
-tray-maxsize = 20
+tray-maxsize = 50
 tray-detached = false
 ; tray-transparent = false
 tray-padding = 2
@@ -164,12 +219,13 @@ modules-left = rofi i3 memory system-nvidia-smi cpu
 modules-center = wlan
 modules-right = alsa backlight battery date
 
-[bar/external_top]
-; monitor = eDP-1-1
+
+[bar/hdpi_ex_top]
+monitor = HDMI-1-1
 background = #DF343332
 foreground = #b6a49b
 width = 100%
-height = 20
+height =28
 #offset-x = 0
 #offset-y = 10
 fixed-centered = true
@@ -178,6 +234,15 @@ linecolor = #b0a090
 
 separator = " | "
 separator-font = 10
+
+;tray settings{{{
+tray-position = right
+tray-maxsize = 50
+tray-detached = false
+; tray-transparent = false
+tray-padding = 2
+tray-scale = 1.0
+;}}}
 
 # float bar
 #override-redirect = true
@@ -204,21 +269,20 @@ padding-right = 0
 module-margin-left = 0
 module-margin-right = 0
 
-font-1 = SauceCodePro Nerd Font :size=10;0
-font-2 = SauceCodePro Nerd Font :size=10;0
-font-3 = SauceCodePro Nerd Font :size=10;0
-font-4 = SauceCodePro Nerd Font :size=10;0
-font-5 = SauceCodePro Nerd Font :size=10;0
-font-6 = SauceCodePro Nerd Font :size=10;0
-font-7 = SauceCodePro Nerd Font :size=10;0
-font-8 = SauceCodePro Nerd Font :size=10;0
-font-9 = SauceCodePro Nerd Font :size=10;0
-font-0 = SauceCodePro Nerd Font :size=10;0
+font-1 = Hasklug Nerd Font :size=18;0
+font-2 = Hasklug Nerd Font :size=18;0
+font-3 = Hasklug Nerd Font :size=18;0
+font-4 = Hasklug Nerd Font :size=18;0
+font-5 = Hasklug Nerd Font :size=18;0
+font-6 = Hasklug Nerd Font :size=18;0
+font-7 = Hasklug Nerd Font :size=18;0
+font-8 = Hasklug Nerd Font :size=18;0
+font-9 = Hasklug Nerd Font :size=18;0
+font-0 = Hasklug Nerd Font :size=18;0
 
-modules-right= i3
-modules-center = memory cpu
-modules-left = wlan  alsa backlight battery date
-
+modules-left = rofi i3 memory system-nvidia-smi cpu
+modules-center = wlan
+modules-right = alsa backlight battery date
 
 [module/date]
 type = internal/date
@@ -267,7 +331,6 @@ bar-volume-empty-foreground = ${colors.foreground-alt}
 type = custom/script
 exec = echo ""
 click-left = rofi -modi run,drun,window -show drun
-click-right = slock
 format-padding = 1
 
 [module/wlan]
@@ -277,7 +340,7 @@ interval = 1.0
 format-connected = <label-connected>
 format-connected-prefix =" "
 format-connected-prefix-foreground = #b6a49b
-label-connected = %essid%: %upspeed:5% %downspeed:5% 
+label-connected = %essid%:  %upspeed:5%  %downspeed:5%
 
 format-disconnected = <label-disconnected>
 label-disconnected = not connected
@@ -569,13 +632,13 @@ enable-scroll = false
 ; Default: true
 wrapping-scroll = false
 
-; Set the scroll cycle direction 
+; Set the scroll cycle direction
 ; Default: true
 reverse-scroll = false
 
-; Use fuzzy (partial) matching on labels when assigning 
+; Use fuzzy (partial) matching on labels when assigning
 ; icons to workspaces
-; Example: code;♚ will apply the icon to all workspaces 
+; Example: code;♚ will apply the icon to all workspaces
 ; containing 'code' in the label
 ; Default: false
 fuzzy-match = true
