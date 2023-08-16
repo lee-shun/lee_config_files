@@ -27,7 +27,7 @@ print_bit() {
 }
 
 INTERVAL=10
-INTERFACES="enp0s25 wlp3s0"
+INTERFACES="enp1s0"
 
 declare -A bytes
 
@@ -44,8 +44,8 @@ while true; do
         bytes[now_rx_$interface]="$(cat /sys/class/net/"$interface"/statistics/rx_bytes)"
         bytes[now_tx_$interface]="$(cat /sys/class/net/"$interface"/statistics/tx_bytes)"
 
-        bytes_down=$((((${bytes[now_rx_$interface]} - ${bytes[past_rx_$interface]})) / INTERVAL))
-        bytes_up=$((((${bytes[now_tx_$interface]} - ${bytes[past_tx_$interface]})) / INTERVAL))
+        bytes_down="$((((${bytes[now_rx_$interface]} - ${bytes[past_rx_$interface]})) / INTERVAL))"
+        bytes_up="$((((${bytes[now_tx_$interface]} - ${bytes[past_tx_$interface]})) / INTERVAL))"
 
         down=$(((( "$down" + "$bytes_down" ))))
         up=$(((( "$up" + "$bytes_up" ))))
