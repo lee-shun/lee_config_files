@@ -164,6 +164,61 @@ modules-left = rofi i3 memory system-nvidia-smi cpu
 modules-center = wlan wire
 modules-right = alsa battery date
 
+[bar/external_hdpi_top]
+monitor = HDMI-1-1
+background = #DF343332
+foreground = #b6a49b
+width = 100%
+height =30
+#offset-x = 0
+#offset-y = 10
+fixed-centered = true
+
+linecolor = #b0a090
+
+separator = " | "
+separator-font = 10
+
+# float bar
+#override-redirect = true
+
+# @change: use "border-top-size" instead of "border-top" since 3.3.1
+# 2019-07-14 23:18
+
+radius = 0
+line-size = 3
+;border-color = #ee2d2d2d
+border-top-size = 0
+;border-top-color = #ccfafafa
+border-left-size = 0
+;border-left-color = #00ff00
+border-bottom-size = 0
+;border-bottom-color = #ccfafafa
+border-right-size = 0
+;border-right-color = #00f
+
+spacing = 1
+lineheight = 2
+padding-left = 0
+padding-right = 0
+module-margin-left = 0
+module-margin-right = 0
+
+font-1 = Hasklug Nerd Font :size=18;0
+font-2 = Hasklug Nerd Font :size=18;0
+font-3 = Hasklug Nerd Font :size=18;0
+font-4 = Hasklug Nerd Font :size=18;0
+font-5 = Hasklug Nerd Font :size=18;0
+font-6 = Hasklug Nerd Font :size=18;0
+font-7 = Hasklug Nerd Font :size=18;0
+font-8 = Hasklug Nerd Font :size=18;0
+font-9 = Hasklug Nerd Font :size=18;0
+font-0 = Hasklug Nerd Font :size=18;0
+
+modules-left = rofi i3 memory system-nvidia-smi cpu
+modules-center = wlan wire
+modules-right = alsa battery date
+
 [bar/external_top]
 ; monitor = eDP-1-1
 background = #DF343332

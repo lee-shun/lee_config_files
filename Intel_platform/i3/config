@@ -114,7 +114,7 @@ bindsym $mod+shift+b exec --no-startup-id google-chrome  --password-store=gnome
 bindsym $mod+b exec --no-startup-id microsoft-edge  --password-store=gnome
 bindsym $mod+o exec --no-startup-id flameshot gui
 
-bindsym $mod+e exec --no-startup-id polybar hdpi_top & polybar hdpi_ex_top
+bindsym $mod+e exec --no-startup-id polybar hdpi_top & polybar external_hdpi_top
 bindsym $mod+shift+e exec --no-startup-id killall polybar
 
 # There also is the (new) i3-dmenu-desktop which only displays applications
