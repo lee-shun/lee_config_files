@@ -162,7 +162,7 @@ font-0 = Hasklug Nerd Font :size=18;0
 
 modules-left = rofi i3 memory system-nvidia-smi cpu
 modules-center = wlan wire
-modules-right = alsa battery date
+modules-right = alsa backlight battery date
 
 [bar/external_hdpi_top]
 monitor = HDMI-1-1
@@ -217,7 +217,7 @@ font-0 = Hasklug Nerd Font :size=18;0
 
 modules-left = rofi i3 memory system-nvidia-smi cpu
 modules-center = wlan wire
-modules-right = alsa battery date
+modules-right = alsa backlight battery date
 
 [bar/external_top]
 ; monitor = eDP-1-1
@@ -342,7 +342,7 @@ format-padding = 0
 
 [module/wire]
 type = internal/network
-interface = enp0s31f6
+interface = enx000ec67efe80
 interval = 1.0
 format-connected = <label-connected>
 format-connected-prefix ="NET: "
