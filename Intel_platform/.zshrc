@@ -47,7 +47,7 @@ zstyle :bracketed-paste-magic paste-init pasteinit
 zstyle :bracketed-paste-magic paste-finish pastefinish
 
 #基本映射
-alias vim="nvim"
+# alias vim="nvim"
 
 alias Q="exit"
 alias cl="clear"
@@ -119,8 +119,8 @@ export INFOPATH=${INFOPATH}:/usr/local/texlive/2022/texmf-dist/doc/info
 export PATH=${PATH}:/usr/local/texlive/2022/bin/x86_64-linux
 
 # ros1
-source /opt/ros/noetic/setup.zsh
-source ~/catkin_ws/devel/setup.zsh
+# source /opt/ros/noetic/setup.zsh
+# source ~/catkin_ws/devel/setup.zsh
 # cv_bridge
 # source ~/cv_bridge_ws/install/setup.zsh --extend
 
