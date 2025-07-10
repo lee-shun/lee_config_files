@@ -9,6 +9,10 @@ set window-width 800
 set window-height 1000
 set selection-clipboard clipboard
 
+# 启用 SyncTeX 并绑定反向搜索命令 
+set synctex true 
+set synctex-editor-command "nvr --remote-silent %f -c %l"
+
 #
 # Startup options
 #
