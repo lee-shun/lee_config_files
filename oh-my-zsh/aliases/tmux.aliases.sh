@@ -1,0 +1,6 @@
+alias tsnew="tmux new -s "
+alias tl="tmux list-sessions"
+alias tat="tmux attach -t"
+alias tks="tmux kill-session -t"
+alias tkw="tmux kill-window -t"
+alias tkp="tmux kill-pane -t"

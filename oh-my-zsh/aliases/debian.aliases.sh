@@ -1,0 +1,10 @@
+alias update="sudo apt update"
+alias canupgrade="sudo apt list --upgradable"
+alias upgrade="sudo apt upgrade"
+alias install="sudo apt install"
+alias remove="sudo apt remove"
+alias autoremove="sudo apt autoremove"
+
+alias getinstall="sudo apt-get install"
+alias getupdate="sudo apt-get update"
+alias getremove="sudo apt-get remove"

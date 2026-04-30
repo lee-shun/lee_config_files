@@ -1,5 +1,5 @@
 #!/bin/bash
-# 安装 zsh 和 oh-my-zsh，配置默认 shell
+# 安装 zsh，链接 .zshrc，配置默认 shell
 # 用法: bash install_zsh_oh_my_zsh.sh
 
 set -euo pipefail
@@ -8,7 +8,7 @@ SCRIPT_DIR="$(dirname "$(readlink -f "$0")")"
 source "$SCRIPT_DIR/../utility_tool_bash/common_utils.sh"
 
 log_step "=========================================="
-log_step "  安装 zsh + oh-my-zsh"
+log_step "  安装 zsh + 配置 .zshrc"
 log_step "=========================================="
 
 # 定位 repo 根目录
@@ -18,11 +18,10 @@ if [ -z "$REPO_ROOT" ]; then
     exit 1
 fi
 
-OHMYZSH_SRC="$REPO_ROOT/oh-my-zsh"
-ZSHRC_SRC="$SCRIPT_DIR/zshrc"
+ZSHRC_SRC="$REPO_ROOT/oh-my-zsh/.zshrc"
 
 # ---------- 安装 zsh ----------
-log_step "[1/4] 检查 zsh"
+log_step "[1/3] 检查 zsh"
 if command -v zsh &>/dev/null; then
     log_info "zsh 已安装: $(zsh --version)"
 else
@@ -36,25 +35,8 @@ else
     log_success "zsh 安装完成"
 fi
 
-# ---------- 安装 oh-my-zsh ----------
-log_step "[2/4] 配置 oh-my-zsh"
-if [ -d "$OHMYZSH_SRC" ]; then
-    log_info "使用 repo 中的 oh-my-zsh"
-    create_symlink "$OHMYZSH_SRC" "$HOME/.oh-my-zsh"
-else
-    log_warn "repo 中未找到 oh-my-zsh 目录: $OHMYZSH_SRC"
-    if confirm_action "是否从官方自动安装 oh-my-zsh？"; then
-        log_info "正在安装 oh-my-zsh..."
-        sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended || {
-            log_error "oh-my-zsh 安装失败"
-        }
-    else
-        log_info "跳过 oh-my-zsh 安装"
-    fi
-fi
-
 # ---------- 配置 .zshrc ----------
-log_step "[3/4] 配置 .zshrc"
+log_step "[2/3] 配置 .zshrc"
 if [ -f "$ZSHRC_SRC" ]; then
     log_info "使用 repo 中的 zshrc 配置"
     create_symlink "$ZSHRC_SRC" "$HOME/.zshrc"
@@ -63,12 +45,12 @@ else
     if [ -f "$HOME/.zshrc" ]; then
         log_info "保留现有 .zshrc"
     else
-        log_info "使用 oh-my-zsh 默认 .zshrc（下次启动 zsh 时自动生成）"
+        log_info "没有 .zshrc，下次启动 zsh 时自动生成"
     fi
 fi
 
 # ---------- 设置默认 shell ----------
-log_step "[4/4] 设置默认 shell"
+log_step "[3/3] 设置默认 shell"
 CURRENT_SHELL="$(grep "^$USER:" /etc/passwd | cut -d: -f7)"
 if [ "$CURRENT_SHELL" = "/bin/zsh" ]; then
     log_info "默认 shell 已经是 zsh"
@@ -88,6 +70,7 @@ else
 fi
 
 log_success ""
-log_success "zsh + oh-my-zsh 配置完成！"
+log_success "zsh 配置完成！"
 log_info "启动 zsh: zsh"
-log_info "编辑配置: nano ~/.zshrc"
+log_info "编辑配置: nvim ~/.zshrc"
+log_info "自定义模块: $REPO_ROOT/oh-my-zsh/utils/  $REPO_ROOT/oh-my-zsh/aliases/  $REPO_ROOT/oh-my-zsh/lib/"
