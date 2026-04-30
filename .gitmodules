@@ -1,3 +1,0 @@
-[submodule "i3wm_setup/tmux/plugins/tpm"]
-	path = i3wm_setup/tmux/plugins/tpm
-	url = https://github.com/tmux-plugins/tpm
