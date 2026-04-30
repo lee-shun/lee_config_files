@@ -1,0 +1,5 @@
+*.tar.gz
+
+i3wm_setup/tmux/plugins/*
+!i3wm_setup/tmux/plugins/tpm/
+!i3wm_setup/tmux/plugins/tpm/**

@@ -1,0 +1,407 @@
+<?xml version="1.0" encoding="utf-8"?>
+<weatherdata>
+  <apiChanges>
+    <!--NB!!! Since we have no other options to contact our users of forecast.xml, we have decided to use this method to get your attention to some major changes with our API-->
+    <!--This summer, forecast.xml and forecast_hour_by_hour.xml will be discontinued in favour of a newer JSON API. An exactly date is not set yet.-->
+    <!--Vi encourage you already now to switch to the new API.-->
+    <!--There are a lot of changes, and you can read all the technical details in our new developer portal https://developer.yr.no-->
+  </apiChanges>
+  <location>
+    <name>Linköping</name>
+    <type>Regional capital</type>
+    <country>Sweden</country>
+    <timezone id="Europe/Stockholm" utcoffsetMinutes="60" />
+    <location altitude="58" latitude="58.41086" longitude="15.62157" geobase="geonames" geobaseid="2694762" />
+  </location>
+  <credit>
+    <!--In order to use the free weather data from yr no, you HAVE to display 
+the following text clearly visible on your web page. The text should be a 
+link to the specified URL.-->
+    <!--Please read more about our conditions and guidelines at http://om.yr.no/verdata/  English explanation at http://om.yr.no/verdata/free-weather-data/-->
+    <link text="Weather forecast from Yr, delivered by the Norwegian Meteorological Institute and the NRK" url="http://www.yr.no/place/Sweden/Östergötland/Linköping/" />
+  </credit>
+  <links>
+    <link id="xmlSource" url="http://www.yr.no/place/Sweden/Östergötland/Linköping/forecast.xml" />
+    <link id="xmlSourceHourByHour" url="http://www.yr.no/place/Sweden/Östergötland/Linköping/forecast_hour_by_hour.xml" />
+    <link id="overview" url="http://www.yr.no/place/Sweden/Östergötland/Linköping/" />
+    <link id="hourByHour" url="http://www.yr.no/place/Sweden/Östergötland/Linköping/hour_by_hour" />
+    <link id="longTermForecast" url="http://www.yr.no/place/Sweden/Östergötland/Linköping/long" />
+    <link id="nowcast" url="http://www.yr.no/place/Sweden/Östergötland/Linköping/varsel_nu.xml" />
+  </links>
+  <meta>
+    <lastupdate>2021-03-13T06:53:00</lastupdate>
+    <nextupdate>2021-03-13T08:02:00</nextupdate>
+  </meta>
+  <sun rise="2021-03-13T06:19:14" set="2021-03-13T17:56:03" />
+  <forecast>
+    <tabular>
+      <time from="2021-03-13T08:00:00" to="2021-03-13T12:00:00" period="1">
+        <!-- Valid from 2021-03-13T08:00:00 to 2021-03-13T12:00:00 -->
+        <symbol number="3" numberEx="3" name="Partly cloudy" var="03d" />
+        <precipitation value="0" />
+        <!-- Valid at 2021-03-13T08:00:00 -->
+        <windDirection deg="219.1" code="SW" name="Southwest" />
+        <windSpeed mps="3.4" name="Gentle breeze" />
+        <temperature unit="celsius" value="2" />
+        <pressure unit="hPa" value="990.1" />
+      </time>
+      <time from="2021-03-13T12:00:00" to="2021-03-13T18:00:00" period="2">
+        <!-- Valid from 2021-03-13T12:00:00 to 2021-03-13T18:00:00 -->
+        <symbol number="3" numberEx="3" name="Partly cloudy" var="03d" />
+        <precipitation value="0" />
+        <!-- Valid at 2021-03-13T12:00:00 -->
+        <windDirection deg="231.8" code="SW" name="Southwest" />
+        <windSpeed mps="2.5" name="Light breeze" />
+        <temperature unit="celsius" value="7" />
+        <pressure unit="hPa" value="990.0" />
+      </time>
+      <time from="2021-03-13T18:00:00" to="2021-03-14T00:00:00" period="3">
+        <!-- Valid from 2021-03-13T18:00:00 to 2021-03-14T00:00:00 -->
+        <symbol number="4" numberEx="4" name="Cloudy" var="04" />
+        <precipitation value="0" />
+        <!-- Valid at 2021-03-13T18:00:00 -->
+        <windDirection deg="167.3" code="SSE" name="South-southeast" />
+        <windSpeed mps="1.5" name="Light air" />
+        <temperature unit="celsius" value="6" />
+        <pressure unit="hPa" value="989.3" />
+      </time>
+      <time from="2021-03-14T00:00:00" to="2021-03-14T06:00:00" period="0">
+        <!-- Valid from 2021-03-14T00:00:00 to 2021-03-14T06:00:00 -->
+        <symbol number="4" numberEx="4" name="Cloudy" var="04" />
+        <precipitation value="0" minvalue="0" maxvalue="1.5" />
+        <!-- Valid at 2021-03-14T00:00:00 -->
+        <windDirection deg="44.9" code="NE" name="Northeast" />
+        <windSpeed mps="1.5" name="Light air" />
+        <temperature unit="celsius" value="0" />
+        <pressure unit="hPa" value="988.6" />
+      </time>
+      <time from="2021-03-14T06:00:00" to="2021-03-14T12:00:00" period="1">
+        <!-- Valid from 2021-03-14T06:00:00 to 2021-03-14T12:00:00 -->
+        <symbol number="4" numberEx="4" name="Cloudy" var="04" />
+        <precipitation value="0" />
+        <!-- Valid at 2021-03-14T06:00:00 -->
+        <windDirection deg="29.3" code="NNE" name="North-northeast" />
+        <windSpeed mps="2.5" name="Light breeze" />
+        <temperature unit="celsius" value="1" />
+        <pressure unit="hPa" value="990.3" />
+      </time>
+      <time from="2021-03-14T12:00:00" to="2021-03-14T18:00:00" period="2">
+        <!-- Valid from 2021-03-14T12:00:00 to 2021-03-14T18:00:00 -->
+        <symbol number="3" numberEx="3" name="Partly cloudy" var="03d" />
+        <precipitation value="0" />
+        <!-- Valid at 2021-03-14T12:00:00 -->
+        <windDirection deg="290.9" code="WNW" name="West-northwest" />
+        <windSpeed mps="2.5" name="Light breeze" />
+        <temperature unit="celsius" value="3" />
+        <pressure unit="hPa" value="994.3" />
+      </time>
+      <time from="2021-03-14T18:00:00" to="2021-03-15T00:00:00" period="3">
+        <!-- Valid from 2021-03-14T18:00:00 to 2021-03-15T00:00:00 -->
+        <symbol number="4" numberEx="4" name="Cloudy" var="04" />
+        <precipitation value="0" />
+        <!-- Valid at 2021-03-14T18:00:00 -->
+        <windDirection deg="244.7" code="WSW" name="West-southwest" />
+        <windSpeed mps="1.6" name="Light breeze" />
+        <temperature unit="celsius" value="3" />
+        <pressure unit="hPa" value="996.1" />
+      </time>
+      <time from="2021-03-15T00:00:00" to="2021-03-15T06:00:00" period="0">
+        <!-- Valid from 2021-03-15T00:00:00 to 2021-03-15T06:00:00 -->
+        <symbol number="12" numberEx="12" name="Sleet" var="12" />
+        <precipitation value="1.0" minvalue="0" maxvalue="2.9" />
+        <!-- Valid at 2021-03-15T00:00:00 -->
+        <windDirection deg="197.5" code="SSW" name="South-southwest" />
+        <windSpeed mps="2.0" name="Light breeze" />
+        <temperature unit="celsius" value="1" />
+        <pressure unit="hPa" value="996.4" />
+      </time>
+      <time from="2021-03-15T06:00:00" to="2021-03-15T12:00:00" period="1">
+        <!-- Valid from 2021-03-15T06:00:00 to 2021-03-15T12:00:00 -->
+        <symbol number="12" numberEx="12" name="Sleet" var="12" />
+        <precipitation value="1.4" minvalue="0" maxvalue="2.6" />
+        <!-- Valid at 2021-03-15T06:00:00 -->
+        <windDirection deg="99.8" code="E" name="East" />
+        <windSpeed mps="1.4" name="Light air" />
+        <temperature unit="celsius" value="0" />
+        <pressure unit="hPa" value="996.4" />
+      </time>
+      <time from="2021-03-15T13:00:00" to="2021-03-15T19:00:00" period="2">
+        <!-- Valid from 2021-03-15T13:00:00 to 2021-03-15T19:00:00 -->
+        <symbol number="3" numberEx="3" name="Partly cloudy" var="03d" />
+        <precipitation value="0" />
+        <!-- Valid at 2021-03-15T13:00:00 -->
+        <windDirection deg="31.0" code="NNE" name="North-northeast" />
+        <windSpeed mps="3.2" name="Light breeze" />
+        <temperature unit="celsius" value="1" />
+        <pressure unit="hPa" value="1001.1" />
+      </time>
+      <time from="2021-03-15T19:00:00" to="2021-03-16T01:00:00" period="3">
+        <!-- Valid from 2021-03-15T19:00:00 to 2021-03-16T01:00:00 -->
+        <symbol number="3" numberEx="3" name="Partly cloudy" var="03n" />
+        <precipitation value="0" />
+        <!-- Valid at 2021-03-15T19:00:00 -->
+        <windDirection deg="24.3" code="NNE" name="North-northeast" />
+        <windSpeed mps="1.5" name="Light air" />
+        <temperature unit="celsius" value="2" />
+        <pressure unit="hPa" value="1005.1" />
+      </time>
+      <time from="2021-03-16T01:00:00" to="2021-03-16T07:00:00" period="0">
+        <!-- Valid from 2021-03-16T01:00:00 to 2021-03-16T07:00:00 -->
+        <symbol number="3" numberEx="3" name="Partly cloudy" var="03n" />
+        <precipitation value="0" />
+        <!-- Valid at 2021-03-16T01:00:00 -->
+        <windDirection deg="308.1" code="NW" name="Northwest" />
+        <windSpeed mps="1.2" name="Light air" />
+        <temperature unit="celsius" value="0" />
+        <pressure unit="hPa" value="1008.8" />
+      </time>
+      <time from="2021-03-16T07:00:00" to="2021-03-16T13:00:00" period="1">
+        <!-- Valid from 2021-03-16T07:00:00 to 2021-03-16T13:00:00 -->
+        <symbol number="3" numberEx="3" name="Partly cloudy" var="03d" />
+        <precipitation value="0" />
+        <!-- Valid at 2021-03-16T07:00:00 -->
+        <windDirection deg="272.9" code="W" name="West" />
+        <windSpeed mps="1.7" name="Light breeze" />
+        <temperature unit="celsius" value="0" />
+        <pressure unit="hPa" value="1011.5" />
+      </time>
+      <time from="2021-03-16T13:00:00" to="2021-03-16T19:00:00" period="2">
+        <!-- Valid from 2021-03-16T13:00:00 to 2021-03-16T19:00:00 -->
+        <symbol number="3" numberEx="3" name="Partly cloudy" var="03d" />
+        <precipitation value="0" />
+        <!-- Valid at 2021-03-16T13:00:00 -->
+        <windDirection deg="23.1" code="NNE" name="North-northeast" />
+        <windSpeed mps="3.2" name="Light breeze" />
+        <temperature unit="celsius" value="6" />
+        <pressure unit="hPa" value="1014.3" />
+      </time>
+      <time from="2021-03-16T19:00:00" to="2021-03-17T01:00:00" period="3">
+        <!-- Valid from 2021-03-16T19:00:00 to 2021-03-17T01:00:00 -->
+        <symbol number="2" numberEx="2" name="Fair" var="02n" />
+        <precipitation value="0" />
+        <!-- Valid at 2021-03-16T19:00:00 -->
+        <windDirection deg="343.0" code="NNW" name="North-northwest" />
+        <windSpeed mps="2.3" name="Light breeze" />
+        <temperature unit="celsius" value="2" />
+        <pressure unit="hPa" value="1016.2" />
+      </time>
+      <time from="2021-03-17T01:00:00" to="2021-03-17T07:00:00" period="0">
+        <!-- Valid from 2021-03-17T01:00:00 to 2021-03-17T07:00:00 -->
+        <symbol number="1" numberEx="1" name="Clear sky" var="01n" />
+        <precipitation value="0" />
+        <!-- Valid at 2021-03-17T01:00:00 -->
+        <windDirection deg="343.5" code="NNW" name="North-northwest" />
+        <windSpeed mps="1.7" name="Light breeze" />
+        <temperature unit="celsius" value="-1" />
+        <pressure unit="hPa" value="1019.2" />
+      </time>
+      <time from="2021-03-17T07:00:00" to="2021-03-17T13:00:00" period="1">
+        <!-- Valid from 2021-03-17T07:00:00 to 2021-03-17T13:00:00 -->
+        <symbol number="3" numberEx="3" name="Partly cloudy" var="03d" />
+        <precipitation value="0" />
+        <!-- Valid at 2021-03-17T07:00:00 -->
+        <windDirection deg="299.7" code="WNW" name="West-northwest" />
+        <windSpeed mps="2.6" name="Light breeze" />
+        <temperature unit="celsius" value="-1" />
+        <pressure unit="hPa" value="1021.3" />
+      </time>
+      <time from="2021-03-17T13:00:00" to="2021-03-17T19:00:00" period="2">
+        <!-- Valid from 2021-03-17T13:00:00 to 2021-03-17T19:00:00 -->
+        <symbol number="3" numberEx="3" name="Partly cloudy" var="03d" />
+        <precipitation value="0" />
+        <!-- Valid at 2021-03-17T13:00:00 -->
+        <windDirection deg="5.7" code="N" name="North" />
+        <windSpeed mps="4.3" name="Gentle breeze" />
+        <temperature unit="celsius" value="4" />
+        <pressure unit="hPa" value="1024.2" />
+      </time>
+      <time from="2021-03-17T19:00:00" to="2021-03-18T01:00:00" period="3">
+        <!-- Valid from 2021-03-17T19:00:00 to 2021-03-18T01:00:00 -->
+        <symbol number="3" numberEx="3" name="Partly cloudy" var="03n" />
+        <precipitation value="0" />
+        <!-- Valid at 2021-03-17T19:00:00 -->
+        <windDirection deg="340.8" code="NNW" name="North-northwest" />
+        <windSpeed mps="2.5" name="Light breeze" />
+        <temperature unit="celsius" value="1" />
+        <pressure unit="hPa" value="1024.7" />
+      </time>
+      <time from="2021-03-18T01:00:00" to="2021-03-18T07:00:00" period="0">
+        <!-- Valid from 2021-03-18T01:00:00 to 2021-03-18T07:00:00 -->
+        <symbol number="3" numberEx="3" name="Partly cloudy" var="03n" />
+        <precipitation value="0" />
+        <!-- Valid at 2021-03-18T01:00:00 -->
+        <windDirection deg="351.6" code="N" name="North" />
+        <windSpeed mps="1.7" name="Light breeze" />
+        <temperature unit="celsius" value="-1" />
+        <pressure unit="hPa" value="1024.4" />
+      </time>
+      <time from="2021-03-18T07:00:00" to="2021-03-18T13:00:00" period="1">
+        <!-- Valid from 2021-03-18T07:00:00 to 2021-03-18T13:00:00 -->
+        <symbol number="3" numberEx="3" name="Partly cloudy" var="03d" />
+        <precipitation value="0" />
+        <!-- Valid at 2021-03-18T07:00:00 -->
+        <windDirection deg="348.0" code="NNW" name="North-northwest" />
+        <windSpeed mps="2.5" name="Light breeze" />
+        <temperature unit="celsius" value="-1" />
+        <pressure unit="hPa" value="1023.9" />
+      </time>
+      <time from="2021-03-18T13:00:00" to="2021-03-18T19:00:00" period="2">
+        <!-- Valid from 2021-03-18T13:00:00 to 2021-03-18T19:00:00 -->
+        <symbol number="3" numberEx="3" name="Partly cloudy" var="03d" />
+        <precipitation value="0" />
+        <!-- Valid at 2021-03-18T13:00:00 -->
+        <windDirection deg="12.3" code="NNE" name="North-northeast" />
+        <windSpeed mps="3.5" name="Gentle breeze" />
+        <temperature unit="celsius" value="4" />
+        <pressure unit="hPa" value="1024.2" />
+      </time>
+      <time from="2021-03-18T19:00:00" to="2021-03-19T01:00:00" period="3">
+        <!-- Valid from 2021-03-18T19:00:00 to 2021-03-19T01:00:00 -->
+        <symbol number="3" numberEx="3" name="Partly cloudy" var="03n" />
+        <precipitation value="0" />
+        <!-- Valid at 2021-03-18T19:00:00 -->
+        <windDirection deg="35.7" code="NE" name="Northeast" />
+        <windSpeed mps="2.9" name="Light breeze" />
+        <temperature unit="celsius" value="1" />
+        <pressure unit="hPa" value="1024.0" />
+      </time>
+      <time from="2021-03-19T01:00:00" to="2021-03-19T07:00:00" period="0">
+        <!-- Valid from 2021-03-19T01:00:00 to 2021-03-19T07:00:00 -->
+        <symbol number="3" numberEx="3" name="Partly cloudy" var="03n" />
+        <precipitation value="0" />
+        <!-- Valid at 2021-03-19T01:00:00 -->
+        <windDirection deg="343.0" code="NNW" name="North-northwest" />
+        <windSpeed mps="2.3" name="Light breeze" />
+        <temperature unit="celsius" value="-1" />
+        <pressure unit="hPa" value="1025.4" />
+      </time>
+      <time from="2021-03-19T07:00:00" to="2021-03-19T13:00:00" period="1">
+        <!-- Valid from 2021-03-19T07:00:00 to 2021-03-19T13:00:00 -->
+        <symbol number="3" numberEx="3" name="Partly cloudy" var="03d" />
+        <precipitation value="0" />
+        <!-- Valid at 2021-03-19T07:00:00 -->
+        <windDirection deg="352.4" code="N" name="North" />
+        <windSpeed mps="2.6" name="Light breeze" />
+        <temperature unit="celsius" value="-2" />
+        <pressure unit="hPa" value="1027.3" />
+      </time>
+      <time from="2021-03-19T13:00:00" to="2021-03-19T19:00:00" period="2">
+        <!-- Valid from 2021-03-19T13:00:00 to 2021-03-19T19:00:00 -->
+        <symbol number="3" numberEx="3" name="Partly cloudy" var="03d" />
+        <precipitation value="0" />
+        <!-- Valid at 2021-03-19T13:00:00 -->
+        <windDirection deg="264.0" code="W" name="West" />
+        <windSpeed mps="3.4" name="Gentle breeze" />
+        <temperature unit="celsius" value="3" />
+        <pressure unit="hPa" value="1027.6" />
+      </time>
+      <time from="2021-03-19T19:00:00" to="2021-03-20T01:00:00" period="3">
+        <!-- Valid from 2021-03-19T19:00:00 to 2021-03-20T01:00:00 -->
+        <symbol number="3" numberEx="3" name="Partly cloudy" var="03n" />
+        <precipitation value="0" />
+        <!-- Valid at 2021-03-19T19:00:00 -->
+        <windDirection deg="254.4" code="WSW" name="West-southwest" />
+        <windSpeed mps="2.3" name="Light breeze" />
+        <temperature unit="celsius" value="0" />
+        <pressure unit="hPa" value="1025.7" />
+      </time>
+      <time from="2021-03-20T01:00:00" to="2021-03-20T07:00:00" period="0">
+        <!-- Valid from 2021-03-20T01:00:00 to 2021-03-20T07:00:00 -->
+        <symbol number="4" numberEx="4" name="Cloudy" var="04" />
+        <precipitation value="0" />
+        <!-- Valid at 2021-03-20T01:00:00 -->
+        <windDirection deg="270.0" code="W" name="West" />
+        <windSpeed mps="2.6" name="Light breeze" />
+        <temperature unit="celsius" value="1" />
+        <pressure unit="hPa" value="1024.2" />
+      </time>
+      <time from="2021-03-20T07:00:00" to="2021-03-20T13:00:00" period="1">
+        <!-- Valid from 2021-03-20T07:00:00 to 2021-03-20T13:00:00 -->
+        <symbol number="4" numberEx="4" name="Cloudy" var="04" />
+        <precipitation value="0" />
+        <!-- Valid at 2021-03-20T07:00:00 -->
+        <windDirection deg="275.5" code="W" name="West" />
+        <windSpeed mps="3.4" name="Gentle breeze" />
+        <temperature unit="celsius" value="1" />
+        <pressure unit="hPa" value="1021.1" />
+      </time>
+      <time from="2021-03-20T13:00:00" to="2021-03-20T19:00:00" period="2">
+        <!-- Valid from 2021-03-20T13:00:00 to 2021-03-20T19:00:00 -->
+        <symbol number="4" numberEx="4" name="Cloudy" var="04" />
+        <precipitation value="0" />
+        <!-- Valid at 2021-03-20T13:00:00 -->
+        <windDirection deg="274.1" code="W" name="West" />
+        <windSpeed mps="4.4" name="Gentle breeze" />
+        <temperature unit="celsius" value="7" />
+        <pressure unit="hPa" value="1018.9" />
+      </time>
+      <time from="2021-03-20T19:00:00" to="2021-03-21T01:00:00" period="3">
+        <!-- Valid from 2021-03-20T19:00:00 to 2021-03-21T01:00:00 -->
+        <symbol number="3" numberEx="3" name="Partly cloudy" var="03n" />
+        <precipitation value="0" />
+        <!-- Valid at 2021-03-20T19:00:00 -->
+        <windDirection deg="286.6" code="WNW" name="West-northwest" />
+        <windSpeed mps="3.4" name="Gentle breeze" />
+        <temperature unit="celsius" value="3" />
+        <pressure unit="hPa" value="1014.4" />
+      </time>
+      <time from="2021-03-21T01:00:00" to="2021-03-21T07:00:00" period="0">
+        <!-- Valid from 2021-03-21T01:00:00 to 2021-03-21T07:00:00 -->
+        <symbol number="3" numberEx="3" name="Partly cloudy" var="03n" />
+        <precipitation value="0" />
+        <!-- Valid at 2021-03-21T01:00:00 -->
+        <windDirection deg="206.3" code="SSW" name="South-southwest" />
+        <windSpeed mps="2.7" name="Light breeze" />
+        <temperature unit="celsius" value="2" />
+        <pressure unit="hPa" value="1013.7" />
+      </time>
+      <time from="2021-03-21T07:00:00" to="2021-03-21T13:00:00" period="1">
+        <!-- Valid from 2021-03-21T07:00:00 to 2021-03-21T13:00:00 -->
+        <symbol number="3" numberEx="3" name="Partly cloudy" var="03d" />
+        <precipitation value="0" />
+        <!-- Valid at 2021-03-21T07:00:00 -->
+        <windDirection deg="236.9" code="WSW" name="West-southwest" />
+        <windSpeed mps="3.8" name="Gentle breeze" />
+        <temperature unit="celsius" value="1" />
+        <pressure unit="hPa" value="1008.9" />
+      </time>
+      <time from="2021-03-21T13:00:00" to="2021-03-21T19:00:00" period="2">
+        <!-- Valid from 2021-03-21T13:00:00 to 2021-03-21T19:00:00 -->
+        <symbol number="2" numberEx="2" name="Fair" var="02d" />
+        <precipitation value="0" />
+        <!-- Valid at 2021-03-21T13:00:00 -->
+        <windDirection deg="238.6" code="WSW" name="West-southwest" />
+        <windSpeed mps="5.2" name="Gentle breeze" />
+        <temperature unit="celsius" value="6" />
+        <pressure unit="hPa" value="1006.2" />
+      </time>
+      <time from="2021-03-21T19:00:00" to="2021-03-22T01:00:00" period="3">
+        <!-- Valid from 2021-03-21T19:00:00 to 2021-03-22T01:00:00 -->
+        <symbol number="1" numberEx="1" name="Clear sky" var="01n" />
+        <precipitation value="0" />
+        <!-- Valid at 2021-03-21T19:00:00 -->
+        <windDirection deg="284.2" code="WNW" name="West-northwest" />
+        <windSpeed mps="3.4" name="Gentle breeze" />
+        <temperature unit="celsius" value="3" />
+        <pressure unit="hPa" value="1009.3" />
+      </time>
+      <time from="2021-03-22T01:00:00" to="2021-03-22T07:00:00" period="0">
+        <!-- Valid from 2021-03-22T01:00:00 to 2021-03-22T07:00:00 -->
+        <symbol number="2" numberEx="2" name="Fair" var="02n" />
+        <precipitation value="0" />
+        <!-- Valid at 2021-03-22T01:00:00 -->
+        <windDirection deg="357.3" code="N" name="North" />
+        <windSpeed mps="2.6" name="Light breeze" />
+        <temperature unit="celsius" value="0" />
+        <pressure unit="hPa" value="1009.2" />
+      </time>
+    </tabular>
+  </forecast>
+  <weatherstation stno="0" sttype="" name="" distance="0" lat="0" lon="0" source="">
+    <!--Observasjoner er ikke lengre tilgjengelig i dette datasettet. Observations are no longer availble in this dataset-->
+    <symbol number="0" name="" time="2019-11-14T00:00:00Z" />
+    <temperature unit="" value="0" time="2019-11-14T00:00:00Z" />
+    <windDirection deg="0" code="" name="" time="2019-11-14T00:00:00Z" />
+    <windSpeed mps="0" name="" time="2019-11-14T00:00:00Z" />
+  </weatherstation>
+</weatherdata>
