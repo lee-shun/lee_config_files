@@ -4,6 +4,17 @@ case $- in
     *) return;;
 esac
 
+# PATH
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/bin" ] ; then
+    PATH="$HOME/bin:$PATH"
+fi
+
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/.local/bin" ] ; then
+    PATH="$HOME/.local/bin:$PATH"
+fi
+
 # Path to your oh-my-bash installation.
 export OSH=${HOME}'/.config/lee_config_files/oh-my-bash'
 export EDITOR=nvim
