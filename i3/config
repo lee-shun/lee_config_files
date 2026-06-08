@@ -103,7 +103,9 @@ force_focus_wrapping yes
 # start a terminal
 # bindsym $mod+Return exec --no-startup-id alacritty
 # bindsym $mod+Return exec --no-startup-id xfce4-terminal
-bindsym $mod+Return exec --no-startup-id GLFW_IM_MODULE=ibus kitty
+# bindsym $mod+Return exec --no-startup-id GLFW_IM_MODULE=ibus kitty
+bindsym $mod+Return exec --no-startup-id GLFW_IM_MODULE=ibus wezterm
+# bindsym $mod+Return exec --no-startup-id ghostty
 
 
 # kill focused window
