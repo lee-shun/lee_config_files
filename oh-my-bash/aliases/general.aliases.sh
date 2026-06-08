@@ -78,6 +78,6 @@ alias vi='vim'
 alias vim='nvim'
 alias Q='exit'
 alias lg='lazygit'
-alias R='yazi'
+# alias R='ranger'
 
 alias gzvpn='cd /usr/local/SecoClient/&& ./SecoClient'
