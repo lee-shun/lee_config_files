@@ -30,6 +30,8 @@ config.keys = {
 }
 
 -- 确保 IME 功能开启（默认就是 true，显式写一下）
+config.use_ime = true
+
 config.xim_im_name = "fcitx"
 
 -- Finally, return the configuration to wezterm:

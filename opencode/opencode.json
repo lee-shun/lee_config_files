@@ -20,8 +20,8 @@
           },
           "name": "llamacpp(local)",
           "limit": {
-            "context": 4096000000,
-            "output": 4096000000
+            "context": 128000,
+            "output": 65536
           }
         }
       }

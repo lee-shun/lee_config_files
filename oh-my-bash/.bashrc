@@ -128,3 +128,6 @@ source "$OSH"/oh-my-bash.sh
 for script in "$OSH"/utils/*.sh; do
     [ -f "$script" ] && source "$script"
 done
+
+# kimi-code
+export PATH="/home/ls/.kimi-code/bin:$PATH"
