@@ -27,23 +27,7 @@
       }
     }
   },
-  "mcp": {
-    "pulse-fetch": {
-      "type": "local",
-      "command": ["npx", "-y", "@pulsemcp/pulse-fetch"],
-      "enabled": true
-    },
-    "playwright": {
-      "type": "local",
-      "command": [
-        "npx",
-        "-y",
-        "@playwright/mcp@latest",
-        "--browser", "msedge"
-      ],
-      "enabled": true
-    },
-  }
+  "mcp": {}
 }
 
 

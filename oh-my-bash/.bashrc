@@ -131,3 +131,5 @@ done
 
 # kimi-code
 export PATH="/home/ls/.kimi-code/bin:$PATH"
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
