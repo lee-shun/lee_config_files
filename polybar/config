@@ -659,31 +659,11 @@ type = internal/temperature
 ; thermal zones: 0=INT3400 1=TCPU 2=TCPU_PCI 3=x86_pkg_temp
 thermal-zone = 3
 warn-temperature = 75
-format = <label> <ramp>
+format = <label>
 format-foreground = ${colors.foreground}
 label =  %temperature-c%
 label-warn =  %temperature-c%
 label-warn-foreground = ${colors.alert}
-ramp-0 = 
-ramp-1 = 
-ramp-2 = 
-ramp-3 = 
-ramp-4 = 
-ramp-5 = 
-ramp-6 = 
-ramp-7 = 
-ramp-8 = 
-ramp-9 = 
-ramp-0-foreground = #50fa7b
-ramp-1-foreground = #50fa7b
-ramp-2-foreground = #50fa7b
-ramp-3-foreground = #50fa7b
-ramp-4-foreground = #f1fa8c
-ramp-5-foreground = #f1fa8c
-ramp-6-foreground = #ffb86c
-ramp-7-foreground = #ff5555
-ramp-8-foreground = #ff5555
-ramp-9-foreground = #ff5555
 
 [module/filesystem]
 type = internal/fs
