@@ -48,4 +48,4 @@ bash auto_scripts/config_rofi_i3_polybar_dunst.sh
 
 - `.bashrc` — 包含 ROS Kinetic 设置（`source /opt/ros/kinetic/setup.bash`），新系统可能已过期
 - `.profile` — HiDPI 缩放环境变量（`GDK_SCALE=2`、`GDK_DPI_SCALE=0.5`）
-- `tmux/.tmux.conf` — 唯一保留的 tmux 配置，含 TPM 自动安装 bootstrap
+- `tmux/` — 模块化 tmux 配置：`.tmux.conf` 为主入口，按职责拆分为 `options.conf`、`statusline.conf`、`plugins.conf`、`keybindings.conf`；插件由 TPM 管理并安装到 gitignore 的 `plugins/`
