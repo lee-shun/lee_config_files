@@ -17,8 +17,8 @@
 #############################
 
 # Set inner/outer gaps
-gaps inner 8
-gaps outer 5
+gaps inner 5
+gaps outer 3
 hide_edge_borders smart_no_gaps
 
 # Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
@@ -102,9 +102,9 @@ force_focus_wrapping yes
 
 # start a terminal
 # bindsym $mod+Return exec --no-startup-id alacritty
-# bindsym $mod+Return exec --no-startup-id xfce4-terminal
+bindsym $mod+Return exec --no-startup-id xfce4-terminal
 # bindsym $mod+Return exec --no-startup-id GLFW_IM_MODULE=ibus kitty
-bindsym $mod+Return exec --no-startup-id GLFW_IM_MODULE=ibus wezterm
+# bindsym $mod+Return exec --no-startup-id GLFW_IM_MODULE=ibus wezterm
 # bindsym $mod+Return exec --no-startup-id ghostty
 
 
@@ -116,11 +116,11 @@ bindsym $mod+p exec --no-startup-id rofi -show drun
 
 # bindsym $mod+b exec --no-startup-id google-chrome  --password-store=gnome
 # bindsym $mod+b exec --no-startup-id microsoft-edge-stable  --password-store=basic
-bindsym $mod+b exec --no-startup-id /home/ls/App/zen/zen
+bindsym $mod+b exec --no-startup-id ~/App/zen/zen
 
 bindsym $mod+o exec --no-startup-id flameshot gui
 
-bindsym $mod+e exec --no-startup-id polybar hdpi_top
+bindsym $mod+e exec --no-startup-id polybar -c ~/.config/polybar/config_v2 hdpi_top
 bindsym $mod+shift+e exec --no-startup-id killall polybar
 
 # There also is the (new) i3-dmenu-desktop which only displays applications
@@ -354,7 +354,7 @@ client.urgent               $yw     $nblack     $tx     $id
 # display
 exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=ssh,secrets,pkcs11
 exec --no-startup-id picom -o 0.95 -i 0.88 -f -D 5 -c -b
-exec --no-startup-id feh  --bg-fill /home/ls/Pictures/1.png
+exec --no-startup-id feh  --bg-fill ~/Pictures/wallhaven-d6dvdl.png
 
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id xfce4-volumed

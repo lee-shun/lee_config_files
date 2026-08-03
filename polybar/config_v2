@@ -135,7 +135,7 @@ enable-ipc = true
 # 2019-07-14 23:18
 
 radius = 10
-line-size = 3
+line-size = 2
 ;border-color = #ee2d2d2d
 border-top-size = 0
 ;border-top-color = #ccfafafa
@@ -148,21 +148,21 @@ border-right-size = 0
 
 spacing = 1
 lineheight = 1
-padding-left = 8
-padding-right = 8
+padding-left = 5
+padding-right = 5
 module-margin-left = 1
 module-margin-right = 1
 
-font-0 = JetBrainsMono Nerd Font:size=14;2
-font-1 = JetBrainsMono Nerd Font:size=14;0
-font-2 = JetBrainsMono Nerd Font:size=14;0
-font-3 = JetBrainsMono Nerd Font:size=14;0
-font-4 = JetBrainsMono Nerd Font:size=14;0
-font-5 = JetBrainsMono Nerd Font:size=14;0
-font-6 = JetBrainsMono Nerd Font:size=14;0
-font-7 = JetBrainsMono Nerd Font:size=14;0
-font-8 = JetBrainsMono Nerd Font:size=14;0
-font-9 = JetBrainsMono Nerd Font:size=11;0
+font-0 = JetBrainsMono Nerd Font:size=15;2
+font-1 = JetBrainsMono Nerd Font:size=15;0
+font-2 = JetBrainsMono Nerd Font:size=15;0
+font-3 = JetBrainsMono Nerd Font:size=15;0
+font-4 = JetBrainsMono Nerd Font:size=15;0
+font-5 = JetBrainsMono Nerd Font:size=15;0
+font-6 = JetBrainsMono Nerd Font:size=15;0
+font-7 = JetBrainsMono Nerd Font:size=15;0
+font-8 = JetBrainsMono Nerd Font:size=15;0
+font-9 = JetBrainsMono Nerd Font:size=13;0
 
 modules-left = rofi i3
 modules-center = wire2 text wlan
