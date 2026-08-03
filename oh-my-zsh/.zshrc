@@ -32,3 +32,6 @@ done
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 ___MY_VMOPTIONS_SHELL_FILE="${HOME}/.jetbrains.vmoptions.sh"; if [ -f "${___MY_VMOPTIONS_SHELL_FILE}" ]; then . "${___MY_VMOPTIONS_SHELL_FILE}"; fi
+
+# opencode
+export PATH=/home/lee/.opencode/bin:$PATH
