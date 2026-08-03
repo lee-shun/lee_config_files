@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/bin/bash
 
 ######################################################################
 # @author      : ShunLi (2015097272@qq.com)
@@ -21,8 +21,8 @@ template_exists_in_target() {
 
     # Check if the target file exists
     if [[ ! -f "$target" ]]; then
-        echo "Target file '$target' does not exist."
-        exit;
+        echo "Target file '$target' does not exist." >&2
+        exit 1
     fi
 
     # Check if the template content exists in the target file
@@ -57,6 +57,11 @@ backup_target_file() {
 }
 
 # Main script
+if [[ ! -f "$template_file" ]]; then
+    echo "Template file '$template_file' does not exist." >&2
+    exit 1
+fi
+
 backup_target_file "$target_file"
 
 if template_exists_in_target "$target_file" "end of bashrc.template"; then

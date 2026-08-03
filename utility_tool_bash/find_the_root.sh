@@ -16,12 +16,13 @@ find_setup_root() {
     return 1
 }
 
-this_script=$(readlink -f "$0")
-script_dir=$(dirname "$this_script")
+if [ "${BASH_SOURCE[0]}" = "$0" ]; then
+    this_script=$(readlink -f "$0")
+    script_dir=$(dirname "$this_script")
 
-root_dir=$(find_setup_root "$script_dir")
-if [ $? -eq 0 ]; then
-    echo "UBUNTU_SETUP_ROOT set to: $root_dir"
-else
-    echo "Failed to set UBUNTU_SETUP_ROOT."
+    if root_dir=$(find_setup_root "$script_dir"); then
+        echo "UBUNTU_SETUP_ROOT set to: $root_dir"
+    else
+        echo "Failed to set UBUNTU_SETUP_ROOT."
+    fi
 fi

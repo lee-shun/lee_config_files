@@ -15,8 +15,8 @@ echo ""
 echo ">>> {Checking your Ubuntu version} "
 echo ""
 #Getting version and release number of Ubuntu
-version=`lsb_release -sc`
-relesenum=`grep DISTRIB_DESCRIPTION /etc/*-release | awk -F 'Ubuntu ' '{print $2}' | awk -F ' LTS' '{print $1}'`
+version=$(lsb_release -sc)
+relesenum=$(grep DISTRIB_DESCRIPTION /etc/*-release | awk -F 'Ubuntu ' '{print $2}' | awk -F ' LTS' '{print $1}')
 echo ">>> {Your Ubuntu version is: [Ubuntu $version $relesenum]}"
 #Checking version is focal, if yes proceed othervice quit
 case $version in
@@ -83,11 +83,11 @@ echo ""
 #Adding keys
 echo ">>> {Waiting for adding keys, it will take few seconds}"
 echo ""
-ret=$(curl -sSL 'http://keyserver.ubuntu.com/pks/lookup?op=get&search=0xC1CF6E31E6BADE8868B172B4F42ED6FBAB17C654' | sudo apt-key add -)
+ret=$(curl -sSL 'http://keyserver.ubuntu.com/pks/lookup?op=get&search=0xC1CF6E31E6BADE8868B172B4F42ED6FBAB17C654' | sudo apt-key add - 2>/dev/null)
 
 #Checking return value is OK
-case $ret in
-  "OK" )
+case "$ret" in
+  *OK* )
   ;;
   *)
     echo ">>> {ERROR: Unable to add ROS keys}"
@@ -110,7 +110,7 @@ echo ""
 echo "     [3. ROS-Base: (Bare Bones) ROS packaging, build, and communication libraries. No GUI tools.]"
 echo ""
 #Assigning default value as 1: Desktop full install
-read -p "Enter your install (Default is 1):" answer 
+read -rp "Enter your install (Default is 1):" answer 
 
 case "$answer" in
   1)
@@ -137,8 +137,8 @@ echo "##########################################################################
 echo ">>> {Step 6: Setting ROS Environment, This will add ROS environment to .bashrc.}" 
 echo ">>> { After adding this, you can able to access ROS commands in terminal}"
 echo ""
-echo "source /opt/ros/noetic/setup.bash" >> /home/$user_name/.bashrc
-source /home/$user_name/.bashrc
+echo "source /opt/ros/noetic/setup.bash" >> "/home/$user_name/.bashrc"
+source "/home/$user_name/.bashrc"
 sudo apt install -y python3-rosdep python3-rosinstall python3-rosinstall-generator python3-wstool build-essential
 sudo rosdep init
 rosdep update

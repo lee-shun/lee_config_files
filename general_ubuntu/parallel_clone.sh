@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/bin/bash
 
 ######################################################################
 # @author      : ShunLi (2015097272@qq.com)
@@ -32,7 +32,7 @@ elif [ "$protocol" = "SSH" ]; then
   url_prefix="git@github.com:$user_name/"
 fi
 
-read -p "Enter a path (default is current): " clone_path
+read -rp "Enter a path (default is current): " clone_path
 clone_path=${clone_path:-$(pwd)}
 
 # 克隆函数
@@ -41,16 +41,16 @@ clone_repo() {
     local retry_count=0
     local max_retries=3
 
-    until git clone $url_prefix$repo $clone_path/$repo; do
+    until git clone "${url_prefix}${repo}" "$clone_path/$repo"; do
         if (( retry_count < max_retries )); then
-            echo "Clone of $repo_url failed, retrying ($((retry_count + 1)) of $max_retries)..."
+            echo "Clone of $repo failed, retrying ($((retry_count + 1)) of $max_retries)..."
             ((retry_count++))
         else
-            echo "Failed to clone $repo_url after $max_retries retries. Aborting."
+            echo "Failed to clone $repo after $max_retries retries. Aborting."
             exit 1
         fi
     done
-    echo "$repo_url cloned successfully."
+    echo "$repo cloned successfully."
 }
 
 # 并行克隆

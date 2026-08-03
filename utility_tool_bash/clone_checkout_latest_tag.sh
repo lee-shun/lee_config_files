@@ -30,4 +30,6 @@ checkout_latest_tag() {
     echo "Switched to the latest tag: $latest_tag"
 }
 
-checkout_latest_tag "$@"
+if [ "${BASH_SOURCE[0]}" = "$0" ]; then
+    checkout_latest_tag "$@"
+fi

@@ -34,7 +34,7 @@ confirm_action() {
 
 ensure_installed() {
     local pkg="$1"
-    if dpkg -l "$pkg" >/dev/null 2>&1 | grep -q "^ii"; then
+    if dpkg -l "$pkg" 2>/dev/null | grep -q "^ii"; then
         log_info "已安装: $pkg"
         return 0
     fi
@@ -50,7 +50,7 @@ ensure_installed_batch() {
     local packages=("$@")
     local missing=()
     for pkg in "${packages[@]}"; do
-        if ! dpkg -l "$pkg" >/dev/null 2>&1 | grep -q "^ii"; then
+        if ! dpkg -l "$pkg" 2>/dev/null | grep -q "^ii"; then
             missing+=("$pkg")
         fi
     done
@@ -120,7 +120,7 @@ git_clone_if_not_exists() {
 get_github_latest_tag() {
     local owner="$1"
     local repo="$2"
-    curl --silent "https://api.github.com/repos/$owner/$repo/releases/latest" \
+    curl --silent --fail "https://api.github.com/repos/$owner/$repo/releases/latest" \
         | grep '"tag_name":' \
         | sed -E 's/.*"([^"]+)".*/\1/'
 }
@@ -128,7 +128,7 @@ get_github_latest_tag() {
 # ---------- 路径处理 ----------
 
 get_script_dir() {
-    echo "$(dirname "$(readlink -f "$0")")"
+    dirname "$(readlink -f "${BASH_SOURCE[0]:-$0}")"
 }
 
 get_repo_root() {

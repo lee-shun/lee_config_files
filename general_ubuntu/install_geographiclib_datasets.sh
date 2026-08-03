@@ -13,16 +13,16 @@ run_get() {
 	local tool="$2"
 	local model="$3"
 
-	files=$(shopt -s nullglob dotglob; echo /usr/share/GeographicLib/$dir/$model* /usr/local/share/GeographicLib/$dir/$model*)
+	files=$(shopt -s nullglob dotglob; echo /usr/share/GeographicLib/"$dir"/"$model"* /usr/local/share/GeographicLib/"$dir"/"$model"*)
 	if (( ${#files} )); then
 		echo "GeographicLib $tool dataset $model already exists, skipping"
 		return
 	fi
 
 	echo "Installing GeographicLib $tool $model"
-	geographiclib-get-$tool $model >/dev/null 2>&1
+	geographiclib-get-"$tool" "$model" >/dev/null 2>&1
 	
-	files=$(shopt -s nullglob dotglob; echo /usr/share/GeographicLib/$dir/$model* /usr/local/share/GeographicLib/$dir/$model*)
+	files=$(shopt -s nullglob dotglob; echo /usr/share/GeographicLib/"$dir"/"$model"* /usr/local/share/GeographicLib/"$dir"/"$model"*)
 	if (( ! ${#files} )); then
 		echo "Error while installing GeographicLib $tool $model"
 		return

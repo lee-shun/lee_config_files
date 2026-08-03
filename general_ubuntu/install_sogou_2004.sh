@@ -1,3 +1,4 @@
+#!/bin/bash
 sudo apt update
 sudo apt install fcitx
 sudo apt purge ibus

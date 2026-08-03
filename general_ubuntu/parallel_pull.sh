@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/bin/bash
 
 ######################################################################
 # @author      : ShunLi (2015097272@qq.com)
@@ -27,12 +27,12 @@ expand_path() {
 
 # 仓库目录列表
 # 读取用户输入的目标目录路径
-read -p "input the directory of the directories to be pull: " targetDirectory
+read -rp "input the directory of the directories to be pull: " targetDirectory
 
 asbPath=$(expand_path "$targetDirectory")
 
 # 使用find命令获取所有一级子目录
-subDirectories=($(find "$asbPath" -maxdepth 1 -mindepth 1 -type d))
+mapfile -t subDirectories < <(find "$asbPath" -maxdepth 1 -mindepth 1 -type d)
 
 # 更新函数
 update_repo() {
@@ -48,12 +48,12 @@ update_repo() {
             ((retry_count++))
         else
             echo "Failed to pull from repository in $repo_dir after $max_retries retries. Aborting."
-            popd > /dev/null
+            popd > /dev/null || true
             return 1
         fi
     done
 
-    popd > /dev/null
+    popd > /dev/null || true
     echo "$repo_dir updated successfully."
     return 0
 }

@@ -1,3 +1,3 @@
-sudo apt-get install ntpdate -y
-sudo ntpdate time.windows.com
+#!/bin/bash
+sudo timedatectl set-local-rtc 1 --adjust-system-clock
 sudo hwclock --localtime --systohc

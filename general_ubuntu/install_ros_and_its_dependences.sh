@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/bin/bash
 
 ######################################################################
 # @author      : ShunLi (2015097272@qq.com)
@@ -7,8 +7,6 @@
 #
 # @description : install_ros_and_its_dependences
 ######################################################################
-
-#!/bin/bash
 
 find_setup_root() {
     local current_dir="$1"
@@ -45,23 +43,24 @@ if [[ -n $UBUNTU_SETUP_ROOT ]]; then
     echo "UBUNTU_SETUP_ROOT set to: $UBUNTU_SETUP_ROOT"
 else
     echo "Failed to set UBUNTU_SETUP_ROOT."
+    exit 1
 fi
-source $UBUNTU_SETUP_ROOT/utility_tool_bash/log_helper.sh
+source "$UBUNTU_SETUP_ROOT/utility_tool_bash/log_helper.sh"
 
 
 # start the install
 
-log_info $(get_cur_line_number)
+log_info "当前行号: $LINENO"
 execute_with_check "sudo apt update"
 
-log_info $(get_cur_line_number)
+log_info "当前行号: $LINENO"
 execute_with_check "sudo apt install -y git curl net-tools openssh*"
 
-log_info $(get_cur_line_number)
+log_info "当前行号: $LINENO"
 execute_with_check "sudo apt install -y libceres-dev libyaml-cpp-dev"
 
-log_info $(get_cur_line_number)
+log_info "当前行号: $LINENO"
 execute_with_check "sudo apt install -y ros-* python3-pip"
 
-log_info $(get_cur_line_number)
+log_info "当前行号: $LINENO"
 execute_with_check "sudo pip3 install -U catkin_tools --break-system-packages"
