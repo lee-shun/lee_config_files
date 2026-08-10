@@ -1,0 +1,38 @@
+// ─────────────────────────────────────────────────────────────
+// 禁用与 VSCodeVim 功能重复的原生 VSCodium 快捷键
+// 守卫条件：仅在 Normal/Visual 模式禁用，Insert/Replace 模式保留原生
+// ─────────────────────────────────────────────────────────────
+[
+  // Ctrl+D 半页下翻（原生: 添加到下一个匹配项）
+  { "key": "ctrl+d", "command": "-editor.action.addSelectionToNextFindMatch", "when": "editorTextFocus && vim.mode != 'Insert' && vim.mode != 'Replace'" },
+  // Ctrl+F 页下翻（原生: 查找）
+  { "key": "ctrl+f", "command": "-actions.find", "when": "editorTextFocus && vim.mode != 'Insert' && vim.mode != 'Replace'" },
+  // Ctrl+G 文件状态（原生: 跳转到行）
+  { "key": "ctrl+g", "command": "-workbench.action.gotoLine", "when": "editorTextFocus && vim.mode != 'Insert' && vim.mode != 'Replace'" },
+  // Ctrl+H 光标左移（原生: 在文件中替换）
+  { "key": "ctrl+h", "command": "-workbench.action.replaceInFiles", "when": "editorTextFocus && vim.mode != 'Insert' && vim.mode != 'Replace'" },
+  // Ctrl+B 页上翻（原生: 切换侧边栏）
+  { "key": "ctrl+b", "command": "-workbench.action.toggleSidebarVisibility", "when": "editorTextFocus && vim.mode != 'Insert' && vim.mode != 'Replace'" },
+  // Ctrl+W 窗口前缀命令（原生: 关闭编辑器）
+  { "key": "ctrl+w", "command": "-workbench.action.closeEditor", "when": "editorTextFocus && vim.mode != 'Insert' && vim.mode != 'Replace'" },
+  // Ctrl+Shift+K 删除行（原生）——vim 用 dd
+  { "key": "ctrl+shift+k", "command": "-editor.action.deleteLines", "when": "editorTextFocus && vim.mode != 'Insert' && vim.mode != 'Replace'" },
+  // Ctrl+Shift+[ / ] 折叠/展开（原生）——vim 用 za/zc/zo
+  { "key": "ctrl+shift+[", "command": "-editor.fold", "when": "editorTextFocus && vim.mode != 'Insert' && vim.mode != 'Replace'" },
+  { "key": "ctrl+shift+]", "command": "-editor.unfold", "when": "editorTextFocus && vim.mode != 'Insert' && vim.mode != 'Replace'" },
+  // Alt+Up/Down 移动行（原生）——vim 用 [e/]e、Visual J/K
+  { "key": "alt+up", "command": "-editor.action.moveLinesUpAction", "when": "editorTextFocus && vim.mode != 'Insert' && vim.mode != 'Replace'" },
+  { "key": "alt+down", "command": "-editor.action.moveLinesDownAction", "when": "editorTextFocus && vim.mode != 'Insert' && vim.mode != 'Replace'" },
+  // Ctrl+Shift+Up/Down 复制行（原生）——vim 无原生对应，一并禁用
+  { "key": "ctrl+shift+up", "command": "-editor.action.copyLinesUpAction", "when": "editorTextFocus && vim.mode != 'Insert' && vim.mode != 'Replace'" },
+  { "key": "ctrl+shift+down", "command": "-editor.action.copyLinesDownAction", "when": "editorTextFocus && vim.mode != 'Insert' && vim.mode != 'Replace'" },
+
+  // ─────────────────────────────────────────────────────────────
+  // 补全弹出时 Tab/Shift+Tab/Enter 行为（对应 nvim: pumvisible 时
+  // Tab=C-n 下一个, S-Tab=C-p 上一个, Enter=C-y 确认）
+  // 默认 Tab+Enter 都是"接受建议"，改为 Tab=导航、Enter=确认
+  // ─────────────────────────────────────────────────────────────
+  { "key": "tab", "command": "-acceptSelectedSuggestion", "when": "suggestWidgetVisible && editorTextFocus" },
+  { "key": "tab", "command": "selectNextSuggestion", "when": "suggestWidgetVisible && editorTextFocus" },
+  { "key": "shift+tab", "command": "selectPrevSuggestion", "when": "suggestWidgetVisible && editorTextFocus" }
+]

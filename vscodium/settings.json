@@ -1,0 +1,137 @@
+{
+  // ─────────────────────────────────────────────────────────────
+  // VSCodeVim 配置（迁移自 ~/.config/nvim）
+  // ─────────────────────────────────────────────────────────────
+
+  // Phase 2: nvim options.lua 迁移
+  "vim.leader": "<space>",
+  "vim.hlsearch": true,
+  "vim.incsearch": true,
+  "vim.ignorecase": true,
+  "vim.smartcase": true,
+  "vim.whichwrap": "b,s,<,>,[,]",
+  "vim.iskeyword": "@,48-57,_,192-255,$,%,#",
+  "vim.matchpairs": "(:),{:},[:],<:>",
+  "vim.textwidth": 80,
+  "vim.timeout": 800,
+  "vim.showcmd": true,
+  "vim.showmodename": true,
+  "vim.useSystemClipboard": true,
+  "vim.smartRelativeLine": true,
+  "vim.visualstar": true,
+  "vim.surround": true,
+  "vim.targets.enable": true,
+  "vim.highlightedyank.enable": true,
+  "vim.cursorStylePerMode.normal": "block",
+  "vim.cursorStylePerMode.insert": "line",
+  "vim.cursorStylePerMode.visual": "block",
+  "vim.cursorStylePerMode.visualline": "block",
+  "vim.cursorStylePerMode.visualblock": "block",
+  "vim.cursorStylePerMode.replace": "underline",
+
+  // VSCode 原生对应项
+  "editor.cursorSurroundingLines": 5,
+  "editor.lineNumbers": "relative",
+  "editor.renderLineHighlight": "all",
+  "editor.rulers": [81, 121],
+  "editor.insertSpaces": true,
+  "editor.tabSize": 4,
+  "editor.detectIndentation": false,
+  "editor.renderWhitespace": "all",
+  "workbench.editor.enablePreview": false,
+
+  // ─────────────────────────────────────────────────────────────
+  // Phase 3: nvim 按键迁移（keymaps.lua + 各插件）
+  // ─────────────────────────────────────────────────────────────
+
+  // Normal 模式
+  "vim.normalModeKeyBindingsNonRecursive": [
+    // Y → yank 到行尾
+    { "before": ["Y"], "after": ["y", "$"] },
+
+    // [e / ]e → 行上移/下移
+    { "before": ["[", "e"], "commands": ["editor.action.moveLinesUpAction"] },
+    { "before": ["]", "e"], "commands": ["editor.action.moveLinesDownAction"] },
+
+    // [<leader> / ]<leader> → 上方/下方插入空行
+    { "before": ["[", "<leader>"], "commands": ["editor.action.insertLineBefore"] },
+    { "before": ["]", "<leader>"], "commands": ["editor.action.insertLineAfter"] },
+
+    // K → LSP hover
+    { "before": ["K"], "commands": ["editor.action.showHover"] },
+
+    // 方向键 → 窗口 resize（复刻 nvim）
+    { "before": ["<up>"], "commands": ["workbench.action.increaseViewHeight"] },
+    { "before": ["<down>"], "commands": ["workbench.action.decreaseViewHeight"] },
+    { "before": ["<left>"], "commands": ["workbench.action.decreaseViewWidth"] },
+    { "before": ["<right>"], "commands": ["workbench.action.increaseViewWidth"] },
+
+    // <leader>t → 文件树（Explorer 视图）
+    { "before": ["<leader>", "t"], "commands": ["workbench.view.explorer"] },
+
+    // <C-w> 系列 → 窗口切换（显式映射，确保生效）
+    { "before": ["<C-w>", "h"], "commands": ["workbench.action.navigateLeft"] },
+    { "before": ["<C-w>", "l"], "commands": ["workbench.action.navigateRight"] },
+    { "before": ["<C-w>", "j"], "commands": ["workbench.action.navigateDown"] },
+    { "before": ["<C-w>", "k"], "commands": ["workbench.action.navigateUp"] },
+    { "before": ["<C-w>", "w"], "commands": ["workbench.action.navigateEditorGroups"] },
+
+    // <leader>f* → 查找系列（Telescope 迁移）
+    { "before": ["<leader>", "f", "f"], "commands": ["workbench.action.quickOpen"] },
+    { "before": ["<leader>", "f", "w"], "commands": ["workbench.action.findInFiles"] },
+    { "before": ["<leader>", "f", "b"], "commands": ["workbench.action.showAllEditors"] },
+    { "before": ["<leader>", "f", "d"], "commands": ["workbench.actions.view.problems"] },
+    { "before": ["<leader>", "f", "s"], "commands": ["workbench.action.gotoSymbol"] },
+    { "before": ["<leader>", "f", "m"], "commands": ["workbench.action.openRecent"] },
+    { "before": ["<leader>", "f", "l"], "commands": ["workbench.action.gotoLine"] },
+    { "before": ["<leader>", "f", "t"], "commands": ["editor.action.insertSnippet"] },
+
+    // <leader>c* → 代码操作
+    { "before": ["<leader>", "c", "f"], "commands": ["editor.action.formatDocument"] },
+    { "before": ["<leader>", "c", "r"], "commands": ["workbench.action.replaceInFiles"] },
+
+    // <leader>b* → Buffer
+    { "before": ["<leader>", "b", "d"], "commands": ["workbench.action.closeEditor"] },
+
+    // <leader>g* → Git hunk 导航（gitsigns 迁移）
+    { "before": ["<leader>", "g", "j"], "commands": ["editor.action.dirtydiff.next"] },
+    { "before": ["<leader>", "g", "k"], "commands": ["editor.action.dirtydiff.previous"] },
+
+    // <leader>m* → Markdown
+    { "before": ["<leader>", "m", "r"], "commands": ["markdown.showPreview"] },
+
+    // <leader>r* → Run / Terminal
+    { "before": ["<leader>", "r", "t"], "commands": ["workbench.action.terminal.toggleTerminal"] },
+
+    // surround（mini.surround 迁移，依赖 vim.surround: true）
+    { "before": ["<leader>", "s", "a"], "after": ["y", "s"] },
+    { "before": ["<leader>", "s", "d"], "after": ["d", "s"] },
+    { "before": ["<leader>", "s", "r"], "after": ["c", "s"] },
+
+    // gc → 注释（Comment.nvim 迁移）
+    { "before": ["g", "c"], "commands": ["editor.action.commentLine"] },
+
+    // dap 调试系列（dap.lua 迁移）
+    { "before": ["<leader>", "d", "b"], "commands": ["editor.debug.action.toggleBreakpoint"] },
+    { "before": ["<leader>", "d", "c"], "commands": ["workbench.action.debug.continue"] },
+    { "before": ["<leader>", "d", "i"], "commands": ["workbench.action.debug.stepInto"] },
+    { "before": ["<leader>", "d", "o"], "commands": ["workbench.action.debug.stepOut"] },
+    { "before": ["<leader>", "d", "s"], "commands": ["workbench.action.debug.stepOver"] },
+    { "before": ["<leader>", "d", "u"], "commands": ["workbench.view.debug"] }
+  ],
+
+  // Visual 模式
+  "vim.visualModeKeyBindingsNonRecursive": [
+    // J / K → 选中行下移/上移
+    { "before": ["J"], "commands": ["editor.action.moveLinesDownAction"] },
+    { "before": ["K"], "commands": ["editor.action.moveLinesUpAction"] },
+
+    // <leader>p → 粘贴且不覆盖寄存器
+    { "before": ["<leader>", "p"], "after": ["\"", "_", "d", "P"] },
+
+    // gc → 注释
+    { "before": ["g", "c"], "commands": ["editor.action.commentLine"] }
+],
+"editor.wordSeparators": "@,48-57,_,192-255,$,%,#",
+"workbench.colorTheme": "Sonokai"
+}

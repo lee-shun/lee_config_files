@@ -1,6 +1,6 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "model":"llama.cpp/llamacpp_local",
+  "model": "opencode/deepseek-v4-flash-free",
   "provider": {
     "llama.cpp": {
       "npm": "@ai-sdk/openai-compatible",
@@ -12,7 +12,7 @@
         "llamacpp_local": {
           "modalities": {
             "input": [
-              "text",
+              "text"
             ],
             "output": [
               "text"
@@ -27,7 +27,8 @@
       }
     }
   },
-  "mcp": {}
+  "mcp": {},
+  "plugin": [
+    "oh-my-openagent@latest"
+  ]
 }
-
-
