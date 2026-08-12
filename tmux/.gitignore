@@ -1,2 +1,8 @@
-plugins/
+plugins/*
 !plugins/.gitkeep
+
+# 本地直管插件（不再随 TPM 更新，直接跟踪在仓库里）
+!plugins/tmux-plugin-sysstat/
+!plugins/tmux-plugin-simple-gpu/
+!plugins/tmux-network-bandwidth/
+!plugins/tmux-battery/
