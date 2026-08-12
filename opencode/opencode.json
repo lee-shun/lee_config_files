@@ -1,6 +1,6 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "model": "opencode/deepseek-v4-flash-free",
+  "model": "llama.cpp/llamacpp_local",
   "provider": {
     "llama.cpp": {
       "npm": "@ai-sdk/openai-compatible",
@@ -18,16 +18,25 @@
               "text"
             ]
           },
-          "name": "llamacpp(local)",
+          "name": "Qwopus3.5-27B (Local)",
           "limit": {
-            "context": 128000,
-            "output": 65536
+            "context": 262144,
+            "output": 131072
           }
         }
       }
     }
   },
-  "mcp": {},
+  "mcp": {
+    "context7": {
+      "type": "remote",
+      "url": "https://mcp.context7.com/mcp"
+    },
+    "grep_app": {
+      "type": "remote",
+      "url": "https://mcp.grep.app"
+    }
+  },
   "plugin": [
     "oh-my-openagent@latest"
   ]
