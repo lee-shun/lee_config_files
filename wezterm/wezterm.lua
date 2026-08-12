@@ -24,9 +24,18 @@ config.color_scheme = "Dracula (Official)"
 config.enable_tab_bar = false
 config.enable_scroll_bar = true
 
--- 取消 WezTerm 对 Ctrl+Space 的拦截
+-- 终端最后一行贴底，不留空（底部 padding 设为 0）
+config.window_padding = {
+	left = 8,
+	right = 8,
+	top = 8,
+	bottom = 0,
+}
+
+-- 取消 WezTerm 对 Ctrl+Space 的拦截；Ctrl+Shift+C 复制到剪贴板
 config.keys = {
 	{ key = "Space", mods = "CTRL", action = act.DisableDefaultAssignment },
+	{ key = "C", mods = "CTRL|SHIFT", action = act.CopyTo("ClipboardAndPrimarySelection") },
 }
 
 -- 确保 IME 功能开启（默认就是 true，显式写一下）
