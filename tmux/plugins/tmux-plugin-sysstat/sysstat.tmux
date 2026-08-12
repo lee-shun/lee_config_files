@@ -37,8 +37,12 @@ update_tmux_option() {
 }
 
 main() {
-  cpu_tmp_dir=$(mktemp -d)
-  tmux set-option -gq "@sysstat_cpu_tmp_dir" "$cpu_tmp_dir"
+  # 复用已有临时目录，避免每次重载配置都泄漏一个 /tmp 目录
+  cpu_tmp_dir=$(tmux show-option -gqv "@sysstat_cpu_tmp_dir")
+  if [ -z "$cpu_tmp_dir" ] || [ ! -d "$cpu_tmp_dir" ]; then
+    cpu_tmp_dir=$(mktemp -d)
+    tmux set-option -gq "@sysstat_cpu_tmp_dir" "$cpu_tmp_dir"
+  fi
 
   update_tmux_option "status-right"
   update_tmux_option "status-left"
