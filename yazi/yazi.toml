@@ -1,0 +1,15 @@
+[preview]
+max_width = 2400  # 设置合适的最大宽度
+max_height = 1600  # 设置合适的最大高度
+
+[[plugin.prepend_fetchers]]
+id    = "git"
+url   = "*"
+run   = "git"
+group = "git"
+
+[[plugin.prepend_fetchers]]
+id    = "git"
+url   = "*/"
+run   = "git"
+group = "git"
