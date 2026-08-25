@@ -99,7 +99,7 @@ font-8 = JetBrainsMono Nerd Font:size=10;0
 font-9 = JetBrainsMono Nerd Font:size=10;0
 
 modules-left = rofi i3 xwindow ipc
-modules-center = wire2 wire1 text wlan
+modules-center = wire2 text wire1 text wlan
 modules-right = text cpu temperature memory system-nvidia-smi filesystem alsa backlight battery date
 
 [bar/hdpi_top]
@@ -165,7 +165,7 @@ font-8 = JetBrainsMono Nerd Font:size=14;0
 font-9 = JetBrainsMono Nerd Font:size=14;0
 
 modules-left = rofi i3 xwindow ipc
-modules-center = wire2 wire1 text wlan
+modules-center = wire2 text wire1 text wlan
 modules-right = text cpu temperature memory system-nvidia-smi filesystem alsa backlight battery date
 
 [bar/external_top]
@@ -223,7 +223,7 @@ font-9 = JetBrainsMono Nerd Font:size=10;0
 
 modules-right= i3
 modules-center = memory cpu
-modules-left = wire2 wire1 wlan alsa backlight battery date
+modules-left = wire2 text wire1 wlan alsa backlight battery date
 
 
 [module/date]
@@ -310,12 +310,12 @@ type = internal/network
 interface =enp4s0f1
 interval = 1.0
 format-connected = <label-connected>
-format-connected-prefix ="NET_pcie: "
+format-connected-prefix =" "
 format-connected-prefix-foreground = #6272a4
 label-connected = %local_ip% %upspeed:5% %downspeed:5%
 
 format-disconnected = <label-disconnected>
-label-disconnected = not connected
+label-disconnected =  X
 label-disconnected-foreground = #66ffffff
 label-font = 6
 format-padding = 0
