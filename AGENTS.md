@@ -28,6 +28,34 @@ bash auto_scripts/config_rofi_i3_polybar_dunst.sh
 | `clone_install_xfce4_terminal_themes.sh` | 克隆 xfce4 终端主题 | 普通用户 |
 | `mod_hpdi.sh` | 配置 HiDPI 和 Xresources | 普通用户 |
 
+## i3_scripts 实用脚本
+
+独立小工具，不依赖公共模块：
+
+| 脚本 | 用途 |
+|---|---|
+| `net_watch.sh` | 外网连通性监测，状态变化时弹通知 |
+| `inverse_scroll.sh` | 反向滚动 |
+| `tap-to-click.sh` | 触摸板点按 |
+
+### net_watch.sh 用法
+
+```bash
+# 后台启动（检测间隔 30s，测试 https://www.baidu.com）
+setsid nohup i3_scripts/net_watch.sh >/dev/null 2>&1 </dev/null &
+
+# 自定义配置（环境变量）
+NET_WATCH_INTERVAL=10 NET_WATCH_URL=https://www.example.com i3_scripts/net_watch.sh
+
+# 停止 / 查看日志
+pkill -f net_watch.sh
+tail -f /tmp/net_watch.log
+```
+
+- 测试覆盖 DNS + TCP 443，任一不通即判定 down
+- 状态变化时 `notify-send` 弹通知（dunst / xfce4-notifyd 均可）：恢复为 critical 级不自动消失，断开为 normal 级
+- 适用场景：排查路由器只通 ICMP 不通 TCP/UDP 等故障，等待网络恢复
+
 ## utility_tool_bash 公共模块
 
 | 文件 | 功能 |
