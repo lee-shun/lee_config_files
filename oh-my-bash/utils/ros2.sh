@@ -1,5 +1,7 @@
 # ROS2
-source /opt/ros/humble/setup.bash
+if [ -f /opt/ros/humble/setup.bash ]; then
+    source /opt/ros/humble/setup.bash
+fi
 
 export ROS2_WORKSPACES=(
     "$HOME/ros2_ws"
@@ -48,7 +50,9 @@ ros2cd() {
         return 1
     fi
 
-    local selected=$(printf '%s\n' "${packages[@]}" | fzf --multi --preview "echo {}" --preview-window down:50%)
+    local selected=$(printf '%s\n' "${packages[@]}" | fzf --multi \
+        --preview='dir={}; if [ -f "$dir/package.xml" ]; then echo "=== package.xml ==="; cat "$dir/package.xml"; else for f in README.md README.rst README; do [ -f "$dir/$f" ] && { echo "=== $f ==="; cat "$dir/$f"; exit 0; }; done; echo "(no package.xml/README in $dir)"; fi' \
+        --preview-window=down:50%)
     if [ -n "$selected" ]; then
         while IFS= read -r path; do
             cd "$path" || return 1

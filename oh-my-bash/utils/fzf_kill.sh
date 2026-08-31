@@ -7,8 +7,8 @@ fzf_kill() {
       --query="$query" \
       --multi \
       --header="Type to filter, Tab to select, Enter to confirm. PID in 2nd column." \
-      --preview='echo {}' \
-      --preview-window=up:30% | awk '{print $2}')
+      --preview='ps -o pid,ppid,user,%cpu,%mem,vsz,rss,etime,stat,args -p {2} 2>/dev/null || echo "(process gone)"' \
+      --preview-window=up:3 | awk '{print $2}')
 
   if [[ -z "$selected" ]]; then
     echo "No process selected."

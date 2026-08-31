@@ -92,6 +92,7 @@ completions=(
   git
   composer
   ssh
+  tmux
 )
 
 # Which aliases would you like to load? (aliases can be found in ~/.oh-my-bash/aliases/*)
@@ -128,8 +129,3 @@ source "$OSH"/oh-my-bash.sh
 for script in "$OSH"/utils/*.sh; do
     [ -f "$script" ] && source "$script"
 done
-
-# kimi-code
-export PATH="/home/ls/.kimi-code/bin:$PATH"
-
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
