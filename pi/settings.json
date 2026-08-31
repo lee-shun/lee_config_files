@@ -11,6 +11,7 @@
     "npm:@narumitw/pi-btw",
     "npm:pi-wechat-assistant",
     "npm:pi-nvim",
-    "npm:pi-agent-browser"
+    "npm:pi-agent-browser",
+    "npm:pi-smart-compact"
   ]
 }
