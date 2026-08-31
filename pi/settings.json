@@ -1,0 +1,16 @@
+{
+  "lastChangelogVersion": "0.84.3",
+  "theme": "dark",
+  "defaultProvider": "llama.cpp",
+  "defaultModel": "Qwen3.8-27B-Q5_K_M",
+  "defaultThinkingLevel": "high",
+  "packages": [
+    "npm:pi-better-goal",
+    "npm:pi-web-access",
+    "npm:pi-subagents",
+    "npm:@narumitw/pi-btw",
+    "npm:pi-wechat-assistant",
+    "npm:pi-nvim",
+    "npm:pi-agent-browser"
+  ]
+}
