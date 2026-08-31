@@ -19,6 +19,13 @@ fi
 export OSH=${HOME}'/.config/lee_config_files/oh-my-bash'
 export EDITOR=nvim
 
+# ROS2 workspaces (used by utils/ros2.sh: env sourcing, colcon guard, ros2cd)
+# Add/remove workspaces here; missing ones are skipped automatically.
+export ROS2_WORKSPACES=(
+    "$HOME/fpv_ws"
+    "$HOME/ros2_ws"
+)
+
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-bash is loaded.
 OSH_THEME="font"
