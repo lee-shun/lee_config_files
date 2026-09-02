@@ -7,11 +7,9 @@
   "packages": [
     "npm:pi-better-goal",
     "npm:pi-web-access",
-    "npm:pi-subagents",
-    "npm:@narumitw/pi-btw",
     "npm:pi-wechat-assistant",
-    "npm:pi-nvim",
     "npm:pi-agent-browser",
-    "npm:pi-smart-compact"
+    "npm:pi-smart-compact",
+    "npm:pi-loop-police"
   ]
 }

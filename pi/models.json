@@ -1,0 +1,33 @@
+{
+  "providers": {
+    "llama.cpp": {
+      "modelOverrides": {
+        "Qwen3.8-27B-Q5_K_M": {
+          "reasoning": true,
+          "thinkingLevelMap": {
+            "off": "off",
+            "minimal": null,
+            "low": "low",
+            "medium": "medium",
+            "high": "high",
+            "xhigh": "xhigh",
+            "max": null
+          },
+          "input": [
+            "text",
+            "image"
+            ],
+          "compat": {
+            "thinkingFormat": "chat-template",
+            "supportsDeveloperRole": false,
+            "chatTemplateKwargs": {
+              "enable_thinking": { "$var": "thinking.enabled" },
+              "preserve_thinking": true,
+              "reasoning_effort": { "$var": "thinking.effort", "omitWhenOff": true }
+            }
+          }
+        }
+      }
+    }
+  }
+}
