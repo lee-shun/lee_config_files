@@ -1,15 +1,16 @@
 {
-  "lastChangelogVersion": "0.84.4",
+  "lastChangelogVersion": "0.87.1",
   "theme": "dark",
   "defaultProvider": "llama.cpp",
-  "defaultModel": "Qwen3.8-27B-Q5_K_M",
-  "defaultThinkingLevel": "high",
+  "defaultModel": "Qwen3.8-27B-GSQ-RCO-IQ3_S-mtp",
+  "defaultThinkingLevel": "low",
   "packages": [
     "npm:pi-better-goal",
     "npm:pi-web-access",
     "npm:pi-wechat-assistant",
     "npm:pi-agent-browser",
     "npm:pi-smart-compact",
-    "npm:pi-loop-police"
+    "npm:pi-loop-police",
+    "npm:pi-mcp-adapter"
   ]
 }
