@@ -1,5 +1,5 @@
 {
-  "lastChangelogVersion": "0.87.1",
+  "lastChangelogVersion": "1.0.0",
   "theme": "dark",
   "defaultProvider": "llama.cpp",
   "defaultModel": "Qwen3.8-27B-GSQ-RCO-IQ3_S-mtp",
@@ -11,6 +11,10 @@
     "npm:pi-agent-browser",
     "npm:pi-smart-compact",
     "npm:pi-loop-police",
-    "npm:pi-mcp-adapter"
+    "npm:pi-mcp-adapter",
+    "npm:@ilikexiaoni/pi-task-list"
+  ],
+  "extensions": [
+    "-builtin:mcp"
   ]
 }

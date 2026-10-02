@@ -84,9 +84,9 @@
         "type": "chat"
       }
     ],
-    "checkedAt": 1790560075939,
-    "lastModified": 1790253610000,
-    "etag": "W/\"bff63d130895f0d43f35dff747454ff4\""
+    "checkedAt": 1790924420854,
+    "lastModified": 1790859070000,
+    "etag": "W/\"833a51b4211b57d882564ca5f56383e8\""
   },
   "llama.cpp": {
     "models": [
@@ -126,8 +126,26 @@
           "maxTokensField": "max_tokens",
           "thinkingFormat": "qwen-chat-template"
         }
+      },
+      {
+        "type": "classifier",
+        "id": "Qwen3.8-27B-GSQ-RCO-IQ3_S-mtp",
+        "name": "Qwen3.8-27B-GSQ-RCO-IQ3_S-mtp",
+        "api": "llama-cpp-classify",
+        "provider": "llama.cpp",
+        "baseUrl": "http://192.168.1.61:8080",
+        "input": [
+          "text"
+        ],
+        "cost": {
+          "input": 0,
+          "output": 0,
+          "cacheRead": 0,
+          "cacheWrite": 0
+        },
+        "contextWindow": 262144
       }
     ],
-    "checkedAt": 1790561180946
+    "checkedAt": 1790938684466
   }
 }
