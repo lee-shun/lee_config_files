@@ -3,7 +3,6 @@
 
 ###
 ###basic
-###
 set font "CaskaydiaCove Nerd Font Mono 15"
 set window-width 800
 set window-height 1000
@@ -11,17 +10,14 @@ set selection-clipboard clipboard
 
 # 启用 SyncTeX 并绑定反向搜索命令 
 set synctex true 
-set synctex-editor-command "nvr --remote-silent %f -c %l"
+set synctex-editor-command "/home/ls/.config/nvim/external/zathura-cite/bin/nvim-remote-jump.sh %{input} %{line}"
 
 #
 # Startup options
-#
 set adjust-open width
 set recolor true
 
-###
 ###map
-###
 map Q quit
 map o zoom out
 map i zoom in
@@ -31,7 +27,6 @@ map <C-j> scroll half-down
 
 ####
 ####color
-####
 #set notification-error-bg       "#fbf1c7" # bg
 #set notification-error-fg       "#9d0006" # bright:red
 #set notification-warning-bg     "#fbf1c7" # bg
@@ -73,9 +68,7 @@ map <C-j> scroll half-down
 #set recolor                     "true"
 ## set recolor-keephue             true      # keep original color
 
-#
 # Dracula color theme
-#
 
 set notification-error-bg       "#ff5555" # Red
 set notification-error-fg       "#f8f8f2" # Foreground
@@ -110,15 +103,12 @@ set default-fg                  "#f8f8f2" # Foreground
 set render-loading              true
 set render-loading-fg           "#282a36" # Background
 set render-loading-bg           "#f8f8f2" # Foreground
-#
 # Recolor mode settings
-#
 set recolor-lightcolor          "#282a36" # Background
 set recolor-darkcolor           "#f8f8f2" # Foreground
 
 ##
 ## Grubox-dark
-##
 #set notification-error-bg       "#282828" # bg
 #set notification-error-fg       "#fb4934" # bright:red
 #set notification-warning-bg     "#282828" # bg
@@ -129,11 +119,9 @@ set recolor-darkcolor           "#f8f8f2" # Foreground
 #set completion-bg               "#504945" # bg2
 #set completion-fg               "#ebdbb2" # fg
 #set completion-group-bg         "#3c3836" # bg1
-#set completion-group-fg         "#928374" # gray
 #set completion-highlight-bg     "#83a598" # bright:blue
 #set completion-highlight-fg     "#504945" # bg2
 
-## Define the color in index mode
 #set index-bg                    "#504945" # bg2
 #set index-fg                    "#ebdbb2" # fg
 #set index-active-bg             "#83a598" # bright:blue
@@ -150,12 +138,10 @@ set recolor-darkcolor           "#f8f8f2" # Foreground
 
 #set default-bg                  "#282828" # bg
 #set default-fg                  "#ebdbb2" # fg
-#set render-loading              true
 #set render-loading-bg           "#282828" # bg
 #set render-loading-fg           "#ebdbb2" # fg
 
-## Recolor book content's color
 #set recolor-lightcolor          "#282828" # bg
 #set recolor-darkcolor           "#ebdbb2" # fg
-#set recolor                     "true"
-## set recolor-keephue             true      # keep original color
+map Y exec /home/ls/.config/nvim/external/zathura-cite/bin/zath-cite.sh\ $PAGE
+
