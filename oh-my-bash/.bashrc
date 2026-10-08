@@ -136,3 +136,5 @@ source "$OSH"/oh-my-bash.sh
 for script in "$OSH"/utils/*.sh; do
     [ -f "$script" ] && source "$script"
 done
+
+export NVIM_LISTEN_ADDRESS=/tmp/nvimsocket
