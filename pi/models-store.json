@@ -84,15 +84,15 @@
         "type": "chat"
       }
     ],
-    "checkedAt": 1790924420854,
+    "checkedAt": 1791430445411,
     "lastModified": 1790859070000,
     "etag": "W/\"833a51b4211b57d882564ca5f56383e8\""
   },
   "llama.cpp": {
     "models": [
       {
-        "id": "Qwen3.8-27B-GSQ-RCO-IQ3_S-mtp",
-        "name": "Qwen3.8-27B-GSQ-RCO-IQ3_S-mtp",
+        "id": "qwen3.8-flash-next-iq3_s",
+        "name": "qwen3.8-flash-next-iq3_s",
         "api": "openai-completions",
         "provider": "llama.cpp",
         "baseUrl": "http://192.168.1.61:8080/v1",
@@ -129,8 +129,8 @@
       },
       {
         "type": "classifier",
-        "id": "Qwen3.8-27B-GSQ-RCO-IQ3_S-mtp",
-        "name": "Qwen3.8-27B-GSQ-RCO-IQ3_S-mtp",
+        "id": "qwen3.8-flash-next-iq3_s",
+        "name": "qwen3.8-flash-next-iq3_s",
         "api": "llama-cpp-classify",
         "provider": "llama.cpp",
         "baseUrl": "http://192.168.1.61:8080",
@@ -146,6 +146,6 @@
         "contextWindow": 262144
       }
     ],
-    "checkedAt": 1790938684466
+    "checkedAt": 1791432350101
   }
 }

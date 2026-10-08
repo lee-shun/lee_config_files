@@ -1,6 +1,20 @@
 {
   "providers": {
     "llama.cpp": {
+      "compat": {
+        "thinkingFormat": "chat-template",
+        "supportsDeveloperRole": false,
+        "chatTemplateKwargs": {
+          "enable_thinking": {
+            "$var": "thinking.enabled"
+          },
+          "preserve_thinking": true,
+          "reasoning_effort": {
+            "$var": "thinking.effort",
+            "omitWhenOff": true
+          }
+        }
+      },
       "modelOverrides": {
         "Qwen3.8-27B-Q5_K_M": {
           "reasoning": true,
@@ -9,48 +23,30 @@
             "minimal": null,
             "low": "low",
             "medium": "medium",
-            "high": "high",
+            "high": "xhigh",
             "xhigh": "xhigh",
-            "max": null
+            "max": "xhigh"
           },
           "input": [
             "text",
             "image"
-            ],
-          "compat": {
-            "thinkingFormat": "chat-template",
-            "supportsDeveloperRole": false,
-            "chatTemplateKwargs": {
-              "enable_thinking": { "$var": "thinking.enabled" },
-              "preserve_thinking": true,
-              "reasoning_effort": { "$var": "thinking.effort", "omitWhenOff": true }
-            }
-          }
+          ]
         },
-       "Qwen3.8-27B-Q4_K_M": {
+        "Qwen3.8-27B-Q4_K_M": {
           "reasoning": true,
           "thinkingLevelMap": {
             "off": "off",
             "minimal": null,
             "low": "low",
             "medium": "medium",
-            "high": "high",
+            "high": "xhigh",
             "xhigh": "xhigh",
-            "max": null
+            "max": "xhigh"
           },
           "input": [
             "text",
             "image"
-            ],
-          "compat": {
-            "thinkingFormat": "chat-template",
-            "supportsDeveloperRole": false,
-            "chatTemplateKwargs": {
-              "enable_thinking": { "$var": "thinking.enabled" },
-              "preserve_thinking": true,
-              "reasoning_effort": { "$var": "thinking.effort", "omitWhenOff": true }
-            }
-          }
+          ]
         },
         "Qwen3.8-27B-UD-Q4_K_XL": {
           "reasoning": true,
@@ -59,23 +55,14 @@
             "minimal": null,
             "low": "low",
             "medium": "medium",
-            "high": "high",
+            "high": "xhigh",
             "xhigh": "xhigh",
-            "max": null
+            "max": "xhigh"
           },
           "input": [
             "text",
             "image"
-            ],
-          "compat": {
-            "thinkingFormat": "chat-template",
-            "supportsDeveloperRole": false,
-            "chatTemplateKwargs": {
-              "enable_thinking": { "$var": "thinking.enabled" },
-              "preserve_thinking": true,
-              "reasoning_effort": { "$var": "thinking.effort", "omitWhenOff": true }
-            }
-          }
+          ]
         },
         "Qwen3.8-27B-GSQ-RCO-IQ3_S-mtp": {
           "reasoning": true,
@@ -84,23 +71,28 @@
             "minimal": null,
             "low": "low",
             "medium": "medium",
-            "high": "high",
+            "high": "xhigh",
             "xhigh": "xhigh",
-            "max": null
+            "max": "xhigh"
           },
           "input": [
             "text",
             "image"
-          ],
-          "compat": {
-            "thinkingFormat": "chat-template",
-            "supportsDeveloperRole": false,
-            "chatTemplateKwargs": {
-              "enable_thinking": { "$var": "thinking.enabled" },
-              "preserve_thinking": true,
-              "reasoning_effort": { "$var": "thinking.effort", "omitWhenOff": true }
-            }
-          }
+          ]
+        },
+        "qwen3.8-flash-next-iq3_s": {
+          "name": "Qwen3.8 Flash-Next IQ3_S (Strata)",
+          "reasoning": true,
+          "thinkingLevelMap": {
+            "off": "off",
+            "minimal": null,
+            "low": "low",
+            "medium": "medium",
+            "high": "xhigh",
+            "xhigh": "xhigh",
+            "max": "xhigh"
+          },
+          "maxTokens": 32768
         }
       }
     }
