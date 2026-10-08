@@ -1,20 +1,32 @@
 {
-  "lastChangelogVersion": "1.0.0",
+  "lastChangelogVersion": "1.1.0",
   "theme": "dark",
   "defaultProvider": "llama.cpp",
-  "defaultModel": "Qwen3.8-27B-GSQ-RCO-IQ3_S-mtp",
-  "defaultThinkingLevel": "low",
+  "defaultModel": "qwen3.8-flash-next-iq3_s",
+  "defaultThinkingLevel": "medium",
   "packages": [
-    "npm:pi-better-goal",
     "npm:pi-web-access",
     "npm:pi-wechat-assistant",
     "npm:pi-agent-browser",
     "npm:pi-smart-compact",
-    "npm:pi-loop-police",
     "npm:pi-mcp-adapter",
-    "npm:@ilikexiaoni/pi-task-list"
+    "git:github.com/obra/superpowers",
+    "git:github.com/DietrichGebert/ponytail",
+    "npm:pi-smart-timeout",
+    "npm:@mjakl/pi-processes",
+    "local/pi-tasks"
   ],
   "extensions": [
     "-builtin:mcp"
-  ]
+  ],
+  "modelThinkingLevels": {
+    "llama.cpp/qwen3.8-flash-next-iq3_s": "medium"
+  },
+  "compaction": {
+    "modelOverrides": {
+      "llama.cpp/qwen3.8-flash-next-iq3_s": {
+        "keepRecentTokens": 65536
+      }
+    }
+  }
 }

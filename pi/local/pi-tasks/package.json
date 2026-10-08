@@ -1,0 +1,11 @@
+{
+  "name": "pi-tasks-local",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "description": "Vendored, trimmed copy of pi-simple-tasks 0.1.3 (deleted upstream). One `tasks` tool, flat list, pinned above the composer.",
+  "pi": {
+    "extensions": ["./extensions"]
+  }
+}
