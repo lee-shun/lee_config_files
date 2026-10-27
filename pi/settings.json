@@ -24,7 +24,9 @@
     },
     "npm:pi-smart-timeout",
     "npm:@mjakl/pi-processes",
-    "local/pi-tasks"
+    "local/pi-tasks",
+    "git:github.com/op7418/Humanizer-zh",
+    "git:github.com/blader/humanizer"
   ],
   "extensions": [
     "-builtin:mcp"
