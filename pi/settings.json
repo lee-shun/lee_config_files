@@ -1,5 +1,5 @@
 {
-  "lastChangelogVersion": "1.1.0",
+  "lastChangelogVersion": "1.4.0",
   "theme": "dark",
   "defaultProvider": "llama.cpp",
   "defaultModel": "qwen3.8-flash-next-iq3_s",
@@ -10,8 +10,18 @@
     "npm:pi-agent-browser",
     "npm:pi-smart-compact",
     "npm:pi-mcp-adapter",
-    "git:github.com/obra/superpowers",
-    "git:github.com/DietrichGebert/ponytail",
+    {
+      "source": "git:github.com/obra/superpowers",
+      "skills": [
+        "!skills/subagent-driven-development/SKILL.md",
+        "!skills/dispatching-parallel-agents/SKILL.md",
+        "!skills/using-git-worktrees/SKILL.md",
+        "!skills/finishing-a-development-branch/SKILL.md",
+        "!skills/requesting-code-review/SKILL.md",
+        "!skills/receiving-code-review/SKILL.md",
+        "!skills/diagnosing-superpowers/SKILL.md"
+      ]
+    },
     "npm:pi-smart-timeout",
     "npm:@mjakl/pi-processes",
     "local/pi-tasks"
@@ -23,10 +33,16 @@
     "llama.cpp/qwen3.8-flash-next-iq3_s": "medium"
   },
   "compaction": {
+    "reserveTokens": 16384,
+    "keepRecentTokens": 20000,
     "modelOverrides": {
       "llama.cpp/qwen3.8-flash-next-iq3_s": {
-        "keepRecentTokens": 65536
+        "reserveTokens": 40000,
+        "keepRecentTokens": 30000
       }
     }
+  },
+  "smartCompact": {
+    "requireApproval": false
   }
 }
