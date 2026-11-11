@@ -3,7 +3,7 @@
 
 ###
 ###basic
-set font "CaskaydiaCove Nerd Font Mono 15"
+set font "JetBrainsMono Nerd Font Mono 12"
 set window-width 800
 set window-height 1000
 set selection-clipboard clipboard
@@ -15,7 +15,11 @@ set synctex-editor-command "/home/ls/.config/nvim/external/zathura-cite/bin/nvim
 #
 # Startup options
 set adjust-open width
-set recolor true
+# 不做任何反色：PDF 原色（文字、图表、图标）全部保留
+set recolor false
+# 如果想让正文变深底浅色但保留图片原色，改用下面两行
+# set recolor true
+# set recolor-reverse-video true   # 反色时保留图片/插图的原始颜色
 
 ###map
 map Q quit
