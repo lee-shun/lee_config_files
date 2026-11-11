@@ -137,4 +137,11 @@ for script in "$OSH"/utils/*.sh; do
     [ -f "$script" ] && source "$script"
 done
 
-export NVIM_LISTEN_ADDRESS=/tmp/nvimsocket
+# zathura-cite / nvr：给本终端的 nvim 实例一个可预测的 RPC server 名。
+# 不能无条件复用同一个名字（固定 /tmp/nvimsocket 或 $PPID 都会冲突）：第二个 nvim
+# 会 bind 失败（"Failed $NVIM_LISTEN_ADDRESS: address already in use"）直接起不来。
+# 名字被占时退化为带 shell PID 的唯一名；消费脚本按 /tmp/nvim* 的 mtime 兜底查找。
+_nv_addr="/tmp/nvim.term.$PPID"
+[ -e "$_nv_addr" ] && _nv_addr="/tmp/nvim.term.$PPID.$$"
+export NVIM_LISTEN_ADDRESS="$_nv_addr"
+unset _nv_addr
